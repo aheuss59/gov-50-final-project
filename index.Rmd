@@ -1,7 +1,7 @@
 ---
 title: "Gov 50 Final Project"
-author: "Your Name Here"
-description: "My final project"
+author: Alex Heuss
+description: "A really good final project. What's it about? Who's to say?"
 output:
   distill::distill_article:
     self_contained: false
@@ -11,4 +11,4 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to...
+I'm going into my project with an open mind. I've done some preliminary browsing of data and think I want to explore data related to food or drinks in the United States. I've found good data sets for chain restaurants and Halloween candy, but I'd really like to do some digging to find information about the most popular coffee chains or the history of bubble tea popularity in the United States over time. I'm willing to go with the flow based on the most comprehensive or interesting data set I stumble across, but those are some guiding topics to get me started. 
