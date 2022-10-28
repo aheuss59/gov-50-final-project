@@ -8,7 +8,61 @@ output:
 ---
 
 
+```{r, include = FALSE}
+library(tidyverse)
+library(ggplot2)
+
+
+```
+
+
 
 ## Project thoughts
 
 I'm going into my project with an open mind. I've done some preliminary browsing of data and think I want to explore data related to food or drinks in the United States. I've found good data sets for chain restaurants and Halloween candy, but I'd really like to do some digging to find information about the most popular coffee chains or the history of bubble tea popularity in the United States over time. I'm willing to go with the flow based on the most comprehensive or interesting data set I stumble across, but those are some guiding topics to get me started. 
+
+```{r, include = FALSE}
+part_1 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chainness/main/data/chainness_point_2021_part1.csv")
+
+```
+```{r, include = FALSE}
+part_2 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chainness/main/data/chainness_point_2021_part2.csv")
+
+```
+```{r, include = FALSE}
+part_3 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chainness/main/data/chainness_point_2021_part3.csv")
+
+
+```
+
+```{r, include = FALSE}
+part_1_2 <- part_1 |>
+  inner_join(part_2)
+
+data <- part_1_2 |>
+  inner_join(part_3)
+
+
+```
+```{r, include = FALSE}
+part_1 |>
+  filter(RestaurantName == "Dairy Queen")
+
+```
+
+## Project Proposal
+
+What is the relationship between chain coffee restaurants and college towns? In my project, I hope to explore the location of chain coffee locations across the United States, specifically in relation to college towns. I hypothesize there will be a higher frequency of coffee chains overall in college towns, a positive relationship. My variables of interest are restaurant name, state, county, and city, but my specific explanatory variable will be one that I create called "college_town", which will be marked with a 1 if the town has a four year higher education institution and a 0 if not.  My outcome variable of interest is frequency, as well as mean chain coffee stores in college towns, both measured as a number. My hypotheses would be supported if the frequency of chain coffee stores is higher in college towns than the frequency of chain coffee stores in non-college towns. My hypothesis would not be supported if I were to find a negative or no correlation between chain coffee stores and college towns. My project is based on a database provided by Friendly Cities on GitHub and includes 800,000 restaurants throughout the United States. The "college_town" variable is being created using information found on Campus Explorer. 
+
+
+
+
+
+
+
+
+
+
+
+
+
