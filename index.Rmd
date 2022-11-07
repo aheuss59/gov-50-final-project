@@ -32,33 +32,64 @@ part_2 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chai
 ```{r, include = FALSE}
 part_3 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chainness/main/data/chainness_point_2021_part3.csv")
 
-
 ```
 
 ```{r, include = FALSE}
-part_1_2 <- part_1 |>
-  inner_join(part_2)
-
-data <- part_1_2 |>
-  inner_join(part_3)
-
+data <- 
+  rbind(part_1, part_2, part_3)
 
 ```
-```{r, include = FALSE}
-part_1 |>
-  filter(RestaurantName == "Dairy Queen")
 
-```
 
 ## Project Proposal
 
 What is the relationship between chain coffee restaurants and college towns? In my project, I hope to explore the location of chain coffee locations across the United States, specifically in relation to college towns. I hypothesize there will be a higher frequency of coffee chains overall in college towns, a positive relationship. My variables of interest are restaurant name, state, county, and city, but my specific explanatory variable will be one that I create called "college_town", which will be marked with a 1 if the town has a four year higher education institution and a 0 if not.  My outcome variable of interest is frequency, as well as mean chain coffee stores in college towns, both measured as a number. My hypotheses would be supported if the frequency of chain coffee stores is higher in college towns than the frequency of chain coffee stores in non-college towns. My hypothesis would not be supported if I were to find a negative or no correlation between chain coffee stores and college towns. My project is based on a database provided by Friendly Cities on GitHub and includes 800,000 restaurants throughout the United States. The "college_town" variable is being created using information found on Campus Explorer. 
 
+```{r}
+data |>
+  filter(RestaurantName == "Dunkin")
+  
+unique(data$UA_NAME)
+
+```
+
+```{r}
+college_towns <- c("Bloomington, MN", "Minneapolis, MN", "Bemidji, MN",  "Mankato, MN", "St. Paul, MN", "Northfield, MN", "St. Joseph, MN", "Saint Joseph, MN", "Moorhead, MN", "Saint Bonifacius, MN", "St. Bonifacous, MN", "St. Peter, MN", "Saint Peter, MN", "St. Louis Park, MN", "Saint Louis Park, MN", "New Ulm, MN", "St. Cloud, MN", "Saint Cloud, MN", "Collegeville, MN", "Winona, MN", "Marshall, MN", "Duluth, MN", "Crookston, MN", "Morris, MN", "Rochester, MN",
+  
+                   "Alcorn State, MS", "Jackson, MS", "Blue Mountain, MS"," Cleveland, MS", "Clinton, MS", "Mississippi State, MS", "Columbus, MS", "Itta Bena, MS", "Holly Springs, MS", "Laurel, MS", "Tougaloo, MS", "University, MS", "Hattiesburg, MS",
+                   
+                   "St. Joseph, MO", "Kansas City, MO", "Springfield, MO", "Moberly, MO", "Fayette, MO", "Point Lookout, MO", "Columbia, MO", "Conception, MO", "Nevada, MO"," Canton, MO", "Hannibal, MO", "Jefferson City, MO", "St. Charles, MO", "Chesterfield, MO", "Joplin, MO", "Rolla, MO", "Marshall, MO", "St. Joseph, MO", "Maryville, MO", "Parkville, MO", "Florissant, MO", "Cape Girardeau, MO", "Bolivar, MO", "Fenton, MO", "Kirksville, MO", "Warrensburg, MO", "Wentzville, MO", "Fulton, MO", "Liberty, MO",
+                   
+                  "Helena, MT", "Bozeman, MT", "Billings, MT", "Havre, MT", "Butte, MT", "Pablo, MT", "Missoula, MT", "Box Elder, MT", "Dillon, MT", "Great Falls, MT",
+                  
+                  "Bellevue, NE", "Lincoln, NE", "Chadron, NE", "Omaha, NE", "Seward, NE", "Hastings, NE", "Crete, NE", "Fremont, NE", "Papillion, NE", "Peru, NE", "Gering, NE", "Kearney, NE", "Wayne, NE", "York, NE",
+                  
+                  "Las Vegas, NV", "Henderson, NV", "Elko, NV", "Reno, NV", "Incline Village, NV", "Carson City, NV",
+                  
+                  "New London, NH", "Hanover, NH", "Rindge, NH", "Concord, NH", "Keene, NH", "Warner, NH", "Henniker, NH", "Plymouth, NH", "Nashua, NH", "Manchester, NH", "Merrimack, NH", "Durham, NH",
+                  
+                  "Lakewood, NJ", "Woodland Park, NJ", "Bloomfield, NJ", "Caldwell, NJ", "Hackettstown, NJ", "North Brunswick, NJ", "Morristown, NJ", "Madison, NJ", "Belleville, NJ", "Jersey City, NJ", "Ramsey, NJ", "Teaneck, NJ", "Lodi, NJ", "Union, NJ", "West Long Branch, NJ", "Montclair, NJ", "Newark, NJ", "Princeton, NJ", "Edison, NJ", "Mahwah, NJ", "Lawrenceville, NJ", "Glassboro, NJ", "Camden, NJ", "South Orange, NJ", "Hoboken, NJ", "Galloway, NJ", "Cherry Hill, NJ", "Adelphia, NJ", "Ewing, NJ", "Trenton, NJ", "Wayne, NJ", "Keyport, NJ", "North Plainfield, NJ", "Elizabeth, NJ", "Howell, NJ",
+                  
+                  "Albuquerque, NM", "Portales, NM", "Santa Fe, NM", "Crownpoint, NM", "Las Vegas, NM", "Socorro, NM", "Las Cruces, NM", "Espanola, NM", "Hobbs, NM", "Silver City, NM",
+                  
+                  "Garden City, NY", "Albany, NY", "Alfred, NY", "New York, NY", "New York City, New York", "Brooklyn, NY", "Monsey, NY", "Annandale-On-Hudson, NY", "Spring Valley, NY", "Far Rockaway, NY", "Vestal, NY", "Buffalo, NY", "Rochester, NY", "Orchard Park, NY", "Liverpool, NY", "Cazenovia, NY", "Potsdam, NY", "Hamilton, NY", "Bronx, NY", "Staten Island, NY", "Bronxville, NY", "Ithaca, NY", "Hyde Park, NY", "Queens, NY", "Jamaica, NY", "Amherst, NY", "Johnson City, NY", "Orangeburg, NY", "Elmira, NY", "Farmingdale, NY", "Dix Hills, NY", "Clinton, NY", "Oneonta, NY", "Hamburg, NY", "Geneva, NY", "Hempstead, NY", "Houghton, NY", "New Rochelle, NY", "Jamestown, NY", "Ossining, NY", "Keuka Park, NY", "Syracuse, NY", "Brookville, NY", "Riverdale, NY", "Purchase, NY", "Poughkeepsie, NY", "Dobbs Ferry, NY", "Rockville Centre, NY", "Newburgh, NY", "Syosset, NY", "Mineola, NY"," Old Westbury, NY", "Niagara University, NY", "Peekskill, NY", "Paul Smiths, NY", "Forest Hills, NY", "Long Beach, NY", "Flushing, NY", "Troy, NY", "Lawrence, NY", "Loudonville, NY", "Saratoga Springs, NY", "St. Bonaventure, NY", "Saint Bonaventure, NY", "Brooklyn Heights, NY", "Canton, NY", "Patchogue, NY", "Sparkill, NY", "New Paltz, NY", "Stony Brook, NY", "Fredonia, NY", "Brockport, NY", "Geneseo, NY", "Oswego, NY", "Plattsburgh, NY", "Potsdam, NY", "Cobleskill, NY", "Delhi, NY", "Cortland, NY", "Throggs Neck, NY", "Morrisville, NY", "Utica, NY", "White Plains, NY", "Schenectady, NY", "Kings Point, NY", "West Point, NY", "Glen Cove, NY", "Aurora, NY", "Mount Kisco, NY", "Greenfield Park, NY", "New Windsor, NY", "Kew Gardens, NY", "Suffern, NY", "Monroe, NY", "South Fallsburg, NY")
 
 
+```
+
+```{r}
+college_towns
+
+```
 
 
+```{r}
+data |>
+  mutate(UA_NAME_NEW = as.character(UA_NAME),
+        college_town = if_else(UA_NAME %in% college_towns, 1, 0)) |>
+  filter(State == "MN")
 
+```
 
 
 
