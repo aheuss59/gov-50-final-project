@@ -24,12 +24,9 @@ I'm going into my project with an open mind. I've done some preliminary browsing
 ```{r, include = FALSE}
 part_1 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chainness/main/data/chainness_point_2021_part1.csv")
 
-```
-```{r, include = FALSE}
+
 part_2 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chainness/main/data/chainness_point_2021_part2.csv")
 
-```
-```{r, include = FALSE}
 part_3 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chainness/main/data/chainness_point_2021_part3.csv")
 
 ```
@@ -45,7 +42,7 @@ data <-
 
 What is the relationship between chain coffee restaurants and college towns? In my project, I hope to explore the location of chain coffee locations across the United States, specifically in relation to college towns. I hypothesize there will be a higher frequency of coffee chains overall in college towns, a positive relationship. My variables of interest are restaurant name, state, county, and city, but my specific explanatory variable will be one that I create called "college_town", which will be marked with a 1 if the town has a four year higher education institution and a 0 if not.  My outcome variable of interest is frequency, as well as mean chain coffee stores in college towns, both measured as a number. My hypotheses would be supported if the frequency of chain coffee stores is higher in college towns than the frequency of chain coffee stores in non-college towns. My hypothesis would not be supported if I were to find a negative or no correlation between chain coffee stores and college towns. My project is based on a database provided by Friendly Cities on GitHub and includes 800,000 restaurants throughout the United States. The "college_town" variable is being created using information found on Campus Explorer. 
 
-```{r}
+```{r, include = FALSE}
 data |>
   filter(RestaurantName == "Dunkin")
   
@@ -53,7 +50,7 @@ unique(data$UA_NAME)
 
 ```
 
-```{r}
+```{r, include = FALSE}
 college_towns <- c("Bloomington, MN", "Minneapolis, MN", "Bemidji, MN",  "Mankato, MN", "St. Paul, MN", "Northfield, MN", "St. Joseph, MN", "Saint Joseph, MN", "Moorhead, MN", "Saint Bonifacius, MN", "St. Bonifacous, MN", "St. Peter, MN", "Saint Peter, MN", "St. Louis Park, MN", "Saint Louis Park, MN", "New Ulm, MN", "St. Cloud, MN", "Saint Cloud, MN", "Collegeville, MN", "Winona, MN", "Marshall, MN", "Duluth, MN", "Crookston, MN", "Morris, MN", "Rochester, MN",
   
                    "Alcorn State, MS", "Jackson, MS", "Blue Mountain, MS"," Cleveland, MS", "Clinton, MS", "Mississippi State, MS", "Columbus, MS", "Itta Bena, MS", "Holly Springs, MS", "Laurel, MS", "Tougaloo, MS", "University, MS", "Hattiesburg, MS",
@@ -152,30 +149,70 @@ college_towns <- c("Bloomington, MN", "Minneapolis, MN", "Bemidji, MN",  "Mankat
                   
                   "Cambridge, MA", "Boston, MA", "Springfield, MA", "Amherst, MA", "Paxton, MA", "Worcester, MA", "Wellesley, MA", "Great Barrington, MA", "Longmeadow, MA", "Waltham, MA", "Chestnut Hill, MA", "Bridgewater, MA", "Chicopee, MA", "Milton, MA", "Franklin, MA", "Quincy, MA", "Beverly, MA", "Fitchburg, MA", "Framingham, MA", "Needham, MA", "Wenham, MA", "Brookline, MA", "Newton Centre, MA", "Newton, MA", "North Adams, MA", "Buzzards Bay, MA", "North Andover, MA", "South Hadley, MA", "Dudley, MA", "Haverhill, MA", "Weston, MA", "Brighton, MA", "Salem, MA", "Northampton, MA", "Easton, MA", "Medford, MA", "North Dartmouth, MA", "Lowell, MA", "Norton, MA", "Williamstown, MA",
                   
-                  "Adrian, MI", "Albion, MI", "Alma, MI", "Alpena, MI", "Berrien Springs, MI", "Grand Rapids, MI", "Owosso, MI", "Brimley, MI", "Mount Pleasant, MI", "Troy, MI", "Howell, MI", "Detroit, MI", "Ann Arbor, MI", "Ypsilanti, MI", "Big Rapids, MI", "Hancock, MI", "Wyoming, MI", "Allendale, MI", "Lansing, MI", "Dearborn, MI", "Hillsdale, MI", "Holland, MI", "Jackson, MI", "Kalamazoo, MI", "Flint, MI", "Benton Harbor, MI", "Sault Ste Marie, MI", "Southfield, MI", "Livonia, MI", "East Lansing, MI", "Houghton, MI", "Marquette, MI", "Traverse City, MI", "Midland, MI", "Rochester Hills, MI", "Olivet, MI", "University Center, MI", "Novi, MI", "Spring Arbor, MI", "Southfield, MI", "Oak Park, MI"
+                  "Adrian, MI", "Albion, MI", "Alma, MI", "Alpena, MI", "Berrien Springs, MI", "Grand Rapids, MI", "Owosso, MI", "Brimley, MI", "Mount Pleasant, MI", "Troy, MI", "Howell, MI", "Detroit, MI", "Ann Arbor, MI", "Ypsilanti, MI", "Big Rapids, MI", "Hancock, MI", "Wyoming, MI", "Allendale, MI", "Lansing, MI", "Dearborn, MI", "Hillsdale, MI", "Holland, MI", "Jackson, MI", "Kalamazoo, MI", "Flint, MI", "Benton Harbor, MI", "Sault Ste Marie, MI", "Southfield, MI", "Livonia, MI", "East Lansing, MI", "Houghton, MI", "Marquette, MI", "Traverse City, MI", "Midland, MI", "Rochester Hills, MI", "Olivet, MI", "University Center, MI", "Novi, MI", "Spring Arbor, MI", "Southfield, MI", "Oak Park, MI",
+                  
+                  
+                  "Chicago, IL--IN", "Washington, DC--VA--MD", "New York--Newark, NY--NJ--CT", "Cincinnati, OH--KY--IN", "Las Vegas--Henderson, NV", "Kansas City, MO--KS", "Los Angeles--Long Beach--Anaheim, CA", "Charleston--North Charleston, SC", "Springfield, MA--CT", "Charles Town--Ranson, WV", "Richmond, IN--OH", 
+                  "St. Louis, MO--IL", "Fayetteville--Springdale--Rogers, AR--MO", "Conroe--The Woodlands, TX", "Murrieta--Temecula--Menifee, CA", "Minneapolis--St. Paul, MN--WI", "Denver--Aurora, CO", "Palm Coast--Daytona Beach--Port Orange, FL", "Charlotte, NC--SC", "San Francisco--Oakland, CA", 
+                  "Ogden--Layton, UT", "Louisville/Jefferson County, KY--IN", "Memphis, TN--MS--AR", "Tampa--St. Petersburg, FL", "Chattanooga, TN--GA", "Portland, OR--WA", "Bridgeport--Stamford, CT--NY", "Philadelphia, PA--NJ--DE--MD", "Dallas--Fort Worth--Arlington, TX", "Bloomsburg--Berwick, PA", "Toledo, OH--MI", "Allentown, PA--NJ", 
+                  "Worcester, MA--CT", "Grand Forks, ND--MN", "Phoenix--Mesa, AZ", "Boston, MA--NH--RI", "Norwich--New London, CT--RI", "El Paso, TX--NM", "Omaha, NE--IA", "South Bend, IN--MI", "Pensacola, FL--AL", "Riverside--San Bernardino, CA", "Providence, RI--MA", "Poughkeepsie--Newburgh, NY--NJ", "Albany--Schenectady, NY", "Huntington, WV--KY--OH", 
+                  "Sarasota--Bradenton, FL", "Columbus, GA--AL", "Fargo, ND--MN", "Kenosha, WI--IL", "Kennewick--Pasco, WA", "Youngstown, OH--PA", "Olympia--Lacey, WA", "Reno, NV--CA", "Sioux City, IA--NE--SD", "College Station--Bryan, TX", "Denton--Lewisville, TX", "Weirton--Steubenville, WV--OH--PA", "Salt Lake City--West Valley City, UT", "Fort Smith, AR--OK", "Walla Walla, WA--OR",
+                  "Monessen--California, PA", "Staunton--Waynesboro, VA", "Westminster--Eldersburg, MD", "Lancaster--Palmdale, CA", "Portsmouth, OH--KY", "Salisbury, MD--DE", "Danbury, CT--NY", "East Liverpool, OH--WV--PA", 
+                  "Marietta, OH--WV", "Lorain--Elyria, OH", "Bloomington--Normal, IL", "Clarksville, TN--KY", "St. Joseph, MO--KS", "New Philadelphia--Dover, OH", "Nashua, NH--MA", "Seaside--Monterey, CA", "Prescott Valley--Prescott, AZ", "Davenport, IA--IL", "Benton Harbor--St. Joseph--Fair Plain, MI", 
+                  "Milton--Lewisburg, PA", "Bristol--Bristol, TN--VA", "Provo--Orem, UT", "South Lyon--Howell, MI", "Palm Bay--Melbourne, FL", "Danville, VA--NC", "Wheeling, WV--OH", "Bluefield, WV--VA", "Atchison, KS--MO", "Marinette--Menominee, WI--MI", "Lewiston, ID--WA",
+                  "East Stroudsburg, PA--NJ", "Evansville, IN--KY", "Longview, WA--OR", "Duluth, MN--WI", "Klamath Falls--Altamont, OR", "La Crosse, WI--MN", "Leominster--Fitchburg, MA", "Keyser, WV--MD", "Siloam Springs, AR--OK", "Leesburg--Eustis--Tavares, FL", "Emmitsburg, MD--PA", "Beloit, WI--IL", 
+                  "Dubuque, IA--IL", "Arcata--McKinleyville, CA", "Wendell--Zebulon, NC", "Parkersburg, WV--OH", "Lake Jackson--Angleton, TX", "Lebanon--Hanover, NH--VT", "Sebring--Avon Park, FL", "Barre--Montpelier, VT", "Bradford, PA--NY", "Texarkana--Texarkana, TX--AR", 
+                  "Daphne--Fairhope, AL", "Monmouth--Independence, OR", "Laie--Hauula, HI", "North Adams, MA--VT", "Dunkirk--Fredonia, NY", "Norton--Wise, VA", "Alma--St. Louis, MI", "Lawrenceburg--Greendale--Aurora, IN", "Incline Village, NV--CA", "Shepherdstown, WV--MD"
 
                   )
 
-
 ```
 
-```{r}
-college_towns
+## Raw Data
 
-```
+```{r, echo = FALSE}
+data <- data |>
+  mutate(
+        college_town = if_else(UA_NAME %in% college_towns, 1, 0))
 
-
-```{r}
-data |>
-  mutate(UA_NAME_NEW = as.character(UA_NAME),
-        college_town = if_else(UA_NAME %in% college_towns, 1, 0)) |>
-  filter(State == "MN")
+data
 
 ```
 
 
+```{r, include = FALSE}
+data_not_college_town <- data |>
+  filter(college_town == 0)
+
+non_college_towns <- as.tibble(unique(data_not_college_town$UA_NAME))
+
+non_college_towns
+
+```
+```{r, echo = FALSE, include = FALSE}
+coffee_data <- data |>
+  filter(RestaurantName %in% c("Dunkin", "Starbucks")) 
+
+coffee_data_stats <- coffee_data |>
+  group_by(RestaurantName, college_town) |>
+  summarize(count = n()) |>
+  pivot_wider(names_from = college_town, values_from = count) |>
+  mutate(ate = `1` - `0`,
+         prop_college = `1`/(`1`+`0`))
+
+```
+## First Data Visualization
+
+```{r, echo = FALSE}
+coffee_data |>
+  mutate(college_town_new = if_else(college_town == 1, "College Town", "Non-College Town"),
+         `Restaurant Name` = if_else(RestaurantName == "Dunkin", "Dunkin' Donuts", "Starbucks")) |>
+  ggplot(mapping = aes(x = college_town_new, fill = `Restaurant Name`)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Chain Coffee Locations and College Towns", y = "Count of Locations", x = "")
 
 
+```
 
 
 
