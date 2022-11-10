@@ -209,6 +209,7 @@ coffee_data |>
          `Restaurant Name` = if_else(RestaurantName == "Dunkin", "Dunkin' Donuts", "Starbucks")) |>
   ggplot(mapping = aes(x = college_town_new, fill = `Restaurant Name`)) +
   geom_bar(position = "dodge") +
+  scale_fill_manual(values = c("salmon", "palegreen4")) +
   labs(title = "Chain Coffee Locations and College Towns", y = "Count of Locations", x = "")
 
 
