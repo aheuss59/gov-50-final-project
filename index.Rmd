@@ -21,7 +21,7 @@ library(ggplot2)
 
 I'm going into my project with an open mind. I've done some preliminary browsing of data and think I want to explore data related to food or drinks in the United States. I've found good data sets for chain restaurants and Halloween candy, but I'd really like to do some digging to find information about the most popular coffee chains or the history of bubble tea popularity in the United States over time. I'm willing to go with the flow based on the most comprehensive or interesting data set I stumble across, but those are some guiding topics to get me started. 
 
-```{r, include = FALSE}
+```{r}
 part_1 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chainness/main/data/chainness_point_2021_part1.csv")
 
 
@@ -31,7 +31,7 @@ part_3 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chai
 
 ```
 
-```{r, include = FALSE}
+```{r}
 data <- 
   rbind(part_1, part_2, part_3)
 
@@ -42,15 +42,8 @@ data <-
 
 What is the relationship between chain coffee restaurants and college towns? In my project, I hope to explore the location of chain coffee locations across the United States, specifically in relation to college towns. I hypothesize there will be a higher frequency of coffee chains overall in college towns, a positive relationship. My variables of interest are restaurant name, state, county, and city, but my specific explanatory variable will be one that I create called "college_town", which will be marked with a 1 if the town has a four year higher education institution and a 0 if not.  My outcome variable of interest is frequency, as well as mean chain coffee stores in college towns, both measured as a number. My hypotheses would be supported if the frequency of chain coffee stores is higher in college towns than the frequency of chain coffee stores in non-college towns. My hypothesis would not be supported if I were to find a negative or no correlation between chain coffee stores and college towns. My project is based on a database provided by Friendly Cities on GitHub and includes 800,000 restaurants throughout the United States. The "college_town" variable is being created using information found on Campus Explorer. 
 
-```{r, include = FALSE}
-data |>
-  filter(RestaurantName == "Dunkin")
-  
-unique(data$UA_NAME)
 
-```
-
-```{r, include = FALSE}
+```{r}
 college_towns <- c("Bloomington, MN", "Minneapolis, MN", "Bemidji, MN",  "Mankato, MN", "St. Paul, MN", "Northfield, MN", "St. Joseph, MN", "Saint Joseph, MN", "Moorhead, MN", "Saint Bonifacius, MN", "St. Bonifacous, MN", "St. Peter, MN", "Saint Peter, MN", "St. Louis Park, MN", "Saint Louis Park, MN", "New Ulm, MN", "St. Cloud, MN", "Saint Cloud, MN", "Collegeville, MN", "Winona, MN", "Marshall, MN", "Duluth, MN", "Crookston, MN", "Morris, MN", "Rochester, MN",
   
                    "Alcorn State, MS", "Jackson, MS", "Blue Mountain, MS"," Cleveland, MS", "Clinton, MS", "Mississippi State, MS", "Columbus, MS", "Itta Bena, MS", "Holly Springs, MS", "Laurel, MS", "Tougaloo, MS", "University, MS", "Hattiesburg, MS",
@@ -170,7 +163,7 @@ college_towns <- c("Bloomington, MN", "Minneapolis, MN", "Bemidji, MN",  "Mankat
 
 ## Raw Data
 
-```{r, echo = FALSE}
+```{r}
 data <- data |>
   mutate(
         college_town = if_else(UA_NAME %in% college_towns, 1, 0))
@@ -185,25 +178,16 @@ data_not_college_town <- data |>
   filter(college_town == 0)
 
 non_college_towns <- as.tibble(unique(data_not_college_town$UA_NAME))
-
 non_college_towns
 
 ```
-```{r, echo = FALSE, include = FALSE}
+```{r}
 coffee_data <- data |>
   filter(RestaurantName %in% c("Dunkin", "Starbucks")) 
-
-coffee_data_stats <- coffee_data |>
-  group_by(RestaurantName, college_town) |>
-  summarize(count = n()) |>
-  pivot_wider(names_from = college_town, values_from = count) |>
-  mutate(ate = `1` - `0`,
-         prop_college = `1`/(`1`+`0`))
-
 ```
 ## First Data Visualization
 
-```{r, echo = FALSE}
+```{r}
 coffee_data |>
   mutate(college_town_new = if_else(college_town == 1, "College Town", "Non-College Town"),
          `Restaurant Name` = if_else(RestaurantName == "Dunkin", "Dunkin' Donuts", "Starbucks")) |>
@@ -214,6 +198,62 @@ coffee_data |>
 
 
 ```
+## Analysis 1
+
+Of the sampled Dunkin' Donuts and Starbucks locations, there appears to be a correlation between location of restaurants and college towns. The following table calculates the percentage of sampled Dunkin' Donuts and Starbucks locations that are located in college towns as opposed to non-college towns. Additionally, the average treatment effect of the town being a college town as opposed to a non-college town is calculated as the Average Treatment Effect.  
+
+```{r}
+props <- coffee_data |>
+  mutate(new_name = if_else(RestaurantName == "Dunkin", "Dunkin' Donuts", "Starbucks")) |>
+  group_by(new_name, college_town) |>
+  summarize(count = n()) |>
+  pivot_wider(names_from = college_town, values_from = count) |>
+  mutate(perc_college_town = (`1`/(`1` + `0`)) * 100,
+         perc_non_college_town = (`0`/(`1` + `0`)) * 100,
+         ate = perc_college_town - perc_non_college_town) 
+
+props |>
+  select(perc_college_town, perc_non_college_town, ate) |>
+  knitr :: kable(caption = "Percent of Sampled Chain Coffee Locations in College versus Non-College Towns", col.names = c("Restaurant Name", "College Town (%)", "Non-College Town (%)", "Average Treatment Effect (%)"), digits = 2)
+
+```
+
+These results suggest that there is a fairly substansive difference between the percent of Dunkin' Donuts and Starbucks locations that are located in college towns as opposed to non-college towns. There are approximately 61% more Dunkin' Donuts locations in college towns and that number grows to nearly 65% for Starbucks. 
+
+
+```{r, eval = FALSE, echo = FALSE} 
+
+non_college_coffee_data <- data_not_college_town |>
+  filter(RestaurantName %in% c("Dunkin", "Starbucks"))
+
+non_tibble <- as.tibble(unique(non_college_coffee_data$UA_NAME))
+
+nrow(non_college_towns) - nrow(non_tibble)
+
+c <- data |>
+  filter(college_town == 1)
+
+college_coffee_data <- coffee_data |>
+  filter(college_town ==1)
+
+col_town_tibble <- as.tibble(unique(c$UA_NAME))
+
+col_tibble <- as.tibble(unique(college_coffee_data$UA_NAME))
+
+
+nrow(col_town_tibble) - nrow(col_tibble)
+
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
