@@ -1,7 +1,7 @@
 ---
 title: "Gov 50 Final Project"
 author: Alex Heuss
-description: "A really good final project. What's it about? Who's to say?"
+description: "An Analysis of Chain Coffee Locations Throughout the United States"
 output:
   distill::distill_article:
     self_contained: false
@@ -160,6 +160,25 @@ college_towns <- c("Bloomington, MN", "Minneapolis, MN", "Bemidji, MN",  "Mankat
                   )
 
 ```
+
+```{r}
+data |> 
+  mutate(region = case_when(State %in% c("CT", "ME", "MA", "NH", "RI", "VT", "NJ", "NY", "PA") ~ "Northeast",
+                            State %in% c("IN", "IL", "MI", "OH", "WI", "MN", "IA","MO", "KS", "NE", "ND", "SD") ~ "Midwest",
+                            State %in% c("DE", "DC", "FL", "GA", "MD", "NC", "SC", "VA", "WV", "AL", "KY", "MI", "TN", "AR", "LA", "OK", "TX") ~ "South",
+                            State %in% c("AZ", "CO", "ID", "NM", "MT", "UT", "NV", "WY", "AK", "CA", "WA", "OR", "HI") ~ "West"),
+         district = case_when(State %in% c("CT", "ME", "MA", "NH", "RI", "VT") ~ "New England",
+                              State %in% c("NJ", "NY", "PA") ~ "Middle Atlantic",
+                              State %in% c("IN", "IL", "MI", "OH", "WI") ~ "East North Central",
+                              State %in% c("MN", "IA","MO", "KS", "NE", "ND", "SD") ~ "West North Central",
+                              State %in% c("DE", "DC", "FL", "GA", "MD", "NC", "SC", "VA", "WV") ~ "South Atlantic",
+                              State %in% c("AL", "KY", "MI", "TN") ~ "East South Central",
+                              State %in% c("AR", "LA", "OK", "TX") ~ "West South Central",
+                              State %in% c("AZ", "CO", "ID", "NM", "MT", "UT", "NV", "WY") ~ "Mountain",
+                              State %in% c("AK", "CA", "WA", "OR", "HI") ~ "Pacific"))
+
+```
+
 
 ## Raw Data
 
