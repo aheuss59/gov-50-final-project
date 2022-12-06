@@ -17,9 +17,13 @@ library(ggplot2)
 
 
 
-## Project thoughts
+## Introduction
 
-I'm going into my project with an open mind. I've done some preliminary browsing of data and think I want to explore data related to food or drinks in the United States. I've found good data sets for chain restaurants and Halloween candy, but I'd really like to do some digging to find information about the most popular coffee chains or the history of bubble tea popularity in the United States over time. I'm willing to go with the flow based on the most comprehensive or interesting data set I stumble across, but those are some guiding topics to get me started. 
+Coming to Cambridge this fall, I had lots of things on my mind. Class choices, new roommates, new friends, and (perhaps more importantly) coffee. As I learned soon after arriving, coffee is not hard to find in Cambridge. This project is an effort to explore where coffee locations are located in the United States and why. After exploring my data with more depth, I realized that it would be ineffective and misleading to attempt to analyze all coffee shops based on the provided data. As a result, this project focuses on the chain coffee franchises Dunkin' Donuts and Starbucks. My primary research question was inspired by the sheer prevalence of coffee in Cambridge and asks: is there a correlation between these chain coffee locations and whether or not the city it is located in is a college town?
+
+## The Data
+
+My original data was taken from Friendly Cities on GitHub and includes 800,000 restaurants throughout the United States. The dataset included the variables: RestaurantName, Cuisine, OpenHours, State, CNTY_GEOID, UA_NAME, MSA_NAME, MSA_GEOID, Lon, Lat, Frequency, and isChain. This dataset was originally used to find correlation between chain restaurants and a number of independent variables, so this project goes in another direction. The primary variables I focused on included RestaurantName, which provided the name of the restaurant, UA_NAME, which is short for Urban Area name and was typically formatted as the city and state where the restaurant was located, lastly the State variable, which provided the state abbreviation for the state the restaurant was located in. As the dataset originally stood, I did not have enough data to explore my research question. I created a new tibble labeled college_towns which includes the name of every town in the United States that has a four-year higher education institution located within it. This tibble was compiled using information provided on Campus Explorer and then used to create the variable college_town within the dataset. The final two variables I added to the dataset were based on location and are called region and division. These variables were created in reference to the regions and divisions assigned to states by the United States Census Bureau. 
 
 ```{r}
 part_1 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chainness/main/data/chainness_point_2021_part1.csv")
@@ -162,7 +166,7 @@ college_towns <- c("Bloomington, MN", "Minneapolis, MN", "Bemidji, MN",  "Mankat
 ```
 
 ```{r}
-data |> 
+data <- data |> 
   mutate(region = case_when(State %in% c("CT", "ME", "MA", "NH", "RI", "VT", "NJ", "NY", "PA") ~ "Northeast",
                             State %in% c("IN", "IL", "MI", "OH", "WI", "MN", "IA","MO", "KS", "NE", "ND", "SD") ~ "Midwest",
                             State %in% c("DE", "DC", "FL", "GA", "MD", "NC", "SC", "VA", "WV", "AL", "KY", "MI", "TN", "AR", "LA", "OK", "TX") ~ "South",
@@ -238,6 +242,23 @@ props |>
 ```
 
 These results suggest that there is a fairly substansive difference between the percent of Dunkin' Donuts and Starbucks locations that are located in college towns as opposed to non-college towns. There are approximately 61% more Dunkin' Donuts locations in college towns and that number grows to nearly 65% for Starbucks. 
+
+## Analysis 2
+
+```{r}
+data <- data |>
+  mutate(is_chain_coffee = if_else(RestaurantName %in% c("Dunkin", "Starbucks"), "Yes", "No"))
+
+data |>
+  filter(is_chain_coffee == "Yes") |>
+  group_by(college_town) |>
+  summarize(n = n()) |>
+  pivot_wider(names_from = college_town, values_from = n) |>
+  mutate(ate = `1` - `0`,
+         ate_perc = ate/(`1` + `0`))
+
+
+```
 
 
 ```{r, eval = FALSE, echo = FALSE} 
