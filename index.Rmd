@@ -25,6 +25,8 @@ Coming to Cambridge this fall, I had lots of things on my mind. Class choices, n
 
 My original data was taken from Friendly Cities on GitHub and includes 800,000 restaurants throughout the United States. The dataset included the variables: RestaurantName, Cuisine, OpenHours, State, CNTY_GEOID, UA_NAME, MSA_NAME, MSA_GEOID, Lon, Lat, Frequency, and isChain. This dataset was originally used to find correlation between chain restaurants and a number of independent variables, so this project goes in another direction. The primary variables I focused on included RestaurantName, which provided the name of the restaurant, UA_NAME, which is short for Urban Area name and was typically formatted as the city and state where the restaurant was located, lastly the State variable, which provided the state abbreviation for the state the restaurant was located in. As the dataset originally stood, I did not have enough data to explore my research question. I created a new tibble labeled college_towns which includes the name of every town in the United States that has a four-year higher education institution located within it. This tibble was compiled using information provided on Campus Explorer and then used to create the variable college_town within the dataset. The final two variables I added to the dataset were based on location and are called region and division. These variables were created in reference to the regions and divisions assigned to states by the United States Census Bureau. 
 
+The dependent variable in my study is whether or not a town has a chain coffee location, in this study refering to a Dunkin' Donuts or a Starbucks. 
+
 ```{r}
 part_1 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chainness/main/data/chainness_point_2021_part1.csv")
 
@@ -207,6 +209,117 @@ non_college_towns
 ```{r}
 coffee_data <- data |>
   filter(RestaurantName %in% c("Dunkin", "Starbucks")) 
+```
+
+```{r}
+pop_towns <- c("Huntsville, AL", "Birmingham, AL", "Montgomery, AL", "MObile, AL", "Tuscaloosa, AL",
+               
+               "Anchorage, AK", "Fairbanks, AK", "Juneau, AK", "Wasilla, AK", "Sitka, AK",
+               
+               "Phoenix--Mesa, AZ", "Tuscon, AZ", "Chandler, AZ", "Gilbert, AZ",
+               
+               "Little Rock, AR", "Fayetteville--Springdale--Rogers, AR--MO", "Fort Smith, AR--OK", "Jonesboro, AR",
+               
+               "Los Angeles--Long Beach--Anaheim, CA", "San Diego, CA", "San Jose, CA", "Fresno, CA", "San Francisco--Oakland, CA",
+               
+               "Carbonate, CO", "Denver--Aurora, CO", "Colorado Springs, CO", "Fort Collins, CO",
+               
+               "Bridgeport--Stamford, CT", "New Haven, CT", "Hartford, CT", "Waterbury, CT",
+               
+               "Wilmington, DE", "Dover, DE", "Newark, DE", "Middletown, DE", "Smyrna, DE",
+               
+               "Washington, DC--VA--MD", 
+               
+               "Jacksonville, FL", "Miami, FL", "Tampa--St.Petersburg, FL", "Orlando, FL",
+               
+               "Atlanta, GA", "Columbus, GA--AL", "Augusta-Richmond County, GA--SC", "Macon, GA", "Savannah, GA",
+               
+               "Urban Honolulu, HI",
+               
+               "Boise City, ID", "Meridian, ID", "Nampa, ID", "Idaho Falls, ID", "Caldwell, ID",
+               
+               "Chicago, IL--IN", "Aurora, IL", "Joliet, IL", "Naperville, IL", "Rockford, IL", 
+               
+               "Indianapolis, IN", "Fort Wayne, IN", "Evansville, IN", "South Bend, IN--MI", "Carmel, IN",
+               
+               "Des Moines, IA", "Cedar Rapids, IA", "Davenport, IA--IN", "Sioux City, IA--NE--SD", "Iowa City, IA",
+               
+               "Wichita, KS", "Overland Park, KS", "Kansas City, MO--KS", "Olathe, KS", "Topeka, KS",
+               
+               "Louisville/Jefferson County, KY--IN", "Lexington-Fayette, KY", "Bowling Green, KY", "Owensboro, KY", "Convington, KY",
+               
+               "New Orleans, LA", "Baton Rouge, LA", "Shreveport, LA", "Lafayette, LA", "Lake Charles, LA",
+               
+               "Portland, ME", "Lewiston, ME", "Bangor, ME", "South Portland, ME", "Auburn, ME",
+               
+               "Baltimore, MD", "Frederick, MD", "Gaithersburg, MD", "Rockville, MD", "Bowie, MD",
+               
+               "Boston, MA--NH--RI", "Worcester, MA--CT", "Springfield, MA--CT", "Cambridge, MA", "Lowell, MA", 
+               
+               "Detroit, MI", "Grand Rapids, MI", "Warren, MI", "Sterling Heights, MI", "Ann Arbor, MI", 
+               
+               "Minneapolis--St.Paul, MN--WI", "Rochester, MN", "Bloomington, MN", "Brooklyn Park, MN",
+               
+               "Jackson, MS", "Gulfport, MS", "Southhaven, MS", "Biloxi, MS", "Hattiesburg, MS",
+               
+               "St.Louis, MO--IL", "Springfield, MO", "Columbia, MO", "Independence, MO",
+               
+               "Billings, MT", "Missoula, MT", "Great Falls, MT", "Bozeman, MT", "Butte-Silver Bow, MT",
+               
+               "Omaha, NE", "Lincoln, NE", "Bellevue, NE", "Grand Island, NE", "Kearney, NE",
+               
+               "Las Vegas--Henderson, NV", "Reno, NV-CA", "Sparks, NV", "Carson City, NV",
+               
+               "Manchester, NH", "Nashua, NH--MA", "Concord, NH", "Dover--Rochester, NH--ME", 
+               
+               "New York--Newark, NY--NJ--CT", "Jersey City, NJ", "Paterson, NJ", "Elizabeth, NJ", "Trenton, NJ",
+               
+               "Alburquerque, NM", "Las Cruces, NM", "Rio Rancho, NM", "Santa Fe, NM", "Roswell, NM",
+               
+               "Buffalo, NY", "Yonkers, NY", "Rochester, NY", "Syracuse, NY",
+               
+               "Charlotte, NC--SC", "Raleigh, NC", "Greensboro, NC", "Durham, NC", "Winston-Salem, NC",
+               
+               "Fargo, ND--MN", "Bismarck, ND", "Grand Forks, ND--MN", "Minot, ND", "Williston, ND", 
+               
+               "Columbus, OH", "Cleveland, OH", "Cincinnati, OH--KY--IN", "Toledo, OH--MI", "Akron, OH",
+               
+               "Okalahoma City, OK", "Tulsa, OK", "Norman, OK", "Broken Arrow, OK", "Edmond, OK",
+               
+               "Portland, OR--WA", "Salem, OR", "Eugene, OR", "Gresham, OR", "Hillsboro, OR",
+               
+               "Philadelphia, PA--NJ--DE--MD", "Pittsburgh, PA", "Allentown, PA--NJ", "Reading, PA", "Erie, PA",
+               
+               "Providence, RI--MA", "Warwich, RI", "Cranston, RI", "Pawtucket, RI", "Woonsocket, RI",
+               
+               "Charleston--North Charleston, SC", "Columbia, SC", "Mount Pleasant, SC", "Rock Hill, SC", "Greenville, SC",
+               
+               "Sioux Falls, SD", "Rapid City, SD", "Aberdeen, SD", "Brookings, SD", "Watertown, SD",
+               
+               "Nashville-Davidson, TN", "Memphis, TN--MS--AR", "Knoxville, TN", "Chattanooga, TN--GA", "Clarksville, TN--KY",
+               
+               "Houston, TX", "San Antonio, TX", "Dallas--Fort Worth--Arlington, TX", "Austin, TX",
+               
+               "Salt Lake City--West Valley City, UT", "West Jordan, UT", "Provo-Orem, UT",
+               
+               "Burlington, VT", "Rutland, VT", "Essex Junction, VT", "Barre--Montpelier, VT",
+               
+               "Virginia Beach, VA", "Chesapeake, VA", "Norfolk, VA", "Richmond, VA", "Newport News, VA",
+               
+               "Seattle, WA", "Spokane, WA", "Tacoma, WA", "Vancouver, WA", "Bellevue, WA",
+               
+               "Charleston, WV", "Huntington, WV--KY--OH", "Parkersburg, WV--OH", "Morgantown, WV", "Wheeling, WV--OH", 
+               
+               "Milwaukee, WI", "Madison, WI", "Green Bay, WI", "Kenosha, WI--IL", "Racine, WI",
+               
+               "Cheyenne, WY", "Casper, WY", "Gillette, WY", "Laramie, WY", "Rock Springs, WY")
+
+```
+
+```{r}
+data |>
+  mutate(is_pop = if_else(UA_NAME %in% pop_towns, "Yes", "No"))
+
 ```
 ## First Data Visualization
 
