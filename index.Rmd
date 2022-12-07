@@ -196,7 +196,66 @@ data <- data |>
 data
 
 ```
+## Tidying the Data
 
+```{r}
+al <- data |> 
+  filter(State == "AL") 
+
+unique(al$UA_NAME)
+
+al_names <- c("Valley--Lanett, AL--GA", "Tuskegee, AL", "Albertville, AL", "Sylacauga, AL", "Atmore, AL", "Jasper, AL",          "Robertsdale, AL", "Union Springs, AL", "Oneonta, AL", "Centre, AL", "Troy, AL", "Scottsboro, AL", "Pell City, AL",     "Daphne--Fairhope, AL", "Moundville, AL", "Piedmont, AL", "Brent, AL", "Monroeville, AL", "Roanoke, AL",                "Arab, AL", "Hamilton, AL", "Eufaula, AL--GA", "Hanceville, AL", "Bay Minette, AL", "Haleyville, AL", "Wetumpka, AL", "Geneva, AL", "Ozark, AL", "Opp, AL", "Talladega, AL", "Andalusia, AL", "Moulton, AL", "Alexander City, AL", "Thomasville, AL", "Greenville, AL", "Tallassee, AL", "Jackson, AL", "Grand Bay, AL", "Clanton, AL", "Columbiana, AL", "Hazel Green, AL", "Priceville, AL","Evergreen, AL","Springville, AL", "Selma, AL", "Fayette, AL","Auburn, AL", "Birmingham, AL", "Cullman, AL", "Enterprise, AL", "Fort Payne, AL", "Huntsville, AL", "Florence, AL", "Russellville, AL", "Mobile, AL", "Athens, AL", "Demopolis, AL", "Anniston--Oxford, AL", "Montgomery, AL", "Tuscaloosa, AL", "Sumiton, AL", "Dothan, AL","Gadsden, AL", "Brewton, AL", "Headland, AL", "Foley, AL", "Decatur, AL")
+```
+
+```{r} 
+ak <- data |> 
+  filter(State == "AK") 
+
+unique(ak$UA_NAME)
+
+ak_names <- c("Anchorage, AK", "Fairbanks, AK", "Bethel, AK", "Kodiak, AK", "Lakes--Knik-Fairview--Wasilla, AK", "Anchorage Northeast, AK", "Soldotna, AK", "Nome, AK", "Juneau, AK", "Kenai, AK","Ketchikan, AK","Sitka, AK", "Barrow, AK", "Eielson AFB, AK", "Kotzebue, AK")
+
+```
+
+```{r}
+az <- data |> 
+  filter(State == "AZ") 
+
+unique(az$UA_NAME)
+
+az_names <- c("Tucson, AZ", "Phoenix--Mesa, AZ", "Yuma, AZ--CA","Casa Grande, AZ", "Avondale--Goodyear, AZ", "Prescott Valley--Prescott, AZ", "Eagar, AZ", "Wickenburg, AZ", "Nogales, AZ", "Sierra Vista, AZ", "Bullhead City, AZ--NV", "Flagstaff, AZ", "Sahuarita--Green Valley, AZ", "Winslow, AZ", "Kingman, AZ", "Lake Havasu City, AZ", "Chinle, AZ", "Show Low, AZ", "Douglas, AZ", "Cottonwood--Verde Village, AZ", "Tuba City, AZ", "Village of Oak Creek (Big Park), AZ", "Coolidge, AZ", "Safford, AZ", "Picture Rocks, AZ", "Chino Valley, AZ", "Page, AZ", "Buckeye, AZ", "Maricopa, AZ", "Eloy, AZ", "Payson, AZ", "San Luis, AZ", "Quartzsite, AZ", "Florence, AZ", "Kayenta, AZ", "St. Johns, AZ", "Globe, AZ", "Sedona, AZ", "Vail, AZ", "Window Rock, AZ--NM", "Lake of the Woods--Pinetop-Lakeside, AZ", "Holbrook, AZ", "Williams, AZ", "Snowflake, AZ", "Camp Verde, AZ", "Willcox, AZ", "Parker, AZ--CA", "Benson, AZ", "Somerton, AZ", "Arizona City, AZ", "Bisbee, AZ", "Marana West, AZ", "Clifton, AZ", "Estrella, AZ", "Lake Montezuma, AZ", "San Manuel, AZ", "Ajo, AZ", "Colorado City, AZ--UT", "Whiteriver, AZ", "Corona de Tucson, AZ", "Superior, AZ", "San Carlos, AZ", "Avra Valley, AZ")
+
+```
+
+```{r}
+ar <- data |> 
+  filter(State == "AR") 
+
+unique(ar$UA_NAME)
+
+ar_names <- c("Little Rock, AR", "McGehee, AR", "Fayetteville--Springdale--Rogers, AR--MO", "Searcy, AR", "Osceola, AR", "Conway, AR", "Brinkley, AR", "Mountain Home, AR", "Fort Smith, AR--OK", "Beebe, AR", "Waldron, AR", "Ashdown, AR", "Clarksville, AR", "Mena, AR", "Jonesboro, AR", "Walnut Ridge, AR", "Camden, AR", "Russellville, AR", "El Dorado, AR", "Corning, AR", "Hot Springs, AR", "Siloam Springs, AR--OK", "Harrison, AR", "Morrilton, AR","Lake Village, AR", "Pine Bluff, AR","Batesville, AR", "Paragould, AR","Arkadelphia, AR", "Newport, AR", "Hamburg, AR", "Forrest City, AR", "Greenwood, AR","Wynne, AR","Heber Springs, AR", "Magnolia, AR", "Marianna, AR", "Blytheville, AR", "Dumas, AR","Hot Springs Village, AR", "Hope, AR", "Warren, AR", "Crossett, AR", "Nashville, AR","Berryville, AR","Helena-West Helena, AR","Malvern, AR","Ozark, AR","Bald Knob, AR", "England, AR","Paris, AR", "Fordyce, AR", "Greenbrier, AR","Trumann, AR","Manila, AR", "Sheridan, AR", "DeWitt, AR", "Monticello, AR", "Stuttgart, AR", "Booneville, AR", "De Queen, AR", "Pocahontas, AR", "Prescott, AR", "Prairie Grove, AR", "Green Forest, AR", "Piggott, AR", "Cherokee Village, AR","Lonoke, AR")
+
+```
+
+```{r}
+ca <- data |> 
+  filter(State == "CA") 
+
+unique(ca$UA_NAME)
+
+ca_names <- c("El Paso de Robles (Paso Robles)--Atascadero, CA", "Los Angeles--Long Beach--Anaheim, CA", "Petaluma, CA", "San Diego, CA", "Barstow, CA", "Mission Viejo--Lake Forest--San Clemente, CA", "Murrieta--Temecula--Menifee, CA", "San Francisco--Oakland, CA", "Santa Clarita, CA", "Porterville, CA", "Sacramento, CA", "Woodlake, CA", "Camarillo, CA", "Fresno, CA", "Bakersfield, CA", "Concord, CA", "Riverside--San Bernardino, CA", "Indio--Cathedral City, CA","Modesto, CA", "Redding, CA", "Hemet, CA", "Victorville--Hesperia, CA", "Sonora--Jamestown--Phoenix Lake, CA", "Mount Shasta--Weed, CA", "California City, CA", "Lindsay, CA", "Madera, CA", "Lancaster--Palmdale, CA", "Santa Maria, CA", "Vallejo, CA", "Lake Arrowhead--Crestline, CA", "Sonoma, CA", "Antioch, CA", "Santa Barbara, CA", "Colfax, CA", "Thousand Oaks, CA", "Gilroy--Morgan Hill, CA", "Stockton, CA","Corning, CA","San Jose, CA","Turlock, CA","Oxnard, CA", "Santa Rosa, CA", "Orange Cove, CA", "Seaside--Monterey, CA", "Fortuna, CA", "Hanford, CA", "Davis, CA", "Santa Cruz, CA", "Crescent City, CA", "Salinas, CA", "Portola, CA", "Mammoth Lakes, CA", "Dixon, CA", "Lodi, CA", "Fairfield, CA", "Lompoc, CA", "Chowchilla, CA", "Big Bear City, CA", "Shafter, CA", "Oroville, CA", "Watsonville, CA", "Live Oak (Sutter County), CA", "Livermore, CA", "Yuba City, CA", "Bishop, CA", "Arroyo Grande--Grover Beach, CA", "Simi Valley, CA", "Discovery Bay, CA","Rosamond, CA","Auburn--North Auburn, CA","Reedley--Dinuba, CA","Manteca, CA","Vacaville, CA","Firebaugh, CA","Napa, CA","Bonadelle Ranchos-Madera Ranchos, CA","Tracy, CA","Cloverdale, CA","Alturas, CA","Hollister, CA", "Arvin, CA","Visalia, CA","Chico, CA","Ramona, CA", "Morro Bay--Los Osos, CA", "Willits, CA", "Fort Irwin, CA", "El Centro--Calexico, CA", "Cottonwood, CA","Placerville--Diamond Springs, CA", "Gridley, CA", "Ridgecrest, CA", "Ukiah, CA", "Needles, CA--AZ", "Grass Valley, CA", "Santa Paula, CA", "Rio Vista, CA", "Arcata--McKinleyville, CA", "Selma, CA","Merced, CA", "Woodland, CA", "Williams, CA","Wasco, CA", "McFarland, CA", "Yreka, CA", "Los Banos, CA", "Brawley, CA", "Angels, CA","Delano, CA","Susanville, CA","Hidden Valley Lake, CA","Willows, CA", "Clearlake, CA", "Orosi, CA", "Parlier, CA", "Patterson, CA", "Fillmore, CA", "Jackson, CA", "Twentynine Palms, CA", "Paradise, CA", "East Quincy, CA", "Red Bluff, CA", "Half Moon Bay, CA", "Eureka, CA", "Lakeport, CA", "San Luis Obispo, CA", "Truckee, CA", "Mendota, CA", "Dos Palos, CA", "Blythe, CA--AZ", "Galt, CA", "Gustine, CA", "Kerman, CA", "Fort Bragg, CA", "Escalon, CA","South Lake Tahoe, CA--NV","Waterford, CA","Phelan, CA","Taft, CA", "Mojave, CA","Guerneville, CA","Avenal, CA", "Colusa, CA", "Tehachapi--Golden Hills, CA", "Sanger, CA",  "Solvang--Buellton--Santa Ynez, CA", "King City, CA" , "Newman, CA", "Tipton, CA","Yucca Valley, CA", "Corcoran, CA","Desert Hot Springs, CA", "Orland, CA", "Gonzales, CA", "Hilmar-Irwin, CA","Winters, CA","Ione, CA","Coalinga, CA", "Rancho Calaveras--Valley Springs, CA", "Guadalupe, CA", "Greenfield, CA", "Riverdale, CA", "Soledad, CA", "Wheatland, CA", "Nipomo, CA", "Lake Wildwood, CA", "Earlimart, CA", "Burney, CA", "Lemoore Station, CA", "Oakhurst, CA", "Holtville, CA", "Twentynine Palms Base, CA", "Vandenberg AFB, CA", "Running Springs, CA", "St. Helena, CA","Mecca, CA", "Rio Dell, CA", "Lake of the Pines, CA", "San Joaquin, CA", "Wrightwood, CA", "Cambria, CA", "Huron, CA", "Forestville, CA", "Carmel Valley Village, CA", "Avalon, CA", "Calistoga, CA", "Rancho Murieta, CA", "Yountville, CA", "Los Molinos, CA", "Silver Lakes, CA", "Frazier Park, CA", "Lake Rancho Viejo, CA", "Calipatria, CA","Arbuckle, CA","Terra Bella, CA","Kelseyville, CA", "Poplar-Cotton Center, CA","Clearlake Riviera, CA", "Esparto, CA", "Lake Los Angeles, CA", "Planada, CA", "Richgrove, CA")
+
+```
+
+```{r}
+co <- data |> 
+  filter(State == "CO") 
+
+unique(co$UA_NAME)
+
+co_names <- c("Denver--Aurora, CO", "Lafayette--Louisville--Erie, CO", "Colorado Springs, CO", "Woodland Park, CO", "Pagosa Springs, CO", "Grand Junction, CO", "Gypsum, CO", "Rifle, CO", "Pueblo, CO", "Boulder, CO","Fort Collins, CO", "Eagle, CO", "Estes Park, CO", "Johnstown, CO", "Burlington, CO", "Delta, CO", "Edwards, CO", "Leadville, CO", "Fort Morgan, CO", "Yuma, CO", "Breckenridge, CO", "Longmont, CO", "Brush, CO", "Cañon City, CO", "Silverthorne--Frisco, CO", "Air Force Academy, CO", "Greeley, CO", "Wellington, CO", "Buena Vista, CO", "New Castle, CO", "Steamboat Springs, CO", "Glenwood Springs, CO", "Roxborough Park, CO", "Lamar, CO", "Durango, CO","Montrose, CO","Firestone--Frederick, CO", "Walsenburg, CO", "Carbondale, CO", "Alamosa, CO", "La Junta, CO","Rocky Ford, CO","Vail, CO", "Gunnison, CO", "Fort Lupton, CO","Fraser, CO","Battlement Mesa, CO","Cedaredge, CO","Sterling, CO", "Florence, CO", "Monte Vista, CO", "Lochbuie, CO", "Craig, CO", "Basalt--El Jebel, CO", "Trinidad, CO", "Salida, CO", "Eaton, CO", "Cortez, CO", "Evergreen, CO", "Las Animas, CO", "Aspen, CO", "Bayfield, CO", "Silt, CO", "Severance, CO")
+
+```
 
 ```{r, include = FALSE}
 data_not_college_town <- data |>
