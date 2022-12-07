@@ -307,6 +307,52 @@ ga_names <- c("Milledgeville, GA", "Atlanta, GA", "Dublin, GA", "Savannah, GA", 
 
 ```
 
+```{r}
+hi <- data |>
+  filter(State == "HI")
+
+unique(hi$UA_NAME)
+
+hi_names <- c("Urban Honolulu, HI", "Lihue, HI", "Kailua (Honolulu County)--Kaneohe, HI", "Kalaheo, HI", "Kahului, HI", "Kilauea, HI", "Kihei, HI", "Hilo, HI", "Kailua (Hawaii County)--Holualoa, HI", "Pukalani--Makawao--Haiku-Pauwela, HI","Kekaha, HI", "Lahaina, HI", "Kapaa, HI", "Laie--Hauula, HI", "Waimea (Hawaii County), HI", "Captain Cook, HI", "Haleiwa--Waialua--Pupukea, HI", "Hawaiian Paradise Park, HI", "Kapaau, HI", "Honokaa, HI", "Princeville, HI", "Lanai City, HI")
+
+```
+
+```{r}
+id <- data |>
+  filter(State == "ID")
+
+unique(id$UA_NAME)
+
+id_names <- c("Coeur d'Alene, ID", "Boise City, ID", "Hailey, ID", "Bonners Ferry, ID", "Idaho Falls, ID", "Burley, ID", "Filer, ID", "Shelley, ID", "Pocatello, ID", "Rupert, ID","Grangeville, ID", "Mountain Home, ID","Nampa, ID","Sandpoint, ID", "St. Anthony, ID", "Twin Falls, ID", "Rexburg, ID","Weiser, ID--OR","Homedale, ID", "Salmon, ID","Star, ID", "American Falls, ID", "Kellogg, ID", "Rigby, ID", "St. Maries, ID", "Lewiston, ID--WA", "Wendell, ID", "Blackfoot, ID", "Moscow, ID", "Orofino, ID", "Buhl, ID", "Soda Springs, ID", "Preston, ID", "Rathdrum, ID", "Emmett, ID", "Ketchum, ID", "Mountain Home AFB, ID", "Jerome, ID", "Kuna, ID", "Osburn, ID","Gooding, ID")
+
+```
+
+```{r}
+il <- data |>
+  filter(State == "IL")
+
+unique(il$UA_NAME)
+
+il_names <- c("Chicago, IL--IN", "Lawrenceville, IL","Peoria, IL", "Springfield, IL", "Decatur, IL", "Mount Vernon, IL", "Peru--LaSalle, IL", "Rockford, IL", "Mount Sterling, IL", "Champaign, IL", "Carbondale, IL", "Dixon, IL", "Bloomington--Normal, IL", "Clinton, IL",  "Freeport, IL", "Danville, IL", "Kankakee, IL", "Pittsfield, IL", "Princeton, IL", "Shelbyville, IL", "Robinson, IL", "Round Lake Beach--McHenry--Grayslake, IL--WI", "Rantoul, IL", "Carthage, IL", "St. Joseph, IL", "Taylorville, IL", "Pontiac, IL","Quincy, IL", "Macomb, IL", "Heyworth, IL", "Savanna, IL--IA", "Newton, IL", "Breese, IL", "Elmwood, IL", "Effingham, IL", "Mattoon, IL", "Carlinville, IL", "Steeleville, IL","Morris, IL", "Salem, IL", "Abingdon, IL", "Lincoln, IL", "Watseka, IL", "Bushnell, IL", "Waterloo, IL", "Mackinaw, IL", "Alton, IL--MO", "Chester, IL", "Nashville, IL" ,"Harrisburg, IL", "Red Bud, IL","Pana, IL","Mahomet, IL", "Sterling, IL", "Fairbury, IL", "Millstadt, IL" , "Galesburg, IL", "White Hall, IL", "Charleston, IL", "Centralia, IL", "Morrison, IL","Fairfield, IL", "West Frankfort, IL", "Braidwood--Coal City--Wilmington, IL", "DeKalb, IL", "Ottawa, IL", "Hillsboro, IL", "Vandalia, IL", "Pinckneyville, IL","Staunton, IL", "Paxton, IL", "Murphysboro, IL", "Paris, IL", "Rushville, IL","Jacksonville, IL", "Gillespie, IL", "Eureka, IL", "Eldorado, IL", "Aledo, IL", "Rochelle, IL", "Olney, IL" , "Christopher, IL", "Oregon, IL", "Geneseo, IL", "Mount Carmel, IL", "Canton, IL", "Hoopeston, IL", "Marengo, IL", "Monticello, IL", "Byron, IL", "Petersburg, IL", "Marshall, IL", "Lena, IL", "Metamora, IL", "Jerseyville, IL", "Du Quoin, IL", "Gilman, IL", "Litchfield, IL", "McLeansboro, IL", "Kewanee, IL", "Genoa, IL", "Beardstown, IL", "Mascoutah, IL", "Virden, IL","Smithton, IL","Carmi, IL","Peotone, IL","New Baden, IL", "Streator, IL", "Sullivan, IL", "Marseilles, IL", "Tuscola, IL", "Hampshire, IL", "Johnston City, IL","Sparta, IL","Auburn, IL","Metropolis, IL","Carlyle, IL","Greenville, IL","Woodstock, IL", "Momence, IL", "Monmouth, IL", "Bloomington, IN", "Gibson City, IL","Le Roy, IL", "Havana, IL", "Flora, IL", "Beecher, IL", "Mendota, IL","Highland, IL","Anna, IL", "Benton, IL", "Galena, IL","Harvard, IL","Nokomis, IL" , "Arcola, IL","Dwight, IL", "El Paso, IL","Casey, IL", "Lake Holiday, IL", "Pawnee, IL", "Mount Morris, IL", "Trenton, IL","Downs, IL","Cairo, IL","Davis Junction, IL")
+
+```
+
+```{r}
+ind <- data |>
+  filter(State == "IN")
+
+unique(ind$UA_NAME)
+
+
+in_names <- c("Richmond, IN--OH", "Lafayette, IN", "Indianapolis, IN", "Elkhart, IN--MI", "South Bend, IN--MI" , "Lebanon, IN", "Westville, IN", "Muncie, IN", "Connersville, IN", "Union City, IN--OH", "Marion, IN", "Fort Wayne, IN", "Kokomo, IN", "Greencastle, IN", "Scottsburg, IN", "Columbus, IN", "Cambridge City, IN", "Fort Branch, IN", "Hebron, IN", "Nappanee, IN", "Terre Haute, IN", "Covington, IN", "Elwood, IN", "Batesville, IN", "Bloomington, IN", "Kendallville, IN","Columbia City, IN","Michigan City--La Porte, IN--MI","Evansville, IN--KY","Anderson, IN","Crawfordsville, IN", "Huntington, IN", "Auburn, IN", "Wabash, IN", "Tipton, IN","Peru, IN", "Decatur, IN","Logansport, IN","Warsaw, IN","Fairmount, IN", "Plymouth, IN", "Charlestown, IN","Sheridan, IN","Vincennes, IN", "Angola, IN","Loogootee, IN", "Walkerton, IN","Monticello, IN", "Bloomfield, IN", "Portland, IN", "Martinsville, IN", "Bluffton, IN", "Greentown, IN", "Bremen, IN", "Tell City, IN--KY", "Greensburg, IN", "Rensselaer, IN", "Lagrange, IN", "Shelbyville, IN", "Lowell, IN", "Syracuse, IN", "Corydon, IN", "Oakland City, IN", "Jasper, IN", "Middlebury, IN", "Dunkirk, IN", "Salem, IN", "Hartford City, IN", "Paoli, IN", "Rockville, IN", "North Manchester, IN", "De Motte, IN", "Rushville, IN", "Berne, IN", "Winchester, IN", "Bedford, IN", "Delphi, IN", "Washington, IN", "Brownstown, IN", "Knightstown, IN",  "Knox, IN", "Seymour, IN", "Ossian, IN", "Madison, IN--KY", "North Webster, IN", "New Castle, IN", "Huntingburg, IN","Boonville, IN", "Lawrenceburg--Greendale--Aurora, IN", "Upland, IN",  "North Vernon, IN", "Linton, IN", "Middletown, IN", "Frankfort, IN", "Mount Vernon, IN" , "Rochester, IN", "Ligonier, IN",  "Attica, IN", "Bicknell, IN", "Princeton, IN", "Sullivan, IN", "Winamac, IN", "Mitchell, IN",  "Clinton, IN","New Carlisle, IN", "Butler, IN", "Grissom AFB, IN", "Heritage Lake, IN")
+
+```
+
+
+
+
+
+
 
 
 
