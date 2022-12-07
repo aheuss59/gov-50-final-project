@@ -257,6 +257,62 @@ co_names <- c("Denver--Aurora, CO", "Lafayette--Louisville--Erie, CO", "Colorado
 
 ```
 
+```{r}
+ct <- data |> 
+  filter(State == "CT") 
+
+unique(ct$UA_NAME)
+
+ct_names <- c("New Haven, CT", "Hartford, CT", "Bridgeport--Stamford, CT--NY", "Norwich--New London, CT--RI","Danbury, CT--NY", "Torrington, CT", "Waterbury, CT", "Willimantic, CT", "Lake Pocotopaug--East Hampton, CT", "Colchester, CT", "Jewett City, CT", "Litchfield, CT", "Stafford Springs, CT", "Moodus, CT")
+
+```
+
+```{r}
+de <- data |> 
+  filter(State == "DE") 
+
+unique(de$UA_NAME)
+
+de_names <- c("Lewes, DE", "Millsboro, DE","Milton, DE", "Dover, DE", "Georgetown, DE", "Long Neck, DE", "Ocean View, DE", "Harrington, DE","Middletown, DE","Milford, DE", "Bridgeville, DE")
+
+```
+
+```{r}
+dc <- data |>
+  filter(State == "DC")
+
+unique(dc$UA_NAME)
+
+dc_names <- "Washington, DC--VA--MD"
+
+```
+
+```{r}
+fl <- data |>
+  filter(State == "FL")
+
+unique(fl$UA_NAME)
+
+fl_names <- c("Cape Coral, FL", "Miami, FL", "Palm Coast--Daytona Beach--Port Orange, FL", "Lady Lake--The Villages, FL", "Winter Haven, FL", "Tampa--St. Petersburg, FL", "Port St. Lucie, FL", "Okeechobee--Taylor Creek, FL", "Orlando, FL", "Jacksonville, FL", "Pensacola, FL--AL","Sarasota--Bradenton, FL","North Port--Port Charlotte, FL", "Ocala, FL", "Key Largo, FL", "Bonita Springs, FL", "Tallahassee, FL", "Starke, FL", "Panama City, FL", "Deltona, FL", "Kissimmee, FL", "Lakeland, FL",  "Sebastian--Vero Beach South--Florida Ridge, FL", "Gainesville, FL", "Lake City, FL", "Palm Bay--Melbourne, FL", "Fort Walton Beach--Navarre--Wright, FL", "Sugarmill Woods, FL", "Titusville, FL", "Perry, FL", "St. Augustine, FL", "Bonifay, FL", "Poinciana, FL", "Spring Hill, FL", "Quincy, FL", "Homosassa Springs--Beverly Hills--Citrus Springs, FL", "Key West, FL", "Crystal River, FL", "Yulee, FL", "Live Oak, FL", "Leesburg--Eustis--Tavares, FL", "Nassau Village-Ratliff, FL", "Woodville, FL", "Four Corners, FL", "Moore Haven, FL", "Zephyrhills, FL", "Sebring--Avon Park, FL", "Marianna, FL", "Lake Placid, FL", "Orangetree, FL", "Indiantown, FL", "Bushnell, FL", "Clewiston, FL", "LaBelle--Port LaBelle, FL", "Cross City, FL", "Palatka, FL", "High Springs, FL", "Arcadia--Southeast Arcadia, FL", "Pahokee, FL", "Fernandina Beach, FL", "Keystone Heights, FL", "Belle Glade, FL", "Chipley, FL", "Immokalee, FL", "Williston, FL", "Crestview, FL", "Jasper, FL", "De Funiak Springs, FL", "Frostproof, FL", "World Golf Village, FL", "Havana, FL", "Madison, FL", "Graceville, FL", "Macclenny, FL", "Chattahoochee, FL", "Apalachicola, FL", "Santa Rosa Beach, FL", "Lake Butler, FL", "Crescent City, FL", "Marathon, FL", "Blountstown, FL", "Interlachen, FL", "Alachua, FL", "Trenton, FL", "Port St. Joe, FL", "Crawfordville, FL", "Fort Meade, FL", "Wauchula, FL", "Marion Oaks, FL", "Lake Bryant, FL", "Century, FL--AL", "Big Pine Key, FL", "Fellsmere, FL", "Panama City Northeast, FL","Rainbow Lakes Estates, FL", "Lake Panasoffkee, FL", "Burnt Store Marina, FL", "Crooked Lake Park, FL", "Ridge Manor, FL")
+
+```
+
+```{r}
+ga <- data |>
+  filter(State == "GA")
+
+unique(ga$UA_NAME)
+
+ga_names <- c("Milledgeville, GA", "Atlanta, GA", "Dublin, GA", "Savannah, GA", "Waycross, GA", "Ocilla, GA", "Athens-Clarke County, GA", "Gainesville, GA", "Columbus, GA--AL", "Macon, GA", "St. Marys--Kingsland, GA", "Moultrie, GA", "Augusta-Richmond County, GA--SC", "Jesup, GA", "Valdosta, GA", "Metter, GA", "Brunswick, GA", "Blakely, GA", "Albany, GA", "Winder, GA","Homerville, GA", "Trenton, GA", "Cordele, GA","Jasper, GA", "Douglas, GA", "Nashville, GA", "Tifton, GA", "Dalton, GA", "LaGrange, GA", "Manchester, GA", "Folkston, GA", "Warner Robins, GA", "Vidalia, GA", "Cochran, GA", "Waynesboro, GA", "Thomasville, GA", "Rome, GA", "Hinesville, GA", "Sparta, GA", "Leesburg, GA", "Montezuma, GA", "Eastman, GA", "Clayton, GA","Louisville, GA", "Carrollton, GA", "Americus, GA", "Unadilla, GA","Lake Park, GA","Hartwell, GA", "Summerville, GA", "Monroe, GA", "Forsyth, GA", "Swainsboro, GA","Rockmart, GA", "Cleveland, GA","Camilla, GA", "Soperton, GA", "Barnesville, GA", "Calhoun, GA", "Cornelia--Baldwin, GA", "Sylvester, GA","Pelham, GA","Cartersville, GA","Harlem, GA","Toccoa, GA","Dahlonega, GA", "Thomaston, GA", "Elberton, GA", "St. Simons, GA", "Washington, GA", "Glennville, GA", "Jackson, GA", "Statesboro, GA", "Donalsonville, GA", "Rincon, GA", "Sylvania, GA", "Bainbridge, GA", "Fitzgerald, GA", "Blackshear, GA","Cairo, GA","Bremen, GA", "Quitman, GA", "McRae, GA", "Monticello, GA", "Lakeland, GA","Commerce, GA","Sandersville, GA", "Cedartown, GA", "Hazlehurst, GA", "Jefferson, GA", "Wrightsville, GA", "Adel, GA", "Thomson, GA", "Baxley, GA", "Hawkinsville, GA", "Claxton, GA", "Millen, GA", "Cuthbert, GA", "Dawson, GA", "Social Circle, GA", "Madison, GA", "Alma, GA", "LaFayette, GA", "Fort Valley, GA", "Gray, GA", "Ellijay, GA", "Reidsville, GA", "Eatonton, GA", "Ashburn, GA", "Springfield, GA","Darien, GA", "Royston, GA", "Tybee Island, GA", "Vienna, GA", "Greensboro, GA", "Lula, GA", "Grantville, GA", "Buckhead (Bryan County), GA", "Nelson, GA")
+
+```
+
+
+
+
+
+
+
 ```{r, include = FALSE}
 data_not_college_town <- data |>
   filter(college_town == 0)
