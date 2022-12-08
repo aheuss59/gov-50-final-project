@@ -348,12 +348,96 @@ in_names <- c("Richmond, IN--OH", "Lafayette, IN", "Indianapolis, IN", "Elkhart,
 
 ```
 
+```{r}
+ia <- data |>
+  filter(State == "IA")
+
+unique(ia$UA_NAME)
+
+ia_names <- c("Des Moines, IA", "Osage, IA", "Rock Valley, IA", "Ames, IA", "Burlington, IA--IL", "Iowa City, IA", "Sioux City, IA--NE--SD", "Humboldt, IA", "Cedar Rapids, IA","De Witt, IA","Bellevue, IA",  "Estherville, IA", "Decorah, IA", "Clarinda, IA", "Carroll, IA", "Wilton, IA", "Indianola, IA", "Davenport, IA--IL", "Boone, IA", "Washington, IA", "Forest City, IA", "Waterloo, IA", "Albia, IA", "Shenandoah, IA", "Waukon, IA", "Waverly, IA", "Eagle Grove, IA", "Garner, IA", "Ottumwa, IA", "Sheldon, IA", "Dyersville, IA", "Clear Lake, IA", "Mount Vernon, IA", "Spencer, IA", "Muscatine, IA", "Pella, IA", "Dubuque, IA--IL", "Creston, IA", "Spirit Lake, IA", "Mount Pleasant, IA", "Nevada, IA", "Jefferson, IA", "Onawa, IA", "Fort Madison, IA--IL", "Newton, IA", "Cresco, IA", "Perry, IA", "Anamosa, IA", "Grinnell, IA", "Fort Dodge, IA", "West Liberty, IA", "Maquoketa, IA", "Clarion, IA", "Winterset, IA", "Algona, IA", "Story City, IA", "Oelwein, IA", "Denison, IA", "Keokuk, IA--IL", "Knoxville, IA", "Tama, IA", "Charles City, IA", "Marshalltown, IA", "Oskaloosa, IA", "Fairfield, IA", "Glenwood, IA", "Hampton, IA", "Tipton, IA", "Centerville, IA", "Red Oak, IA", "Osceola, IA", "Clinton, IA--IL", "Harlan, IA", "Huxley, IA", "Cherokee, IA", "Monticello, IA", "Mason City, IA", "Vinton, IA","Adel, IA","Storm Lake, IA","Webster City, IA", "Atlantic, IA", "Le Mars, IA", "Iowa Falls, IA", "Sioux Center, IA", "Independence, IA", "Manchester, IA", "Sibley, IA", "Orange City, IA", "Polk City, IA", "Chariton, IA","Carlisle, IA","Emmetsburg, IA", "Williamsburg, IA", "New Hampton, IA", "Missouri Valley, IA")
+```
 
 
+```{r}
+ks <- data |>
+  filter(State == "KS")
+
+unique(ks$UA_NAME)
+
+ks_names <- c("Kansas City, MO--KS", "Wichita, KS", "Topeka, KS", "Hays, KS", "Leavenworth, KS", "Pittsburg, KS", "Junction City, KS", "Manhattan, KS", "Scott City, KS", "El Dorado, KS", "Chanute, KS", "Atchison, KS--MO", "Hesston, KS","Dodge City, KS", "Garden City, KS","Lawrence, KS", "Great Bend, KS", "Clay Center, KS", "Baldwin City, KS", "Abilene, KS","Tonganoxie, KS", "Hiawatha, KS", "Wamego, KS", "Baxter Springs, KS", "Paola, KS", "McPherson, KS", "Liberal, KS", "Salina, KS", "Basehor, KS", "Girard, KS", "Russell, KS", "Lindsborg, KS", "Parsons, KS", "Wellington, KS", "Arkansas City, KS", "Larned, KS", "Hutchinson, KS", "Eudora, KS", "Independence, KS", "Ottawa, KS", "Kingman, KS", "Newton, KS", "Emporia, KS", "Colby, KS", "Hillsboro, KS", "Phillipsburg, KS", "Columbus, KS", "Concordia, KS", "Goodland, KS", "Marysville, KS", "Neodesha, KS", "Garnett, KS", "Augusta, KS", "Rose Hill, KS", "Iola, KS",  "Fort Scott, KS", "Beloit, KS", "Hugoton, KS", "Pratt, KS", "Winfield, KS", "Norton, KS", "Burlington, KS", "Lyons, KS", "Coffeyville, KS--OK", "Ulysses, KS", "Spring Hill, KS", "De Soto, KS", "Louisburg, KS", "Holton, KS", "Sabetha, KS", "Ellsworth, KS", "Eureka, KS", "Galena, KS--MO", "Osage City, KS", "Hoisington, KS", "Osawatomie, KS", "St. Marys, KS")
 
 
+```
+
+```{r}
+ky <- data |>
+  filter(State == "KY")
+
+unique(ky$UA_NAME)
+
+ky_names <- c("Bardstown, KY", "Benton, KY", "Louisville/Jefferson County, KY--IN", "London--Corbin, KY", "Maysville, KY--OH", "Paducah, KY--IL", "Elizabethtown--Radcliff, KY", "Russellville, KY", "Hopkinsville, KY", "Nicholasville, KY", "Hazard, KY", "Central City--Greenville, KY", "Middlesborough, KY--TN--VA", "Murray, KY", "Lexington-Fayette, KY", "Frankfort, KY", "Louisa, KY--WV", "Bowling Green, KY", "Evarts, KY", "Georgetown, KY", "Danville, KY", "Madisonville, KY", "Scottsville, KY", "Winchester, KY", "Owensboro, KY", "Prestonsburg, KY", "Richmond, KY", "Cynthiana, KY", "Lebanon, KY", "Berea, KY", "Pikeville, KY", "Williamsburg, KY","Flemingsburg, KY", "Shelbyville, KY", "Williamstown, KY", "Harrodsburg, KY", "Paintsville, KY", "Lancaster, KY", "Morganfield, KY", "Mayfield, KY", "Glasgow, KY", "Princeton, KY", "Stanford, KY",  "Cumberland, KY", "Jackson, KY", "Somerset, KY", "Morehead, KY", "Carrollton, KY", "Columbia, KY", "Fulton, KY--TN", "Campbellsville, KY", "Barbourville, KY", "Mount Sterling, KY", "Manchester, KY", "Monticello, KY", "Lawrenceburg, KY", "Leitchfield, KY", "Wilmore, KY", "Beaver Dam, KY", "Marion, KY", "Paris, KY", "Versailles, KY", "Harlan, KY", "Franklin, KY", "Grayson, KY", "Stanton, KY", "Hodgenville, KY" ,"Horse Cave, KY", "Mount Vernon, KY", "Irvine, KY", "Crittenden, KY", "Cadiz, KY")
+
+```
+
+```{r}
+la <- data |>
+  filter(State == "LA")
+
+unique(la$UA_NAME)
+
+la_names <- c("Lafayette, LA", "Baton Rouge, LA", "Shreveport, LA", "Houma, LA", "New Orleans, LA", "Lake Charles, LA", "Natchitoches, LA", "DeRidder, LA", "Hammond, LA", "Crowley, LA", "Slidell, LA", "Monroe, LA", "Bogalusa, LA", "Mandeville--Covington, LA", "Amite City, LA", "Bastrop, LA", "Galliano--Larose--Cut Off, LA", "Breaux Bridge, LA", "Opelousas, LA", "Vinton, LA", "Alexandria, LA", "St. Martinville, LA", "Leesville, LA" , "Eunice, LA", "Fort Polk, LA", "Oakdale, LA", "Delhi, LA", "Jeanerette, LA", "Abbeville, LA", "Jennings, LA", "New Roads, LA", "Gramercy--Lutcher, LA", "Farmerville, LA", "Minden, LA", "Iowa, LA", "Pierre Part, LA", "Benton, LA", "Sunset, LA", "Donaldsonville, LA", "DeQuincy, LA", "Ruston, LA",  "Marksville, LA", "Morgan City, LA", "Tallulah, LA", "Cottonport, LA", "Jean Lafitte, LA", "Winnfield, LA" , "Franklinton, LA", "Port Barre, LA", "Livonia, LA", "Vivian, LA", "Springhill, LA", "Winnsboro, LA", "Homer, LA","Jena, LA", "Bunkie, LA", "Arcadia, LA", "Franklin, LA", "Welsh, LA", "Many, LA", "Church Point, LA", "Mansfield, LA", "Jonesboro, LA", "Rayville, LA", "Kaplan, LA", "Rayne, LA", "Ville Platte, LA", "Ferriday, LA", "Lake Arthur, LA", "Lake Providence, LA", "Buras, LA", "Mamou, LA")
+
+```
+
+```{r}
+me <- data |>
+  filter(State == "ME")
+
+unique(me$UA_NAME)
+
+me_names <- c("Lewiston, ME", "Waterville, ME", "Camden, ME",  "Portland, ME", "Bangor, ME" , "Calais, ME", "Ellsworth, ME", "Belfast, ME", "Augusta, ME", "Brunswick, ME", "Houlton, ME", "Presque Isle, ME", "Skowhegan, ME", "Bar Harbor, ME", "Millinocket, ME", "Sanford, ME",  "Caribou, ME",  "Rumford, ME", "Livermore Falls, ME", "Rockland, ME", "Pittsfield, ME", "South Paris, ME", "Kennebunk, ME", "Farmington, ME")
 
 
+```
+
+```{r}
+md <- data |>
+  filter(State == "MD")
+
+unique(md$UA_NAME)
+
+md_names <- c("Baltimore, MD", "Ocean Pines, MD--DE", "Lexington Park--California--Chesapeake Ranch Estates, MD",  "Hagerstown, MD--WV--PA", "Westminster--Eldersburg, MD", "Mountain Lake Park, MD", "Cambridge, MD", "Waldorf, MD", "Crisfield, MD", "Aberdeen--Bel Air South--Bel Air North, MD", "Easton, MD", "Salisbury, MD--DE", "Thurmont, MD", "Frederick, MD", "Leonardtown, MD", "Prince Frederick, MD", "Emmitsburg, MD--PA", "Cumberland, MD--WV--PA", "Taneytown, MD", "Chestertown, MD", "Federalsburg, MD", "Westernport, MD--WV", "Glenwood, MD", "Shady Side--Deale, MD", "Denton, MD", "Princess Anne, MD", "Brunswick, MD--VA", "Chesapeake Beach, MD", "Poolesville, MD","Pocomoke City, MD","Centreville, MD", "Manchester, MD", "Long Beach, MD", "Romancoke, MD")
+
+```
+
+```{r}
+ma <- data |>
+  filter(State == "MA")
+
+unique(ma$UA_NAME)
+
+ma_names <- c("Springfield, MA--CT", "Worcester, MA--CT", "Boston, MA--NH--RI", "Barnstable Town, MA", "New Bedford, MA", "Pittsfield, MA", "Leominster--Fitchburg, MA", "South Deerfield, MA", "Ware, MA", "Lee, MA", "Great Barrington, MA", "Greenfield, MA", "North Adams, MA--VT", "North Brookfield, MA", "Athol, MA", "Vineyard Haven, MA", "Provincetown, MA", "Nantucket, MA")
+
+```
+
+```{r}
+mi <- data |>
+  filter(State == "MI")
+
+unique(mi$UA_NAME)
+
+mi_names <- c("Detroit, MI", "Port Huron, MI", "Grand Rapids, MI", "Ann Arbor, MI", "Fowlerville, MI", "Jackson, MI", "Alpena, MI", "Kalamazoo, MI", "Flint, MI", "Traverse City, MI", "Sturgis, MI", "Lansing, MI", "Lapeer, MI" ,"Bay City, MI", "Big Rapids, MI", "Muskegon, MI", "Iron River, MI", "South Haven, MI", "Frankenmuth, MI", "Saginaw, MI", "Benton Harbor--St. Joseph--Fair Plain, MI", "Mount Pleasant, MI", "Houghton Lake, MI", "Hastings, MI", "Escanaba, MI", "Monroe, MI", "Midland, MI", "South Lyon--Howell, MI", "Munising, MI","Belding, MI", "Dorr, MI", "Three Rivers, MI", "Marshall, MI", "Chelsea, MI","Williamston, MI","Clare, MI","Sault Ste. Marie, MI", "Coldwater, MI", "Holland, MI", "Milan, MI", "East Tawas, MI","Marquette, MI", "Charlevoix, MI", "Grayling, MI","Hart, MI","Gladwin, MI","Houghton, MI", "Paw Paw Lake--Hartford, MI","Goodrich, MI", "Battle Creek, MI", "Allegan, MI", "Adrian, MI", "Bad Axe, MI", "Eaton Rapids, MI", "Ionia, MI", "Otsego--Plainwell, MI", "Imlay City, MI", "Gaylord, MI", "Kalkaska, MI", "Ironwood, MI--WI", "Paw Paw, MI","Greenville, MI", "Cheboygan, MI", "Harrison, MI", "Charlotte, MI","Sparta, MI", "Petoskey, MI" ,"Manistique, MI", "Albion, MI","Durand, MI", "Hillsdale, MI", "Berrien Springs, MI", "Brooklyn, MI", "Dowagiac, MI", "Vassar, MI", "Caro, MI", "Perry, MI","Owosso, MI", "Newberry, MI","Whitehall, MI", "Ishpeming, MI","Richmond, MI","Almont, MI","Newaygo, MI", "Portland, MI", "Manistee, MI", "Douglas, MI", "Cadillac, MI", "Laurium, MI", "Iron Mountain--Kingsford, MI--WI", "Dundee, MI", "Alma--St. Louis, MI", "St. Johns, MI", "Middleville, MI", "Blissfield, MI", "Constantine, MI", "Au Sable, MI", "St. Ignace, MI", "Holly, MI", "Fremont, MI", "Boyne City, MI", "Coopersville, MI", "Wayland, MI", "Rogers City, MI", "Lowell, MI", "Ludington, MI","Sandusky, MI", "Gun Lake, MI", "Kinross, MI", "Cedar Springs, MI", "Somerset, MI")
+```
+
+```{r}
+mn <- data |>
+  filter(State == "MN")
+
+unique(mn$UA_NAME)
+
+mn_names <- c("Minneapolis--St. Paul, MN--WI","Delano, MN","Le Sueur, MN", "Norwood Young America, MN","Rochester, MN","Virginia, MN","Waseca, MN","Monticello--Big Lake, MN","Brainerd, MN", "Faribault, MN","Winona, MN", "St. Cloud, MN", "St. Francis, MN", "Annandale, MN","Cambridge, MN","Pine Island, MN", "Crookston, MN", "Grand Rapids, MN", "Litchfield, MN", "Fergus Falls, MN", "Morris, MN",  "Hibbing, MN", "Mora, MN", "Two Harbors, MN",  "Duluth, MN--WI","Perham, MN", "St. James, MN", "Belle Plaine, MN", "Hutchinson, MN", "Stewartville, MN", "Marshall, MN","Jackson, MN","Long Prairie, MN","Mankato, MN","Waconia, MN","Windom, MN","Fairmont, MN","Wadena, MN","Albert Lea, MN","Cloquet, MN","Northfield, MN", "Bemidji, MN", "Cannon Falls, MN","Dodge Center, MN", "Montgomery, MN", "Buffalo, MN","Cokato, MN","Redwood Falls, MN","Pipestone, MN","Park Rapids, MN", "International Falls, MN", "Zimmerman, MN", "Owatonna, MN","Lake City, MN", "Cold Spring, MN", "Little Falls, MN", "Forest Lake, MN", "Hastings, MN","New Ulm, MN", "Chisholm, MN","Luverne, MN","Granite Falls, MN", "Becker, MN", "St. Charles, MN","Pine City, MN","Austin, MN", "St. Peter, MN","Alexandria, MN", "New Prague, MN", "Sauk Centre, MN","Red Wing, MN","Zumbrota, MN", "Thief River Falls, MN",  "Roseau, MN", "Kasson, MN","Lindstrom--Chisago City, MN","Plainview, MN", "Crosby, MN","Worthington, MN", "Sleepy Eye, MN","North Branch, MN","Princeton, MN", "Willmar, MN", "Chatfield, MN", "Benson, MN", "Detroit Lakes, MN", "Ely, MN",  "Watertown, MN","Melrose, MN",  "Caledonia, MN", "Staples, MN", "Lonsdale, MN", "Byron, MN", "Moose Lake, MN", "Montevideo, MN", "Jordan, MN", "Glencoe, MN","Rush City, MN","Montrose, MN","Rockford, MN", "Elko New Market, MN" , "Lake Crystal, MN", "Albany, MN", "New London, MN","Milaca, MN","Blue Earth, MN")
+
+```
 
 
 
