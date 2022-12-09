@@ -439,6 +439,209 @@ mn_names <- c("Minneapolis--St. Paul, MN--WI","Delano, MN","Le Sueur, MN", "Norw
 
 ```
 
+```{r}
+ms <- data |>
+  filter(State == "MS")
+
+unique(ms$UA_NAME)
+
+ms_names <- c("Pascagoula, MS", "Vicksburg, MS--LA", "Jackson, MS", "Laurel, MS", "Meridian, MS", "West Point, MS", "Gulfport, MS", "Belzoni, MS", "Indianola, MS", "Hattiesburg, MS", "Natchez, MS--LA",  "Magee, MS", "Columbia, MS", "Columbus, MS", "Grenada, MS", "New Albany, MS",  "Picayune, MS", "Booneville, MS", "Starkville, MS",  "Clarksdale, MS", "McComb, MS", "Greenville, MS","Tupelo, MS", "Water Valley, MS", "Carthage, MS", "Yazoo City, MS", "Philadelphia, MS", "Brookhaven, MS", "Ruleville, MS", "Columbus AFB, MS", "Raymond, MS",  "Durant, MS", "Moorhead, MS", "Corinth, MS", "Oxford, MS", "Greenwood, MS", "Senatobia, MS", "Tunica, MS", "Gautier, MS",  "Houston, MS", "Waynesboro, MS",  "Newton, MS", "Saltillo, MS", "Pontotoc, MS", "Kosciusko, MS", "Amory, MS","Morton, MS", "Cleveland, MS", "Batesville, MS", "Charleston, MS", "Ripley, MS", "Canton, MS",  "Fulton, MS", "Forest, MS", "Lucedale, MS",  "Marks, MS", "Hazlehurst, MS", "Diamondhead, MS", "Winona, MS", "Aberdeen, MS",  "Louisville, MS",  "Leland, MS", "Wiggins, MS", "Holly Springs, MS", "Crystal Springs, MS", "Macon, MS", "Hollandale, MS", "Itta Bena, MS")
+
+```
+
+```{r}
+mo <- data |>
+  filter(State == "MO")
+
+unique(mo$UA_NAME)
+
+
+mo_names <- c("Osage Beach, MO", "St. Louis, MO--IL", "Louisiana, MO",  "Carthage, MO", "Cape Girardeau, MO--IL", "Branson, MO", "Rolla, MO", "Ironton, MO", "Jefferson City, MO", "Washington, MO",  "Joplin, MO", "Kansas City, MO--KS", "Springfield, MO", "Kennett, MO", "Columbia, MO", "Fort Leonard Wood, MO", "Platte City, MO",  "Pacific, MO", "Ashland, MO" ,"Lebanon, MO", "Aurora, MO", "St. Clair, MO", "St. Joseph, MO--KS",  "Chillicothe, MO", "California, MO", "Farmington, MO", "Clinton, MO", "Odessa, MO",  "Pleasant Hill, MO", "Savannah, MO", "Warsaw, MO", "Troy, MO",  "Rogersville, MO", "Hannibal, MO", "Mount Vernon, MO", "New Madrid, MO",  "Warrenton, MO", "Union, MO", "Lee's Summit, MO", "Fayetteville--Springdale--Rogers, AR--MO","Gulfport, MS", "Scott City, MO", "Cassville, MO", "Sedalia, MO", "Mountain Grove, MO", "Montgomery City, MO" , "Dexter, MO", "Butler, MO", "Harrisonville, MO", "El Dorado Springs, MO",  "Moberly, MO", "Whiteman AFB, MO", "Hillsboro, MO", "Forsyth, MO", "Eureka, MO", "Poplar Bluff, MO", "Willard, MO", "Ava, MO",  "Mexico, MO", "Sullivan, MO", "Richmond, MO", "Marshfield, MO",  "Kirksville, MO", "Maryville, MO",  "Fayette, MO", "Trenton, MO", "Buffalo, MO", "Owensville, MO", "Kearney, MO", "Wright City, MO",  "Brookfield, MO",  "Buckner, MO",  "Charleston, MO", "Salem, MO",  "Cuba, MO", "Vandalia, MO", "Bolivar, MO", "Neosho, MO", "Palmyra, MO", "St. James, MO",  "Sikeston, MO", "Monett, MO", "West Plains, MO", "De Soto, MO", "Perryville, MO", "Potosi, MO", "Warrensburg, MO", "Ste. Genevieve, MO",  "Higginsville, MO", "Fulton, MO", "Fredericktown, MO", "Bowling Green, MO", "Nevada, MO", "East Prairie, MO", "Kimberling City, MO", "Caruthersville, MO", "Tipton, MO", "Macon, MO",  "Lexington, MO","Eldon, MO", "Excelsior Springs, MO","Malden, MO", "Marshall, MO", "Centralia, MO", "Thayer, MO--AR" , "Camdenton, MO", "Carrollton, MO", "Cameron, MO", "Boonville, MO", "Bethany, MO", "Windsor, MO", "Lamar, MO", "Village of Four Seasons, MO", "Chaffee, MO", "Portageville, MO")
+
+```
+
+```{r}
+mt <- data |>
+  filter(State == "MT")
+
+unique(mt$UA_NAME)
+
+mt_names <- c("Billings, MT", "Great Falls, MT",  "Glendive, MT", "Helena, MT",  "Anaconda-Deer Lodge County, MT", "Butte-Silver Bow, MT",  "Missoula, MT", "Havre, MT", "Belgrade, MT",  "Columbia Falls, MT",  "Cut Bank, MT", "Polson, MT",  "Four Corners, MT" , "Libby, MT", "Kalispell, MT", "Laurel, MT", "Dillon, MT", "Bozeman, MT", "Browning, MT", "Glasgow, MT", "Lolo, MT", "Whitefish, MT", "Conrad, MT",  "Shelby, MT", "Lewistown, MT", "Hamilton, MT","Hardin, MT", "Wolf Point, MT", "Miles City, MT","Sidney, MT",  "Livingston, MT", "Deer Lodge, MT","Poplar, MT")
+
+```
+
+```{r}
+ne <- data |>
+  filter(State == "NE")
+
+unique(ne$UA_NAME)
+
+ne_names <- c("Omaha, NE--IA","Fremont, NE","Hastings, NE", "Columbus, NE", "Lincoln, NE", "Grand Island, NE", "Valentine, NE","Sidney, NE", "Aurora, NE", "Scottsbluff, NE", "Nebraska City, NE", "Norfolk, NE", "West Point, NE", "Lexington, NE", "Kearney, NE","Chadron, NE", "Cozad, NE", "Gothenburg, NE", "Falls City, NE",  "North Platte, NE", "Plattsmouth, NE", "Broken Bow, NE", "Blair, NE", "Seward, NE", "David City, NE", "Ashland, NE", "O'Neill, NE", "Wayne, NE", "Beatrice, NE","Minden, NE", "Holdrege, NE", "Fairbury, NE", "Central City, NE", "Waverly, NE", "Alliance, NE", "Auburn, NE", "Wahoo, NE","Crete, NE", "McCook, NE", "Schuyler, NE", "York, NE", "Ogallala, NE")
+
+```
+```{r}
+nv <- data |>
+  filter(State == "NV")
+
+unique(nv$UA_NAME)
+
+nv_names <- c("Las Vegas--Henderson, NV", "Reno, NV--CA", "Winnemucca, NV", "Carson City, NV","Pahrump, NV", "Gardnerville Ranchos, NV", "Dayton, NV", "Elko, NV",  "Ely, NV", "Fernley, NV", "Boulder City, NV", "Fallon, NV", "Mesquite, NV--AZ",  "Moapa Valley, NV", "Battle Mountain, NV", "Spring Creek South, NV", "Hawthorne, NV", "West Wendover, NV--UT", "Incline Village, NV--CA", "Yerington, NV", "Laughlin, NV", "Washoe Valley, NV")
+
+```
+
+```{r}
+nh <- data |>
+  filter(State == "NH")
+
+unique(nh$UA_NAME)
+
+nh_names <- c("Claremont, NH", "Manchester, NH", "Keene, NH", "Nashua, NH--MA" , "Franklin, NH", "Concord, NH", "Hillsborough, NH", "Portsmouth, NH--ME", "Laconia, NH", "Newport, NH", "Berlin, NH", "Lebanon--Hanover, NH--VT","Dover--Rochester, NH--ME", "Plymouth, NH", "Jaffrey, NH", "Peterborough, NH", "Farmington, NH", "Epping, NH", "Charlestown, NH", "Littleton, NH", "North Conway, NH")
+
+```
+
+```{r}
+nj <- data |>
+  filter(State == "NJ")
+
+unique(nj$UA_NAME)
+
+nj_names <- c("Trenton, NJ", "Atlantic City, NJ", "Twin Rivers--Hightstown, NJ", "Franklin--Highland Lake, NJ", "Vineland, NJ", "Villas, NJ", "Bridgeton, NJ", "Browns Mills--Fort Dix, NJ", "Woodstown, NJ", "Jefferson Township North, NJ", "Mystic Island, NJ", "Salem, NJ", "Hammonton, NJ", "Washington, NJ", "Newton, NJ", "Milford, NJ--PA", "Belvidere, NJ--PA", "Upper Greenwood Lake, NJ", "Hardyston Township West, NJ")
+```
+
+```{r}
+ny <- data |>
+  filter(State == "NY")
+
+unique(ny$UA_NAME)
+
+ny_names <- c("New York--Newark, NY--NJ--CT", "Oswego, NY", "Rochester, NY", "Hamilton, NY", "Buffalo, NY", "Poughkeepsie--Newburgh, NY--NJ", "Liberty, NY", "Albany--Schenectady, NY", "Syracuse, NY", "Watertown, NY", "Middletown, NY", "Cobleskill, NY", "Binghamton, NY--PA", "Adams, NY", "Gowanda, NY", "Plattsburgh, NY", "Elmira, NY", "Warrensburg, NY", "Delhi, NY", "Salamanca, NY", "Lockport, NY", "Batavia, NY", "Jamestown, NY", "Cortland, NY", "Corinth, NY", "Oneonta, NY", "East Aurora, NY", "Avon, NY", "Geneseo, NY",  "Sodus, NY", "Springville, NY",  "Saratoga Springs, NY", "Fort Plain, NY", "Catskill, NY", "Chester, NY", "Ithaca, NY", "Hudson, NY", "Valatie, NY", "Ellenville, NY", "Perry, NY", "Red Hook, NY", "Little Falls, NY", "Corning, NY", "Glens Falls, NY", "Chittenango, NY", "Ilion--Herkimer, NY" ,"Massena, NY", "Utica, NY" , "Medina, NY", "Olean, NY", "Hornell, NY", "Newark, NY", "Lake Placid, NY", "Dryden, NY", "Potsdam, NY", "Gloversville, NY", "Auburn, NY", "Watchtower, NY","Amsterdam, NY", "Sidney, NY", "Penn Yan, NY", "Wellsville, NY", "Warwick, NY", "Canton, NY", "Maybrook, NY", "Geneva, NY", "Monticello, NY",  "Albion, NY", "Bath, NY", "Owego, NY", "West Point, NY", "Dansville, NY", "Kingston, NY", "Dunkirk--Fredonia, NY", "Saranac Lake, NY", "Oneida, NY", "Norwich, NY", "Palmyra, NY", "Brockport, NY","Walden, NY", "Cazenovia, NY",  "Lowville, NY",  "Rome, NY", "Watkins Glen, NY", "Ravena, NY" , "Gouverneur, NY", "Granville, NY--VT", "Le Roy, NY", "Mount Morris, NY", "Ogdensburg, NY", "Ticonderoga, NY", "Walton, NY", "Silver Creek, NY", "Tupper Lake, NY", "Westfield, NY", "Conesus Lake, NY", "Sylvan Beach, NY", "Clifton Springs, NY",  "Churchville, NY", "Southold, NY", "Malone, NY", "Port Jervis, NY--PA", "Cold Spring, NY","Weedsport, NY",  "Honeoye Falls, NY", "Attica, NY", "Warsaw, NY", "Arcade, NY", "Montauk, NY", "Springs, NY", "Alfred, NY", "Newfane, NY", "Walworth, NY", "Otisville, NY", "Rhinebeck, NY", "Wurtsboro, NY", "Akron, NY", "Bedford, NY", "Skaneateles, NY", "Coxsackie, NY", "Hoosick Falls, NY", "South Fallsburg, NY", "Greenwich, NY")
+
+```
+
+```{r}
+nc <- data |>
+  filter(State == "NC")
+
+unique(nc$UA_NAME)
+
+nc_names <- c("Charlotte, NC--SC", "Farmville, NC", "Asheville, NC", "Durham, NC", "Raleigh, NC", "Sanford, NC", "Elizabeth City, NC", "Wilmington, NC", "Greensboro, NC", "Greenville, NC", "Fayetteville, NC", "North Wilkesboro--Wilkesboro, NC", "High Point, NC", "Burlington, NC", "Winston-Salem, NC", "Maiden, NC", "Kinston, NC", "Lumberton, NC", "Roanoke Rapids, NC", "Gastonia, NC--SC", "Jacksonville, NC", "Wilson, NC", "Rocky Mount, NC",  "Swansboro, NC", "Hickory, NC", "Pembroke, NC", "Williamston, NC", "Marion, NC", "Smithfield, NC", "Cullowhee, NC", "Tarboro, NC", "Murfreesboro, NC", "Whiteville, NC", "Boone, NC", "Forest City, NC", "New Bern, NC", "Concord, NC", "Brevard, NC", "Boiling Springs, NC",  "Albemarle, NC", "Elkin, NC", "Burgaw, NC", "Havelock, NC", "Shelby, NC", "Kill Devil Hills, NC", "Oak Island, NC",  "Goldsboro, NC", "Buies Creek, NC", "Rockingham--Hamlet, NC", "Locust, NC", "Ahoskie, NC", "Lincolnton, NC", "Morehead City, NC",  "Eden, NC", "Elizabethtown, NC", "Wendell--Zebulon, NC", "Butner, NC", "Taylorsville, NC",  "Richlands South, NC",  "Mocksville, NC", "Fairmont, NC", "Archer Lodge--Clayton, NC", "Asheboro, NC", "Pinehurst--Southern Pines, NC", "Reidsville, NC", "Red Springs, NC", "Laurinburg, NC", "Washington, NC", "Mount Airy, NC--VA", "Siler City, NC", "Jefferson, NC", "Mayodan, NC", "Plymouth, NC", "Spout Springs, NC", "Enfield, NC","Seven Lakes, NC", "Benson, NC", "Henderson, NC" , "Tabor City, NC--SC", "Roxboro, NC", "Franklin, NC", "Troy, NC", "Edenton, NC",  "Yadkinville, NC", "Dunn, NC",   "Mount Olive, NC", "Wadesboro, NC", "Cherryville, NC", "Lake Norman of Catawba, NC", "Clinton, NC", "Louisburg, NC",  "Manteo, NC", "Oxford, NC", "Wallace, NC",  "Pittsboro, NC", "Biscoe, NC", "Ramseur, NC", "St. Pauls, NC", "La Grange, NC", "Grifton, NC", "Windsor, NC", "Hampstead, NC", "Lillington, NC", "Spruce Pine, NC", "Warsaw, NC", "Sneads Ferry, NC", "Whispering Pines, NC", "Holden Beach, NC", "Fearrington Village, NC")
+
+
+```
+
+```{r}
+nd <- data |>
+  filter(State == "ND")
+
+unique(nd$UA_NAME)
+
+nd_names <- c("Grand Forks, ND--MN", "Minot, ND", "Fargo, ND--MN", "Dickinson, ND", "Wahpeton, ND--MN", "Bismarck, ND", "Jamestown, ND", "Grafton, ND", "Grand Forks AFB, ND", "Williston, ND", "Beulah, ND", "Devils Lake, ND", "Valley City, ND", "Minot AFB, ND", "Rugby, ND", "Lincoln, ND")
+```
+```{r}
+nm <- data |>
+  filter(State == "NM")
+
+unique(nm$UA_NAME)
+
+nm_names <- c("Los Lunas, NM", "Roswell, NM", "Las Cruces, NM", "Albuquerque, NM", "Hobbs, NM", "Farmington, NM", "Raton, NM", "Carlsbad, NM", "Santa Fe, NM" , "Artesia, NM", "Taos, NM" , "Truth or Consequences, NM", "Clovis, NM", "Chaparral, NM", "Ruidoso, NM", "Los Alamos, NM", "Eunice, NM", "Espanola, NM", "Deming, NM", "Grants, NM", "Gallup, NM", "Las Vegas, NM",  "Lovington, NM",  "Alamogordo, NM", "Tucumcari, NM", "Tularosa, NM", "Aztec, NM", "Socorro, NM", "Santa Rosa, NM", "Kirtland, NM", "Portales, NM", "Bloomfield, NM",  "Pojoaque, NM", "Shiprock, NM", "Silver City, NM", "Edgewood, NM", "Holloman AFB, NM", "Bayard, NM", "Zuni Pueblo, NM", "White Rock, NM", "Eldorado at Santa Fe, NM")
+
+```
+
+```{r}
+oh <- data |>
+  filter(State == "OH")
+
+unique(oh$UA_NAME)
+
+oh_names <- c("Springfield, OH", "Columbus, OH", "Akron, OH", "Dayton, OH", "Mansfield, OH",  "Toledo, OH--MI",  "Middletown, OH", "Lima, OH", "Russells Point, OH", "Cincinnati, OH--KY--IN", "Youngstown, OH--PA" , "Kenton, OH", "Eaton, OH", "Carey, OH",  "Sandusky, OH", "Marysville, OH",  "Portsmouth, OH--KY", "Minerva, OH", "Salem, OH", "East Liverpool, OH--WV--PA", "Marietta, OH--WV", "Lorain--Elyria, OH", "Hicksville, OH", "Zanesville, OH", "Canton, OH", "New Philadelphia--Dover, OH", "Wooster, OH", "Ashland, OH", "Findlay, OH",  "Newark, OH", "New Lebanon, OH", "Chillicothe, OH", "Alliance, OH", "Ashtabula, OH", "Waverly City, OH", "Marion, OH", "Jefferson, OH", "Lancaster, OH", "Cambridge, OH", "Bellefontaine, OH", "Paulding, OH", "Bryan, OH", "Delphos, OH", "Mount Vernon, OH", "Bowling Green, OH", "Lodi, OH", "Circleville, OH", "Wapakoneta, OH", "Napoleon, OH", "Ada, OH", "Oberlin, OH", "Wellington, OH", "Piqua, OH", "Defiance, OH", "Glouster, OH", "Lucasville, OH", "Jackson--Wellston, OH", "Middlefield, OH", "St. Marys, OH", "Archbold, OH", "Tiffin, OH", "West Lafayette, OH", "Caldwell, OH", "Wauseon, OH" ,  "Shelby, OH", "Oak Harbor, OH", "Cedarville, OH", "Greenfield, OH", "New Lexington, OH", "Covington, OH", "Wilmington, OH", "Willard, OH", "Oxford, OH", "Port Clinton, OH","Bucyrus, OH", "Bethel, OH", "Carrollton, OH", "Sidney, OH", "New Bremen--Minster, OH" , "Hillsboro, OH", "Millersburg, OH",  "Fremont, OH",  "Columbiana, OH", "Orrville, OH", "Clyde, OH", "Nelsonville, OH", "McConnelsville, OH", "Barnesville, OH",  "Newcomerstown, OH", "Athens, OH", "Delta, OH", "Logan, OH", "Blanchester, OH" ,  "Crooksville, OH", "Greenville, OH","Celina, OH", "Bolivar, OH","Geneva, OH", "Galion, OH",  "Versailles, OH", "Ashville, OH", "Norwalk, OH", "LaGrange, OH", "Baltimore, OH","Coshocton, OH", "Georgetown, OH", "Sabina, OH", "Garrettsville, OH", "Johnstown, OH", "Montpelier, OH", "Point Pleasant--Gallipolis, OH--WV", "Dalton, OH", "Seville, OH", "Upper Sandusky, OH", "Mount Gilead, OH", "West Jefferson, OH" , "Harrison, OH--IN","North Baltimore, OH", "Ottawa, OH", "Washington Court House, OH", "New Concord, OH", "Chardon, OH", "London, OH", "Coldwater, OH", "Jamestown, OH", "Genoa, OH",  "Plain City, OH", "East Palestine, OH", "Bellevue, OH", "Lisbon, OH", "Urbana, OH", "Yellow Springs, OH", "Van Wert, OH", "New Richmond, OH", "Fostoria, OH", "Middleport, OH--WV", "Cadiz, OH", "Conneaut, OH", "West Union, OH", "Mount Orab, OH", "Malvern, OH", "Bluffton, OH","Darbydale, OH", "Apple Valley, OH")
+
+```
+
+```{r}
+ok <- data |>
+  filter(State == "OK")
+
+unique(ok$UA_NAME)
+
+ok_names <- c("Tulsa, OK", "Skiatook, OK", "Oklahoma City, OK","Sallisaw, OK", "Holdenville, OK", "Ardmore, OK", "Henryetta, OK", "Durant, OK", "McAlester, OK", "Lawton, OK", "Ada, OK", "Shawnee, OK", "Mangum, OK", "Enid, OK", "Poteau, OK", "Muskogee, OK", "Bartlesville, OK", "Norman, OK", "Blanchard, OK", "Kingfisher, OK", "Okmulgee, OK" ,  "Alva, OK",  "Pryor Creek, OK", "Claremore, OK", "Grove, OK", "New Cordell, OK", "Chickasha, OK", "Guthrie, OK", "Checotah, OK" , "Stillwater, OK", "Duncan, OK", "Hugo, OK", "Davis, OK" ,  "Stigler, OK", "Seminole, OK", "Ponca City, OK", "Miami, OK", "Madill, OK", "Hobart, OK", "Marlow, OK", "Stilwell, OK", "Lindsay, OK",  "Wilburton, OK", "Weatherford, OK", "Guymon, OK", "Mannford, OK", "Purcell, OK", "Wagoner, OK", "Watonga, OK", "Frederick, OK",  "Nowata, OK", "Cushing, OK", "Elk City, OK", "Woodward, OK", "Collinsville, OK", "Cache, OK", "Broken Bow, OK", "Anadarko, OK", "Idabel, OK", "Cleveland, OK", "Clinton, OK", "Bristow, OK", "Vinita, OK", "Pawhuska, OK",  "Pauls Valley, OK", "Blackwell, OK", "Sayre, OK","Chandler, OK", "Wewoka, OK",   "Hartshorne, OK", "Walters, OK", "Tonkawa, OK", "Hominy, OK", "Heavener, OK")
+
+```
+
+```{r}
+or <- data |>
+  filter(State == "OR")
+
+unique(or$UA_NAME)
+
+or_names <- c("Albany, OR", "Portland, OR--WA", "Medford, OR",   "Woodburn, OR", "Harrisburg, OR", "Lincoln City, OR","Grants Pass, OR", "Eugene, OR", "Astoria, OR", "Salem, OR", "Stayton, OR", "Madras, OR", "Hermiston, OR", "Florence, OR", "Junction City, OR", "Baker City, OR",  "Corvallis, OR", "McMinnville, OR", "Klamath Falls--Altamont, OR", "Shady Cove, OR", "Cottage Grove, OR", "Roseburg, OR", "Pendleton, OR", "Lebanon, OR", "Coos Bay, OR",  "Tillamook, OR", "Nyssa, OR", "The Dalles, OR--WA", "Silverton, OR", "St. Helens, OR", "Boardman, OR", "Estacada, OR", "Sandy, OR", "Bend, OR", "La Grande, OR", "Newberg, OR", "Burns, OR", "Reedsport, OR", "Oakridge, OR", "Lakeview, OR",  "Brookings, OR", "Ontario, OR--ID", "Redmond, OR", "Veneta, OR", "Monmouth--Independence, OR", "Newport, OR", "Bandon, OR", "Sweet Home, OR", "Coquille, OR","Molalla, OR", "Tri-City--Myrtle Creek, OR",  "Seaside, OR", "Creswell, OR", "Sheridan, OR", "Waldport, OR", "Prineville, OR", "Dallas, OR", "Hood River, OR--WA", "Sutherlin, OR", "Canby, OR", "Toledo, OR", "Carlton, OR", "Aumsville, OR", "Mount Angel, OR", "Irrigon, OR", "Mount Hood Village, OR", "Gold Beach, OR")
+
+
+```
+
+```{r}
+pa <- data |>
+  filter(State == "PA")
+
+unique(pa$UA_NAME)
+
+pa_names <- c("Mercer, PA", "Erie, PA" , "Kittanning--Ford City, PA", "Williamsport, PA","Harrisburg, PA", "Pittsburgh, PA", "Philadelphia, PA--NJ--DE--MD","Bloomsburg--Berwick, PA", "York, PA",  "Allentown, PA--NJ", "Uniontown--Connellsville, PA", "Pottsville, PA", "Stewartstown, PA", "Scranton, PA", "Lancaster, PA", "Reading, PA", "Lebanon, PA","Blairsville, PA", "Ashland, PA" ,"Hazleton, PA", "Monessen--California, PA", "Altoona, PA", "Ligonier, PA","Indiana, PA" , "Sierra View--Indian Mountain Lake, PA", "Huntingdon, PA","Sunbury, PA", "Johnstown, PA", "Brockway, PA","Milton--Lewisburg, PA","State College, PA", "Mount Pocono--Emerald Lakes, PA","Pottstown, PA",  "Waynesboro, PA--MD", "Lewistown, PA" , "East Stroudsburg, PA--NJ", "Kane, PA",  "Punxsutawney, PA", "Hanover, PA", "Meadville, PA","Curwensville, PA","Union City, PA", "Somerset, PA",  "Grove City, PA","Greenville, PA", "Ebensburg, PA","Roaring Spring, PA", "Fairdale, PA","Shippensburg, PA", "New Castle, PA", "Ridgway, PA", "Brookville, PA", "Cresson, PA", "Butler, PA", "Bellefonte, PA", "Youngsville, PA",  "Bradford, PA--NY", "Shenandoah--Mahanoy City--Frackville, PA", "Corry, PA","Sayre--Waverly, PA--NY", "Chambersburg, PA","Lykens, PA", "Littlestown, PA", "Elverson, PA",  "Mifflinburg, PA", "Mifflintown, PA", "Mansfield, PA", "Tyrone, PA", "Waynesburg, PA",  "Masontown, PA" , "DuBois, PA", "North East, PA", "Williamstown, PA", "St. Marys, PA", "Martinsburg, PA","Jersey Shore, PA", "Clarion, PA", "Kutztown, PA", "Franklin (Venango County), PA", "New Freedom--Shrewsbury, PA--MD", "Clearfield, PA", "Burgettstown, PA", "Bonneauville, PA",  "Meyersdale, PA", "Shamokin--Mount Carmel, PA", "Orwigsburg, PA", "Titusville, PA", "Ellwood City, PA" , "Lock Haven, PA", "Northern Cambria, PA", "Warren, PA", "Slippery Rock, PA", "Portage, PA", "Philipsburg, PA",  "Towanda, PA", "Oil City, PA", "Pine Grove, PA", "Mount Union, PA","Albion, PA","Tunkhannock, PA", "Jim Thorpe, PA", "Honesdale, PA", "Muncy, PA",  "Edinboro, PA", "Tamaqua, PA", "Bedford, PA", "Quarryville, PA", "Emporium, PA", "Reynoldsville, PA", "Moscow, PA", "Patton, PA", "Newport, PA", "New Wilmington, PA", "Nanty-Glo, PA", "Millersburg, PA", "Saw Creek, PA", "Treasure Lake, PA", "Everett, PA", "Cambridge Springs, PA", "Susquehanna Depot, PA", "Millsboro, PA", "Montgomery, PA", "East Prospect, PA", "Mount Holly Springs, PA", "Houtzdale, PA", "Pocono Woodland Lakes, PA")
+```
+
+```{r}
+ri <- data |>
+  filter(State == "RI")
+
+unique(ri$UA_NAME)
+
+ri_names <- c("Providence, RI--MA","Charlestown, RI")
+
+```
+
+```{r}
+sc <- data |>
+  filter(State == "SC")
+
+unique(sc$UA_NAME)
+
+sc_names <- c("Charleston--North Charleston, SC", "Rock Hill, SC", "Chester, SC", "Spartanburg, SC", "Anderson, SC", "Orangeburg, SC", "Columbia, SC", "Greenville, SC", "Sumter, SC", "Manning, SC", "Hilton Head Island, SC", "Ridgeland, SC", "Chesnee, SC", "Bishopville, SC", "Beaufort--Port Royal, SC", "York, SC", "Myrtle Beach--Socastee, SC--NC", "Florence, SC", "Allendale, SC", "Hardeeville, SC",  "Woodruff, SC", "Barnwell, SC", "Lancaster, SC", "Batesburg-Leesville, SC", "Clinton, SC", "Greenwood, SC",  "Mauldin--Simpsonville, SC", "Cheraw, SC",  "Walterboro, SC" , "Bamberg, SC","Newberry, SC","Winnsboro, SC", "Clover, SC",  "Andrews, SC", "Laurens, SC","Dillon, SC", "Union, SC", "Pawleys Island, SC", "Camden, SC", "Kingstree, SC", "Seneca, SC", "Belton, SC",  "Gaffney, SC", "Hartsville, SC",  "Mullins, SC", "Abbeville, SC", "Lake City, SC", "Honea Path, SC", "Bennettsville, SC", "Saluda, SC", "Hampton, SC", "Denmark, SC", "Pageland, SC","Georgetown, SC", "Edgefield, SC", "Marion, SC", "Sun City Hilton Head, SC", "Landrum, SC--NC", "Lake Murray North Shore, SC")
+
+```
+
+```{r}
+sd <- data |>
+  filter(State == "SD")
+
+unique(sd$UA_NAME)
+
+sd_names <- c("Sioux Falls, SD", "Rapid City, SD", "Vermillion, SD", "Mobridge, SD", "Huron, SD", "Lead, SD", "Milbank, SD", "Aberdeen, SD", "Pierre, SD", "Brookings, SD", "Brandon, SD", "Mitchell, SD",  "Belle Fourche, SD", "Winner, SD", "North Eagle Butte, SD","Pine Ridge, SD", "Sturgis, SD", "Watertown, SD","Spearfish, SD", "Madison, SD", "Tea, SD", "Dell Rapids, SD" ,"Hot Springs, SD", "Yankton, SD", "Box Elder, SD", "Canton, SD", "Harrisburg, SD")
+
+```
+
+```{r}
+tx <- data |>
+  filter(State == "TX")
+
+unique(tx$UA_NAME)
+
+tx_names <- c("San Antonio, TX", "Hallsville, TX", "Lubbock, TX", "Kilgore, TX", "Conroe--The Woodlands, TX", "Midland, TX", "Houston, TX", "Jacksonville, TX", "Dallas--Fort Worth--Arlington, TX", "Austin, TX", "Ennis, TX",  "Atlanta, TX",
+              "Brownsville, TX", "El Paso, TX--NM", "McKinney, TX", "Eagle Lake, TX", "Castroville, TX", "Abilene, TX", "Weatherford, TX", "Corpus Christi, TX", "Livingston, TX", "Rio Hondo, TX", "Brookshire, TX", "Mount Vernon, TX", "Port Arthur, TX", "Eagle Pass, TX",  "College Station--Bryan, TX", "Denton--Lewisville, TX", "Port Isabel--Laguna Heights, TX",
+              "Andrews, TX","Rockdale, TX", "Killeen, TX", "McAllen, TX", "Laredo, TX", "Athens, TX", "Harlingen, TX", "Sherman, TX","Amarillo, TX", "Longview, TX", "Kingsville, TX", "Muleshoe, TX", "Beaumont, TX", "Premont, TX", "Tyler, TX", "Childress, TX", "San Angelo, TX","Seguin, TX", "Brownwood, TX", "Canton, TX","Wharton, TX", "Wichita Falls, TX", "Galveston, TX", "Gainesville, TX", "Onalaska, TX", "Floydada, TX", "Texas City, TX", "Victoria, TX", "Temple, TX", "Cuero, TX", "Sinton, TX", "Bay City, TX","Odessa, TX", "Palestine, TX", "Hearne, TX", "Alice, TX", "Beeville, TX",
+              
+              "Ingleside--Aransas Pass, TX", "Brackettville, TX", "Crystal City, TX", "Groesbeck, TX", "Haskell, TX", "Brenham, TX", "Decatur, TX", "Woodville, TX", "Graham, TX", "Big Lake, TX", "Paris, TX",  "Borger, TX", "Cleburne, TX", "Lufkin, TX", "Post, TX", "Cleveland, TX", "Smithville, TX", "Grangerland, TX", "Elgin, TX", "Terrell, TX", "Jasper, TX", "Liberty, TX", "Needville, TX", "Burnet, TX", "Marshall, TX", "Clyde, TX", "Raymondville, TX", "Gatesville, TX",
+              
+              "Burkburnett, TX",  "Rusk, TX",  "Hillsboro, TX", "Lake Conroe Westshore, TX", "Uvalde, TX", "Lampasas, TX", "Winnsboro, TX", "Del Rio, TX","Corsicana, TX", "San Marcos, TX", "Bastrop, TX","Pampa, TX", "Jacksboro, TX", "Carrizo Springs, TX", "Rio Grande City--Roma, TX", "Boerne, TX", "Granbury, TX", "Dalhart, TX", "Fredericksburg, TX", "Fritch, TX",
+              
+              "San Saba, TX", "Taft, TX",  "Rockport, TX", "Kermit, TX",  "Aubrey, TX", "Cotulla, TX", "Sullivan City, TX", "Forney, TX", "Cisco, TX", "Lake Jackson--Angleton, TX", "Krum, TX", "Gun Barrel City, TX", "Mexia, TX", "Huntsville, TX", "Nacogdoches, TX", "Mount Pleasant, TX", "Kaufman, TX", "Refugio, TX","Fairfield, TX", "Alpine, TX", "Trinity, TX", "West Columbia, TX", "Monahans, TX", "Ballinger, TX", "Hamilton, TX", "Fabens, TX", "Denver City, TX", "Waco, TX", "Sealy, TX",
+              
+              "Henderson, TX", "Snyder, TX", "Caldwell, TX", "Gonzales, TX", "West, TX", "Tulia, TX","Prairie View, TX", "Lamesa, TX", "Winters, TX", "Big Spring, TX", "Port Lavaca, TX", "Daingerfield, TX", "Center, TX", "Stephenville, TX", "Canyon Lake, TX", "Levelland, TX", "Floresville, TX", "Seminole, TX", "Mathis, TX", "Bridgeport, TX", "Kenedy, TX",
+              
+              "Navasota, TX", "Zapata--Medina, TX", "Marlin, TX", "Iowa Park, TX", "Kerrville, TX", "Mineral Wells, TX", "Sweeny, TX", "Texarkana--Texarkana, TX--AR", "Palacios, TX", "Woodcreek, TX", "Dumas, TX", "Hebbronville, TX", "Commerce, TX","Ozona, TX", "Vernon, TX", "Comanche, TX",  "Kingsland, TX", "Presidio, TX", "Brazoria, TX", "McGregor, TX", "Springtown, TX", "Silsbee, TX", "Quitman, TX", "Lake Conroe Eastshore, TX", "Coleman, TX", "Perryton, TX", "Pleasanton, TX", "Sanger, TX", "Crockett, TX", "Taylor, TX", "Sweetwater, TX", "Magnolia, TX", "Cameron, TX", "Malakoff, TX",
+              
+              "Brownfield, TX", "Clarksville, TX", "Carthage, TX", "Junction, TX", "Columbus, TX", "Sonora, TX","Gilmer, TX", "Olney, TX", "Robstown, TX", "Odem, TX",  "Weston Lakes, TX", "Bowie, TX", "Greenville, TX","Crane, TX","Lytle, TX", "Lockhart, TX", "Mineola, TX", "Bonham, TX", "Henrietta, TX", "Hereford, TX",  "Justin, TX", "Dayton, TX", "Marble Falls, TX", "Luling, TX", "Sulphur Springs, TX", "Teague, TX", "West Tawakoni, TX", "Wills Point, TX", "Emerald Bay, TX", "Llano, TX", "La Grange, TX", "Madisonville, TX", "Dimmitt, TX", "Yoakum, TX", "San Diego, TX", "Fort Stockton, TX", "Plainview, TX", 
+              "Tahoka, TX",  "Pilot Point, TX", "Brady, TX", "Giddings, TX", "New Boston, TX", "Pittsburg, TX", "Hempstead, TX","Falfurrias, TX", "Breckenridge, TX", "Whitesboro, TX", "Edna, TX", "El Campo, TX", "Alvarado, TX", "Pearsall, TX", "Slaton, TX", "Pecos, TX", "Canyon, TX", "Paloma Creek South--Paloma Creek, TX", "Rio Bravo--El Cenizo, TX", "Winnie, TX", "Anna, TX", "Horseshoe Bay, TX", "Clifton, TX", "Hooks, TX", "Bellville, TX","Littlefield, TX", "Deerwood, TX", "Spearman, TX", "Stamford, TX", "Diboll, TX", "Canadian, TX", "Hondo, TX",  "Lago Vista, TX","Comfort, TX", "Friona, TX",
+              
+              "Lindale--Hideaway, TX", "Farmersville, TX", "Pecan Acres, TX","Bishop, TX", "Dublin, TX", "Schulenburg, TX", "Devine, TX", "Abernathy, TX",  "Poteet, TX", "Karnes City, TX",  "Nocona, TX", "Aledo, TX", "Electra, TX","Grand Saline, TX","Manor, TX", "Venus, TX", "Dilley, TX", "Colorado City, TX", "Van, TX", "Cactus, TX", "Granite Shoals, TX", "Mescalero Park, TX", "Pecan Plantation, TX", "Sunrise Shores, TX", "Belterra, TX", "Eastland, TX", "Denton Southwest, TX", "Elroy, TX",  "Shallowater, TX")
+```
 
 
 
