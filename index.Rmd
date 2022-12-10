@@ -213,7 +213,7 @@ ar_names <- c("Little Rock, AR", "McGehee, AR", "Fayetteville--Springdale--Roger
 
 ```{r}
 
-ca_names <- c("El Paso de Robles (Paso Robles)--Atascadero, CA", "Los Angeles--Long Beach--Anaheim, CA", "Petaluma, CA", "San Diego, CA", "Barstow, CA", "Mission Viejo--Lake Forest--San Clemente, CA", "Murrieta--Temecula--Menifee, CA", "San Francisco--Oakland, CA", "Santa Clarita, CA", "Porterville, CA", "Sacramento, CA", "Woodlake, CA", "Camarillo, CA", "Fresno, CA", "Bakersfield, CA", "Concord, CA", "Riverside--San Bernardino, CA", "Indio--Cathedral City, CA","Modesto, CA", "Redding, CA", "Hemet, CA", "Victorville--Hesperia, CA", "Sonora--Jamestown--Phoenix Lake, CA", "Mount Shasta--Weed, CA", "California City, CA", "Lindsay, CA", "Madera, CA", "Lancaster--Palmdale, CA", "Santa Maria, CA", "Vallejo, CA", "Lake Arrowhead--Crestline, CA", "Sonoma, CA", "Antioch, CA", "Santa Barbara, CA", "Colfax, CA", "Thousand Oaks, CA", "Gilroy--Morgan Hill, CA", "Stockton, CA","Corning, CA","San Jose, CA","Turlock, CA","Oxnard, CA", "Santa Rosa, CA", "Orange Cove, CA", "Seaside--Monterey, CA", "Fortuna, CA", "Hanford, CA", "Davis, CA", "Santa Cruz, CA", "Crescent City, CA", "Salinas, CA", "Portola, CA", "Mammoth Lakes, CA", "Dixon, CA", "Lodi, CA", "Fairfield, CA", "Lompoc, CA", "Chowchilla, CA", "Big Bear City, CA", "Shafter, CA", "Oroville, CA", "Watsonville, CA", "Live Oak (Sutter County), CA", "Livermore, CA", "Yuba City, CA", "Bishop, CA", "Arroyo Grande--Grover Beach, CA", "Simi Valley, CA", "Discovery Bay, CA","Rosamond, CA","Auburn--North Auburn, CA","Reedley--Dinuba, CA","Manteca, CA","Vacaville, CA","Firebaugh, CA","Napa, CA","Bonadelle Ranchos-Madera Ranchos, CA","Tracy, CA","Cloverdale, CA","Alturas, CA","Hollister, CA", "Arvin, CA","Visalia, CA","Chico, CA","Ramona, CA", "Morro Bay--Los Osos, CA", "Willits, CA", "Fort Irwin, CA", "El Centro--Calexico, CA", "Cottonwood, CA","Placerville--Diamond Springs, CA", "Gridley, CA", "Ridgecrest, CA", "Ukiah, CA", "Needles, CA--AZ", "Grass Valley, CA", "Santa Paula, CA", "Rio Vista, CA", "Arcata--McKinleyville, CA", "Selma, CA","Merced, CA", "Woodland, CA", "Williams, CA","Wasco, CA", "McFarland, CA", "Yreka, CA", "Los Banos, CA", "Brawley, CA", "Angels, CA","Delano, CA","Susanville, CA","Hidden Valley Lake, CA","Willows, CA", "Clearlake, CA", "Orosi, CA", "Parlier, CA", "Patterson, CA", "Fillmore, CA", "Jackson, CA", "Twentynine Palms, CA", "Paradise, CA", "East Quincy, CA", "Red Bluff, CA", "Half Moon Bay, CA", "Eureka, CA", "Lakeport, CA", "San Luis Obispo, CA", "Truckee, CA", "Mendota, CA", "Dos Palos, CA", "Blythe, CA--AZ", "Galt, CA", "Gustine, CA", "Kerman, CA", "Fort Bragg, CA", "Escalon, CA","South Lake Tahoe, CA--NV","Waterford, CA","Phelan, CA","Taft, CA", "Mojave, CA","Guerneville, CA","Avenal, CA", "Colusa, CA", "Tehachapi--Golden Hills, CA", "Sanger, CA",  "Solvang--Buellton--Santa Ynez, CA", "King City, CA" , "Newman, CA", "Tipton, CA","Yucca Valley, CA", "Corcoran, CA","Desert Hot Springs, CA", "Orland, CA", "Gonzales, CA", "Hilmar-Irwin, CA","Winters, CA","Ione, CA","Coalinga, CA", "Rancho Calaveras--Valley Springs, CA", "Guadalupe, CA", "Greenfield, CA", "Riverdale, CA", "Soledad, CA", "Wheatland, CA", "Nipomo, CA", "Lake Wildwood, CA", "Earlimart, CA", "Burney, CA", "Lemoore Station, CA", "Oakhurst, CA", "Holtville, CA", "Twentynine Palms Base, CA", "Vandenberg AFB, CA", "Running Springs, CA", "St. Helena, CA","Mecca, CA", "Rio Dell, CA", "Lake of the Pines, CA", "San Joaquin, CA", "Wrightwood, CA", "Cambria, CA", "Huron, CA", "Forestville, CA", "Carmel Valley Village, CA", "Avalon, CA", "Calistoga, CA", "Rancho Murieta, CA", "Yountville, CA", "Los Molinos, CA", "Silver Lakes, CA", "Frazier Park, CA", "Lake Rancho Viejo, CA", "Calipatria, CA","Arbuckle, CA","Terra Bella, CA","Kelseyville, CA", "Poplar-Cotton Center, CA","Clearlake Riviera, CA", "Esparto, CA", "Lake Los Angeles, CA", "Planada, CA", "Richgrove, CA")
+ca_names <- c("El Paso de Robles (Paso Robles)--Atascadero, CA", "Los Angeles--Long Beach--Anaheim, CA", "Petaluma, CA", "San Diego, CA", "Barstow, CA", "Mission Viejo--Lake Forest--San Clemente, CA", "Murrieta--Temecula--Menifee, CA", "San Francisco--Oakland, CA", "Santa Clarita, CA", "Porterville, CA", "Sacramento, CA", "Woodlake, CA", "Camarillo, CA", "Fresno, CA", "Bakersfield, CA", "Concord, CA", "Riverside--San Bernardino, CA", "Indio--Cathedral City, CA","Modesto, CA", "Redding, CA", "Hemet, CA", "Victorville--Hesperia, CA", "Sonora--Jamestown--Phoenix Lake, CA", "Mount Shasta--Weed, CA", "California City, CA", "Lindsay, CA", "Madera, CA", "Lancaster--Palmdale, CA", "Santa Maria, CA", "Vallejo, CA", "Lake Arrowhead--Crestline, CA", "Sonoma, CA", "Antioch, CA", "Santa Barbara, CA", "Colfax, CA", "Thousand Oaks, CA", "Gilroy--Morgan Hill, CA", "Stockton, CA","Corning, CA","San Jose, CA","Turlock, CA","Oxnard, CA", "Santa Rosa, CA", "Orange Cove, CA", "Seaside--Monterey, CA", "Fortuna, CA", "Hanford, CA", "Davis, CA", "Santa Cruz, CA", "Crescent City, CA", "Salinas, CA", "Portola, CA", "Mammoth Lakes, CA", "Dixon, CA", "Lodi, CA", "Fairfield, CA", "Lompoc, CA", "Chowchilla, CA", "Big Bear City, CA", "Shafter, CA", "Oroville, CA", "Watsonville, CA", "Live Oak (Sutter County), CA", "Livermore, CA", "Yuba City, CA", "Bishop, CA", "Arroyo Grande--Grover Beach, CA", "Simi Valley, CA", "Discovery Bay, CA","Rosamond, CA","Auburn--North Auburn, CA","Reedley--Dinuba, CA","Manteca, CA","Vacaville, CA","Firebaugh, CA","Napa, CA","Bonadelle Ranchos-Madera Ranchos, CA","Tracy, CA","Cloverdale, CA","Alturas, CA","Hollister, CA", "Arvin, CA","Visalia, CA","Chico, CA","Ramona, CA", "Morro Bay--Los Osos, CA", "Willits, CA", "Fort Irwin, CA", "El Centro--Calexico, CA", "Cottonwood, CA","Placerville--Diamond Springs, CA", "Gridley, CA", "Ridgecrest, CA", "Ukiah, CA", "Needles, CA--AZ", "Grass Valley, CA", "Santa Paula, CA", "Rio Vista, CA", "Arcata--McKinleyville, CA", "Selma, CA","Merced, CA", "Woodland, CA", "Williams, CA","Wasco, CA", "McFarland, CA", "Yreka, CA", "Los Banos, CA", "Brawley, CA", "Angels, CA","Delano, CA","Susanville, CA","Hidden Valley Lake, CA","Willows, CA", "Clearlake, CA", "Orosi, CA", "Parlier, CA", "Patterson, CA", "Fillmore, CA", "Jackson, CA", "Twentynine Palms, CA", "Paradise, CA", "East Quincy, CA", "Red Bluff, CA", "Half Moon Bay, CA", "Eureka, CA", "Lakeport, CA", "San Luis Obispo, CA", "Truckee, CA", "Mendota, CA", "Dos Palos, CA", "Blythe, CA--AZ", "Galt, CA", "Gustine, CA", "Kerman, CA", "Fort Bragg, CA", "Escalon, CA","South Lake Tahoe, CA--NV","Waterford, CA","Phelan, CA","Taft, CA", "Mojave, CA","Guerneville, CA","Avenal, CA", "Colusa, CA", "Tehachapi--Golden Hills, CA", "Sanger, CA",  "Solvang--Buellton--Santa Ynez, CA", "King City, CA" , "Newman, CA", "Tipton, CA","Yucca Valley, CA", "Corcoran, CA","Desert Hot Springs, CA", "Orland, CA", "Gonzales, CA", "Hilmar-Irwin, CA","Winters, CA","Ione, CA","Coalinga, CA", "Rancho Calaveras--Valley Springs, CA", "Guadalupe, CA", "Greenfield, CA", "Riverdale, CA", "Soledad, CA", "Wheatland, CA", "Nipomo, CA", "Lake Wildwood, CA", "Earlimart, CA", "Burney, CA", "Lemoore Station, CA", "Oakhurst, CA", "Holtville, CA", "Twentynine Palms Base, CA", "Vandenberg AFB, CA", "Running Springs, CA", "St. Helena, CA","Mecca, CA", "Rio Dell, CA", "Lake of the Pines, CA", "San Joaquin, CA", "Wrightwood, CA", "Cambria, CA", "Huron, CA", "Forestville, CA", "Carmel Valley Village, CA", "Avalon, CA", "Calistoga, CA", "Rancho Murieta, CA", "Yountville, CA", "Los Molinos, CA", "Silver Lakes, CA", "Frazier Park, CA", "Lake Rancho Viejo, CA", "Calipatria, CA","Arbuckle, CA","Terra Bella, CA","Kelseyville, CA", "Poplar-Cotton Center, CA","Clearlake Riviera, CA", "Esparto, CA", "Lake Los Angeles, CA", "Planada, CA", "Richgrove, CA", "Lake Isabella, CA")
 
 
 co_names <- c("Denver--Aurora, CO", "Lafayette--Louisville--Erie, CO", "Colorado Springs, CO", "Woodland Park, CO", "Pagosa Springs, CO", "Grand Junction, CO", "Gypsum, CO", "Rifle, CO", "Pueblo, CO", "Boulder, CO","Fort Collins, CO", "Eagle, CO", "Estes Park, CO", "Johnstown, CO", "Burlington, CO", "Delta, CO", "Edwards, CO", "Leadville, CO", "Fort Morgan, CO", "Yuma, CO", "Breckenridge, CO", "Longmont, CO", "Brush, CO", "Cañon City, CO", "Silverthorne--Frisco, CO", "Air Force Academy, CO", "Greeley, CO", "Wellington, CO", "Buena Vista, CO", "New Castle, CO", "Steamboat Springs, CO", "Glenwood Springs, CO", "Roxborough Park, CO", "Lamar, CO", "Durango, CO","Montrose, CO","Firestone--Frederick, CO", "Walsenburg, CO", "Carbondale, CO", "Alamosa, CO", "La Junta, CO","Rocky Ford, CO","Vail, CO", "Gunnison, CO", "Fort Lupton, CO","Fraser, CO","Battlement Mesa, CO","Cedaredge, CO","Sterling, CO", "Florence, CO", "Monte Vista, CO", "Lochbuie, CO", "Craig, CO", "Basalt--El Jebel, CO", "Trinidad, CO", "Salida, CO", "Eaton, CO", "Cortez, CO", "Evergreen, CO", "Las Animas, CO", "Aspen, CO", "Bayfield, CO", "Silt, CO", "Severance, CO")
@@ -230,11 +230,6 @@ dc_names <- "Washington, DC--VA--MD"
 ```
 
 ```{r}
-fl <- data |>
-  filter(State == "FL")
-
-unique(fl$UA_NAME)
-
 fl_names <- c("Cape Coral, FL", "Miami, FL", "Palm Coast--Daytona Beach--Port Orange, FL", "Lady Lake--The Villages, FL", "Winter Haven, FL", "Tampa--St. Petersburg, FL", "Port St. Lucie, FL", "Okeechobee--Taylor Creek, FL", "Orlando, FL", "Jacksonville, FL", "Pensacola, FL--AL","Sarasota--Bradenton, FL","North Port--Port Charlotte, FL", "Ocala, FL", "Key Largo, FL", "Bonita Springs, FL", "Tallahassee, FL", "Starke, FL", "Panama City, FL", "Deltona, FL", "Kissimmee, FL", "Lakeland, FL",  "Sebastian--Vero Beach South--Florida Ridge, FL", "Gainesville, FL", "Lake City, FL", "Palm Bay--Melbourne, FL", "Fort Walton Beach--Navarre--Wright, FL", "Sugarmill Woods, FL", "Titusville, FL", "Perry, FL", "St. Augustine, FL", "Bonifay, FL", "Poinciana, FL", "Spring Hill, FL", "Quincy, FL", "Homosassa Springs--Beverly Hills--Citrus Springs, FL", "Key West, FL", "Crystal River, FL", "Yulee, FL", "Live Oak, FL", "Leesburg--Eustis--Tavares, FL", "Nassau Village-Ratliff, FL", "Woodville, FL", "Four Corners, FL", "Moore Haven, FL", "Zephyrhills, FL", "Sebring--Avon Park, FL", "Marianna, FL", "Lake Placid, FL", "Orangetree, FL", "Indiantown, FL", "Bushnell, FL", "Clewiston, FL", "LaBelle--Port LaBelle, FL", "Cross City, FL", "Palatka, FL", "High Springs, FL", "Arcadia--Southeast Arcadia, FL", "Pahokee, FL", "Fernandina Beach, FL", "Keystone Heights, FL", "Belle Glade, FL", "Chipley, FL", "Immokalee, FL", "Williston, FL", "Crestview, FL", "Jasper, FL", "De Funiak Springs, FL", "Frostproof, FL", "World Golf Village, FL", "Havana, FL", "Madison, FL", "Graceville, FL", "Macclenny, FL", "Chattahoochee, FL", "Apalachicola, FL", "Santa Rosa Beach, FL", "Lake Butler, FL", "Crescent City, FL", "Marathon, FL", "Blountstown, FL", "Interlachen, FL", "Alachua, FL", "Trenton, FL", "Port St. Joe, FL", "Crawfordville, FL", "Fort Meade, FL", "Wauchula, FL", "Marion Oaks, FL", "Lake Bryant, FL", "Century, FL--AL", "Big Pine Key, FL", "Fellsmere, FL", "Panama City Northeast, FL","Rainbow Lakes Estates, FL", "Lake Panasoffkee, FL", "Burnt Store Marina, FL", "Crooked Lake Park, FL", "Ridge Manor, FL")
 
 
@@ -328,15 +323,10 @@ nm_names <- c("Los Lunas, NM", "Roswell, NM", "Las Cruces, NM", "Albuquerque, NM
 ```
 
 ```{r}
-oh <- data |>
-  filter(State == "OH")
-
-unique(oh$UA_NAME)
-
-oh_names <- c("Springfield, OH", "Columbus, OH", "Akron, OH", "Dayton, OH", "Mansfield, OH",  "Toledo, OH--MI",  "Middletown, OH", "Lima, OH", "Russells Point, OH", "Cincinnati, OH--KY--IN", "Youngstown, OH--PA" , "Kenton, OH", "Eaton, OH", "Carey, OH",  "Sandusky, OH", "Marysville, OH",  "Portsmouth, OH--KY", "Minerva, OH", "Salem, OH", "East Liverpool, OH--WV--PA", "Marietta, OH--WV", "Lorain--Elyria, OH", "Hicksville, OH", "Zanesville, OH", "Canton, OH", "New Philadelphia--Dover, OH", "Wooster, OH", "Ashland, OH", "Findlay, OH",  "Newark, OH", "New Lebanon, OH", "Chillicothe, OH", "Alliance, OH", "Ashtabula, OH", "Waverly City, OH", "Marion, OH", "Jefferson, OH", "Lancaster, OH", "Cambridge, OH", "Bellefontaine, OH", "Paulding, OH", "Bryan, OH", "Delphos, OH", "Mount Vernon, OH", "Bowling Green, OH", "Lodi, OH", "Circleville, OH", "Wapakoneta, OH", "Napoleon, OH", "Ada, OH", "Oberlin, OH", "Wellington, OH", "Piqua, OH", "Defiance, OH", "Glouster, OH", "Lucasville, OH", "Jackson--Wellston, OH", "Middlefield, OH", "St. Marys, OH", "Archbold, OH", "Tiffin, OH", "West Lafayette, OH", "Caldwell, OH", "Wauseon, OH" ,  "Shelby, OH", "Oak Harbor, OH", "Cedarville, OH", "Greenfield, OH", "New Lexington, OH", "Covington, OH", "Wilmington, OH", "Willard, OH", "Oxford, OH", "Port Clinton, OH","Bucyrus, OH", "Bethel, OH", "Carrollton, OH", "Sidney, OH", "New Bremen--Minster, OH" , "Hillsboro, OH", "Millersburg, OH",  "Fremont, OH",  "Columbiana, OH", "Orrville, OH", "Clyde, OH", "Nelsonville, OH", "McConnelsville, OH", "Barnesville, OH",  "Newcomerstown, OH", "Athens, OH", "Delta, OH", "Logan, OH", "Blanchester, OH" ,  "Crooksville, OH", "Greenville, OH","Celina, OH", "Bolivar, OH","Geneva, OH", "Galion, OH",  "Versailles, OH", "Ashville, OH", "Norwalk, OH", "LaGrange, OH", "Baltimore, OH","Coshocton, OH", "Georgetown, OH", "Sabina, OH", "Garrettsville, OH", "Johnstown, OH", "Montpelier, OH", "Point Pleasant--Gallipolis, OH--WV", "Dalton, OH", "Seville, OH", "Upper Sandusky, OH", "Mount Gilead, OH", "West Jefferson, OH" , "Harrison, OH--IN","North Baltimore, OH", "Ottawa, OH", "Washington Court House, OH", "New Concord, OH", "Chardon, OH", "London, OH", "Coldwater, OH", "Jamestown, OH", "Genoa, OH",  "Plain City, OH", "East Palestine, OH", "Bellevue, OH", "Lisbon, OH", "Urbana, OH", "Yellow Springs, OH", "Van Wert, OH", "New Richmond, OH", "Fostoria, OH", "Middleport, OH--WV", "Cadiz, OH", "Conneaut, OH", "West Union, OH", "Mount Orab, OH", "Malvern, OH", "Bluffton, OH","Darbydale, OH", "Apple Valley, OH")
+oh_names <- c("Springfield, OH", "Columbus, OH", "Akron, OH", "Dayton, OH", "Mansfield, OH",  "Toledo, OH--MI",  "Middletown, OH", "Lima, OH", "Russells Point, OH", "Cincinnati, OH--KY--IN", "Youngstown, OH--PA" , "Kenton, OH", "Eaton, OH", "Carey, OH",  "Sandusky, OH", "Marysville, OH",  "Portsmouth, OH--KY", "Minerva, OH", "Salem, OH", "East Liverpool, OH--WV--PA", "Marietta, OH--WV", "Lorain--Elyria, OH", "Hicksville, OH", "Zanesville, OH", "Canton, OH", "New Philadelphia--Dover, OH", "Wooster, OH", "Ashland, OH", "Findlay, OH",  "Newark, OH", "New Lebanon, OH", "Chillicothe, OH", "Alliance, OH", "Ashtabula, OH", "Waverly City, OH", "Marion, OH", "Jefferson, OH", "Lancaster, OH", "Cambridge, OH", "Bellefontaine, OH", "Paulding, OH", "Bryan, OH", "Delphos, OH", "Mount Vernon, OH", "Bowling Green, OH", "Lodi, OH", "Circleville, OH", "Wapakoneta, OH", "Napoleon, OH", "Ada, OH", "Oberlin, OH", "Wellington, OH", "Piqua, OH", "Defiance, OH", "Glouster, OH", "Lucasville, OH", "Jackson--Wellston, OH", "Middlefield, OH", "St. Marys, OH", "Archbold, OH", "Tiffin, OH", "West Lafayette, OH", "Caldwell, OH", "Wauseon, OH" ,  "Shelby, OH", "Oak Harbor, OH", "Cedarville, OH", "Greenfield, OH", "New Lexington, OH", "Covington, OH", "Wilmington, OH", "Willard, OH", "Oxford, OH", "Port Clinton, OH","Bucyrus, OH", "Bethel, OH", "Carrollton, OH", "Sidney, OH", "New Bremen--Minster, OH" , "Hillsboro, OH", "Millersburg, OH",  "Fremont, OH",  "Columbiana, OH", "Orrville, OH", "Clyde, OH", "Nelsonville, OH", "McConnelsville, OH", "Barnesville, OH",  "Newcomerstown, OH", "Athens, OH", "Delta, OH", "Logan, OH", "Blanchester, OH" ,  "Crooksville, OH", "Greenville, OH","Celina, OH", "Bolivar, OH","Geneva, OH", "Galion, OH",  "Versailles, OH", "Ashville, OH", "Norwalk, OH", "LaGrange, OH", "Baltimore, OH","Coshocton, OH", "Georgetown, OH", "Sabina, OH", "Garrettsville, OH", "Johnstown, OH", "Montpelier, OH", "Point Pleasant--Gallipolis, OH--WV", "Dalton, OH", "Seville, OH", "Upper Sandusky, OH", "Mount Gilead, OH", "West Jefferson, OH" , "Harrison, OH--IN","North Baltimore, OH", "Ottawa, OH", "Washington Court House, OH", "New Concord, OH", "Chardon, OH", "London, OH", "Coldwater, OH", "Jamestown, OH", "Genoa, OH",  "Plain City, OH", "East Palestine, OH", "Bellevue, OH", "Lisbon, OH", "Urbana, OH", "Yellow Springs, OH", "Van Wert, OH", "New Richmond, OH", "Fostoria, OH", "Middleport, OH--WV", "Cadiz, OH", "Conneaut, OH", "West Union, OH", "Mount Orab, OH", "Malvern, OH", "Bluffton, OH","Darbydale, OH", "Apple Valley, OH", "Cleveland, OH")
 
 
-ok_names <- c("Tulsa, OK", "Skiatook, OK", "Oklahoma City, OK","Sallisaw, OK", "Holdenville, OK", "Ardmore, OK", "Henryetta, OK", "Durant, OK", "McAlester, OK", "Lawton, OK", "Ada, OK", "Shawnee, OK", "Mangum, OK", "Enid, OK", "Poteau, OK", "Muskogee, OK", "Bartlesville, OK", "Norman, OK", "Blanchard, OK", "Kingfisher, OK", "Okmulgee, OK" ,  "Alva, OK",  "Pryor Creek, OK", "Claremore, OK", "Grove, OK", "New Cordell, OK", "Chickasha, OK", "Guthrie, OK", "Checotah, OK" , "Stillwater, OK", "Duncan, OK", "Hugo, OK", "Davis, OK" ,  "Stigler, OK", "Seminole, OK", "Ponca City, OK", "Miami, OK", "Madill, OK", "Hobart, OK", "Marlow, OK", "Stilwell, OK", "Lindsay, OK",  "Wilburton, OK", "Weatherford, OK", "Guymon, OK", "Mannford, OK", "Purcell, OK", "Wagoner, OK", "Watonga, OK", "Frederick, OK",  "Nowata, OK", "Cushing, OK", "Elk City, OK", "Woodward, OK", "Collinsville, OK", "Cache, OK", "Broken Bow, OK", "Anadarko, OK", "Idabel, OK", "Cleveland, OK", "Clinton, OK", "Bristow, OK", "Vinita, OK", "Pawhuska, OK",  "Pauls Valley, OK", "Blackwell, OK", "Sayre, OK","Chandler, OK", "Wewoka, OK",   "Hartshorne, OK", "Walters, OK", "Tonkawa, OK", "Hominy, OK", "Heavener, OK")
+ok_names <- c("Tulsa, OK", "Skiatook, OK", "Oklahoma City, OK","Sallisaw, OK", "Holdenville, OK", "Ardmore, OK", "Henryetta, OK", "Durant, OK", "McAlester, OK", "Lawton, OK", "Ada, OK", "Shawnee, OK", "Mangum, OK", "Enid, OK", "Poteau, OK", "Muskogee, OK", "Bartlesville, OK", "Norman, OK", "Blanchard, OK", "Kingfisher, OK", "Okmulgee, OK" ,  "Alva, OK",  "Pryor Creek, OK", "Claremore, OK", "Grove, OK", "New Cordell, OK", "Chickasha, OK", "Guthrie, OK", "Checotah, OK" , "Stillwater, OK", "Duncan, OK", "Hugo, OK", "Davis, OK" ,  "Stigler, OK", "Seminole, OK", "Ponca City, OK", "Miami, OK", "Madill, OK", "Hobart, OK", "Marlow, OK", "Stilwell, OK", "Lindsay, OK",  "Wilburton, OK", "Weatherford, OK", "Guymon, OK", "Mannford, OK", "Purcell, OK", "Wagoner, OK", "Watonga, OK", "Frederick, OK",  "Nowata, OK", "Cushing, OK", "Elk City, OK", "Woodward, OK", "Collinsville, OK", "Cache, OK", "Broken Bow, OK", "Anadarko, OK", "Idabel, OK", "Cleveland, OK", "Clinton, OK", "Bristow, OK", "Vinita, OK", "Pawhuska, OK",  "Pauls Valley, OK", "Blackwell, OK", "Sayre, OK","Chandler, OK", "Wewoka, OK",   "Hartshorne, OK", "Walters, OK", "Tonkawa, OK", "Hominy, OK", "Heavener, OK", "Sulphur, OK",  "Tahlequah, OK",       "Perry, OK",  "Muldrow--Roland, OK", "Altus, OK", "El Reno, OK", "Okemah, OK",  "Harrah, OK")
 
 
 
@@ -346,11 +336,6 @@ or_names <- c("Albany, OR", "Portland, OR--WA", "Medford, OR",   "Woodburn, OR",
 ```
 
 ```{r}
-pa <- data |>
-  filter(State == "PA")
-
-unique(pa$UA_NAME)
-
 pa_names <- c("Mercer, PA", "Erie, PA" , "Kittanning--Ford City, PA", "Williamsport, PA","Harrisburg, PA", "Pittsburgh, PA", "Philadelphia, PA--NJ--DE--MD","Bloomsburg--Berwick, PA", "York, PA",  "Allentown, PA--NJ", "Uniontown--Connellsville, PA", "Pottsville, PA", "Stewartstown, PA", "Scranton, PA", "Lancaster, PA", "Reading, PA", "Lebanon, PA","Blairsville, PA", "Ashland, PA" ,"Hazleton, PA", "Monessen--California, PA", "Altoona, PA", "Ligonier, PA","Indiana, PA" , "Sierra View--Indian Mountain Lake, PA", "Huntingdon, PA","Sunbury, PA", "Johnstown, PA", "Brockway, PA","Milton--Lewisburg, PA","State College, PA", "Mount Pocono--Emerald Lakes, PA","Pottstown, PA",  "Waynesboro, PA--MD", "Lewistown, PA" , "East Stroudsburg, PA--NJ", "Kane, PA",  "Punxsutawney, PA", "Hanover, PA", "Meadville, PA","Curwensville, PA","Union City, PA", "Somerset, PA",  "Grove City, PA","Greenville, PA", "Ebensburg, PA","Roaring Spring, PA", "Fairdale, PA","Shippensburg, PA", "New Castle, PA", "Ridgway, PA", "Brookville, PA", "Cresson, PA", "Butler, PA", "Bellefonte, PA", "Youngsville, PA",  "Bradford, PA--NY", "Shenandoah--Mahanoy City--Frackville, PA", "Corry, PA","Sayre--Waverly, PA--NY", "Chambersburg, PA","Lykens, PA", "Littlestown, PA", "Elverson, PA",  "Mifflinburg, PA", "Mifflintown, PA", "Mansfield, PA", "Tyrone, PA", "Waynesburg, PA",  "Masontown, PA" , "DuBois, PA", "North East, PA", "Williamstown, PA", "St. Marys, PA", "Martinsburg, PA","Jersey Shore, PA", "Clarion, PA", "Kutztown, PA", "Franklin (Venango County), PA", "New Freedom--Shrewsbury, PA--MD", "Clearfield, PA", "Burgettstown, PA", "Bonneauville, PA",  "Meyersdale, PA", "Shamokin--Mount Carmel, PA", "Orwigsburg, PA", "Titusville, PA", "Ellwood City, PA" , "Lock Haven, PA", "Northern Cambria, PA", "Warren, PA", "Slippery Rock, PA", "Portage, PA", "Philipsburg, PA",  "Towanda, PA", "Oil City, PA", "Pine Grove, PA", "Mount Union, PA","Albion, PA","Tunkhannock, PA", "Jim Thorpe, PA", "Honesdale, PA", "Muncy, PA",  "Edinboro, PA", "Tamaqua, PA", "Bedford, PA", "Quarryville, PA", "Emporium, PA", "Reynoldsville, PA", "Moscow, PA", "Patton, PA", "Newport, PA", "New Wilmington, PA", "Nanty-Glo, PA", "Millersburg, PA", "Saw Creek, PA", "Treasure Lake, PA", "Everett, PA", "Cambridge Springs, PA", "Susquehanna Depot, PA", "Millsboro, PA", "Montgomery, PA", "East Prospect, PA", "Mount Holly Springs, PA", "Houtzdale, PA", "Pocono Woodland Lakes, PA")
 
 
@@ -365,11 +350,6 @@ sd_names <- c("Sioux Falls, SD", "Rapid City, SD", "Vermillion, SD", "Mobridge, 
 ```
 
 ```{r}
-tx <- data |>
-  filter(State == "TX")
-
-unique(tx$UA_NAME)
-
 tx_names <- c("San Antonio, TX", "Hallsville, TX", "Lubbock, TX", "Kilgore, TX", "Conroe--The Woodlands, TX", "Midland, TX", "Houston, TX", "Jacksonville, TX", "Dallas--Fort Worth--Arlington, TX", "Austin, TX", "Ennis, TX",  "Atlanta, TX",
               "Brownsville, TX", "El Paso, TX--NM", "McKinney, TX", "Eagle Lake, TX", "Castroville, TX", "Abilene, TX", "Weatherford, TX", "Corpus Christi, TX", "Livingston, TX", "Rio Hondo, TX", "Brookshire, TX", "Mount Vernon, TX", "Port Arthur, TX", "Eagle Pass, TX",  "College Station--Bryan, TX", "Denton--Lewisville, TX", "Port Isabel--Laguna Heights, TX",
               "Andrews, TX","Rockdale, TX", "Killeen, TX", "McAllen, TX", "Laredo, TX", "Athens, TX", "Harlingen, TX", "Sherman, TX","Amarillo, TX", "Longview, TX", "Kingsville, TX", "Muleshoe, TX", "Beaumont, TX", "Premont, TX", "Tyler, TX", "Childress, TX", "San Angelo, TX","Seguin, TX", "Brownwood, TX", "Canton, TX","Wharton, TX", "Wichita Falls, TX", "Galveston, TX", "Gainesville, TX", "Onalaska, TX", "Floydada, TX", "Texas City, TX", "Victoria, TX", "Temple, TX", "Cuero, TX", "Sinton, TX", "Bay City, TX","Odessa, TX", "Palestine, TX", "Hearne, TX", "Alice, TX", "Beeville, TX",
@@ -416,6 +396,73 @@ wy_names <- c("Casper, WY",  "Rock Springs, WY", "Cheyenne, WY",  "Sheridan, WY"
 
 
 wv_names <- c("Charles Town--Ranson, WV", "St. Marys, WV--OH", "Charleston, WV", "Lewisburg, WV", "Weirton--Steubenville, WV--OH--PA", "Beckley, WV", "Buckhannon, WV", "Huntington, WV--KY--OH", "Fairmont, WV", "Morgantown, WV", "Weston, WV", "Kingwood, WV", "Glenville, WV", "Keyser, WV--MD", "Wheeling, WV--OH", "Summersville, WV", "Clarksburg, WV", "Elkins, WV", "Ripley, WV", "Welch, WV", "Parkersburg, WV--OH", "Logan, WV", "Petersburg, WV", "Oceana, WV", "Montgomery, WV", "New Martinsville, WV--OH", "Grafton, WV",  "Bluefield, WV--VA", "Philippi, WV", "Ravenswood, WV", "Alderson, WV", "Moorefield, WV", "Spencer, WV", "Hinton, WV", "Sissonville, WV", "Madison, WV", "Williamson, WV--KY", "Shepherdstown, WV--MD", "Paden City, WV", "White Sulphur Springs, WV")
+
+```
+
+```{r}
+data <- data |>
+  mutate(new_state = case_when(
+    UA_NAME %in% ak_names ~ "AK",
+    UA_NAME %in% al_names ~ "AL",
+    UA_NAME %in% ar_names ~ "AR",
+    UA_NAME %in% az_names ~ "AZ", 
+    UA_NAME %in% ca_names ~ "CA",
+    UA_NAME %in% co_names ~ "CO",
+    UA_NAME %in% ct_names ~ "CT",
+    UA_NAME %in% dc_names ~ "DC",
+    UA_NAME %in% de_names ~ "DE",
+    UA_NAME %in% fl_names ~ "FL", 
+    UA_NAME %in% ga_names ~ "GA",
+    UA_NAME %in% hi_names ~ "HI",
+    UA_NAME %in% ia_names ~ "IA", 
+    UA_NAME %in% id_names ~ "ID",
+    UA_NAME %in% il_names ~ "IL",
+    UA_NAME %in% in_names ~ "IN",
+    UA_NAME %in% ks_names ~ "KS",
+    UA_NAME %in% ky_names ~ "KY",
+    UA_NAME %in% la_names ~ "LA",
+    UA_NAME %in% ma_names ~ "MA",
+    UA_NAME %in% md_names ~ "MD",
+    UA_NAME %in% me_names ~ "ME",
+    UA_NAME %in% mi_names ~ "MI",
+    UA_NAME %in% mn_names ~ "MN",
+    UA_NAME %in% mo_names ~ "MO",
+    UA_NAME %in% ms_names ~ "MS",
+    UA_NAME %in% mt_names ~ "MT",
+    UA_NAME %in% nc_names ~ "NC",
+    UA_NAME %in% nd_names ~ "ND",
+    UA_NAME %in% ne_names ~ "NE",
+    UA_NAME %in% nh_names ~ "NH",
+    UA_NAME %in% nj_names ~ "NJ",
+    UA_NAME %in% nm_names ~ "NM",
+    UA_NAME %in% nv_names ~ "NV",
+    UA_NAME %in% ny_names ~ "NY",
+    UA_NAME %in% oh_names ~ "OH",
+    UA_NAME %in% ok_names ~ "OK",
+    UA_NAME %in% or_names ~ "OR", 
+    UA_NAME %in% pa_names ~ "PA",
+    UA_NAME %in% ri_names ~ "RI",
+    UA_NAME %in% sc_names ~ "SC",
+    UA_NAME %in% sd_names ~ "SD",
+    UA_NAME %in% tn_names ~ "TN",
+    UA_NAME %in% tx_names ~ "TX",
+    UA_NAME %in% ut_names ~ "UT",
+    UA_NAME %in% va_names ~ "VA",
+    UA_NAME %in% vt_names ~ "VT",
+    UA_NAME %in% wa_names ~ "WA",
+    UA_NAME %in% wi_names ~ "WI",
+    UA_NAME %in% wv_names ~ "WV",
+    UA_NAME %in% wy_names ~ "WY"
+    
+    
+  ))
+
+```
+
+```{r}
+data2 <- data |>
+  drop_na(UA_NAME)
+
 
 ```
 
