@@ -374,6 +374,19 @@ data2<- data2 |>
   mutate(is_pop = if_else(UA_NAME %in% pop_towns, "Yes", "No"))
 ```
 
+```{r}
+ds_subset <- data2 |>
+  filter(RestaurantName %in% c("Dunkin", "Dunkin' Donuts", "Starbucks"))
+coffee_cities <- unique(ds_subset$UA_NAME)
+
+data3 <- data2 |>
+  select(UA_NAME, region, district, college_town, is_pop) |>
+  distinct() |>
+  mutate(is_coffee = if_else(UA_NAME %in% coffee_cities, 1, 0))
+
+```
+
+
 ## First Data Visualization
 
 ```{r}
@@ -385,6 +398,14 @@ coffee_data |>
   scale_fill_manual(values = c("salmon", "palegreen4")) +
   labs(title = "Chain Coffee Locations and College Towns", y = "Count of Locations", x = "")
 ```
+
+```{r}
+data3 |>
+  ggplot(mapping = aes(x = region)) +
+  geom_bar()
+
+```
+
 
 ## Analysis 1
 
@@ -428,25 +449,14 @@ data2 |>
 ## Analysis 3
 
 ```{r}
-ds_subset <- data2 |>
-  filter(RestaurantName %in% c("Dunkin", "Dunkin' Donuts", "Starbucks"))
-coffee_cities <- unique(ds_subset$UA_NAME)
-
-data3 <- data2 |>
-  select(UA_NAME, region, district, college_town, is_pop) |>
-  distinct() |>
-  mutate(is_coffee = if_else(UA_NAME %in% coffee_cities, 1, 0))
-
-
 data3
 
 ```
 
-```{r}
+```{r, regressions :)}
 regression1 <- lm(is_coffee ~ region + district + college_town + is_pop, data = data3)
 
 modelsummary::modelsummary(list(regression1))
-
 
 ```
 
