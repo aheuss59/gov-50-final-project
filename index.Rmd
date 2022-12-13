@@ -12,6 +12,7 @@ output:
 library(tidyverse)
 library(ggplot2)
 library(infer)
+library(wesanderson)
 
 
 ```
@@ -436,9 +437,8 @@ data3 |>
   mutate(is_coffee_new = if_else(is_coffee == 1, "Chain Coffee Town", "Not Chain Coffee Town")) |>
   ggplot(aes(x = is_coffee_new, fill = is_coffee_new)) +
   geom_bar() +
-  scale_fill_manual(values = c("antiquewhite3", "antiquewhite4")) +
+  scale_fill_manual(values = wes_palette("GrandBudapest2", n = 2)) +
   labs(x = "Coffee Options per Town", y = "Number of Towns", title = "Number of Towns in the dataset with and without Chain Coffee Locations") +
-  theme_bw() +
   theme(legend.position = "none")
 
 ```
@@ -488,22 +488,26 @@ modelsummary::modelsummary(list(multiregression))
 ```
 ```{r}
 
-data3 |>
-  mutate(is_coffee_new = if_else(is_coffee == 1, "Chain Coffee", "No Chain Coffee"),
-         college_town_new = if_else(college_town == 1, "College Town", "Not College Town")) |>
-  ggplot(aes(x = college_town_new, fill = college_town_new)) +
-  geom_bar(position = "dodge")
-
-data3 |>
-  ggplot(aes(x = college_town, y = is_coffee)) +
-  geom_point()
-
-
 data3 |> 
   mutate(college_town_new = if_else(college_town == 1, "College Town", "Not College Town")) |>
   filter(is_coffee == 1) |>
-  ggplot(aes(x = college_town_new)) +
-    geom_bar()
+  ggplot(aes(x = college_town_new, fill = college_town_new)) +
+    geom_bar() +
+  theme_bw() +
+  scale_fill_manual(values = c("antiquewhite3", "antiquewhite4")) +
+  labs(x = "Town Status", y = "Count", title = "Number of Chain Coffee Locations in College v. Non-College Towns") +
+  theme(legend.position = "none")
+```  
+
+```{r}
+
+data3 |>
+  mutate(college_town_new = if_else(college_town == 1, "College Town", "Not College Town"),
+         `Coffee Options` = if_else(is_coffee == 1, "Chain Coffee", "No Chain Coffee")) |>
+  ggplot(aes(x = college_town_new, fill = `Coffee Options`)) +
+  geom_bar(position = "dodge") +
+  labs(x = "Town College Status", y = "Count", title = "Towns With Chain Coffee Locations in College v. Non-College Towns") +
+  scale_fill_manual(values = wes_palette("GrandBudapest2", n = 2))
   
 
 ```
@@ -516,8 +520,7 @@ data3 |>
   ggplot(mapping = aes(x = is_coffee_new, fill = Region)) +
   geom_bar(position = "dodge") +
   labs(title = "Distribution of Towns with Chain Coffee in the United States", x = "Coffee Status in Town", y = "Count") +
-  scale_fill_manual(values = c("antiquewhite1", "antiquewhite2", "antiquewhite3", "antiquewhite4")) +
-  theme_bw()
+  scale_fill_manual(values = wes_palette("GrandBudapest2", n = 4))
 
 
 ```
