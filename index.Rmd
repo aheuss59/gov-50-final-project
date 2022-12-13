@@ -11,6 +11,7 @@ output:
 ```{r, include = FALSE}
 library(tidyverse)
 library(ggplot2)
+library(infer)
 
 
 ```
@@ -21,13 +22,18 @@ library(ggplot2)
 
 Coming to Cambridge this fall, I had lots of things on my mind. Class choices, new roommates, new friends, and (perhaps more importantly) coffee. As I learned soon after arriving, coffee is not hard to find in Cambridge. This project is an effort to explore where coffee locations are located in the United States and why. After exploring my data with more depth, I realized that it would be ineffective and misleading to attempt to analyze all coffee shops based on the provided data. As a result, this project focuses on the chain coffee franchises Dunkin' Donuts and Starbucks. My primary research question was inspired by the sheer prevalence of coffee in Cambridge and asks: is there a correlation between these chain coffee locations and whether or not the city it is located in is a college town?
 
+
 ## The Data
 
-My original data was taken from Friendly Cities on GitHub and includes 800,000 restaurants throughout the United States. The dataset included the variables: RestaurantName, Cuisine, OpenHours, State, CNTY_GEOID, UA_NAME, MSA_NAME, MSA_GEOID, Lon, Lat, Frequency, and isChain. This dataset was originally used to find correlation between chain restaurants and a number of independent variables, so this project goes in another direction. The primary variables I focused on included RestaurantName, which provided the name of the restaurant, UA_NAME, which is short for Urban Area name and was typically formatted as the city and state where the restaurant was located, lastly the State variable, which provided the state abbreviation for the state the restaurant was located in. As the dataset originally stood, I did not have enough data to explore my research question. I created a new tibble labeled college_towns which includes the name of every town in the United States that has a four-year higher education institution located within it. This tibble was compiled using information provided on Campus Explorer and then used to create the variable college_town within the dataset. The next two variables I added to the dataset were based on location and are called region and division. These variables were created in reference to the regions and divisions assigned to states by the United States Census Bureau. My final variable is called is_pop and marks whether or not a city was in the top 5 most populated cities within it's respective state. This variable was created with Census Bureau data, specifically the April 2021 population estimate. 
+My original data was taken from Friendly Cities on GitHub and includes 800,000 restaurants throughout the United States. The dataset included the variables: RestaurantName, Cuisine, OpenHours, State, CNTY_GEOID, UA_NAME, MSA_NAME, MSA_GEOID, Lon, Lat, Frequency, and isChain. This dataset was originally used to find correlation between chain restaurants and a number of independent variables, so this project goes in another direction. The primary variables I focused on included RestaurantName, which provided the name of the restaurant, UA_NAME, which is short for Urban Area name and was typically formatted as the city and state where the restaurant was located, and lastly the State variable, which provided the state abbreviation for the state the restaurant was located in. 
 
-The dependent variable in my study is whether or not a town has a chain coffee location, in this study referring to a Dunkin' Donuts or a Starbucks. 
+As the dataset originally stood, I did not have enough data to explore my research question. I created a new tibble labeled college_towns which includes the name of every town in the United States that has a four-year higher education institution located within it. This tibble was compiled using information provided on Campus Explorer and then used to create the variable college_town within the dataset; a 1 marks that the town has a four year higher education institution and a 0 if else. I also created my dependent variable by creating a unique ID per city, which I used to create the variable is_coffee in my data. The column is marked with a 1 if the town has a chain and a 0 if not. 
 
-```{r}
+The rest of my variables were created as possible confounders that could provide alternative reasoning. The next two variables I added to the dataset were based on location and are called region and division. These variables were created in reference to the regions and divisions assigned to states by the United States Census Bureau. My final variable is called is_pop and marks whether or not a city was in the top 5 most populated cities within it's respective state (1 if yes, 0 if no). This variable was created with Census Bureau data, specifically the April 2021 population estimate. 
+
+The dependent variable in my study is whether or not a town has a chain coffee location, in this study referring to a Dunkin' Donuts or a Starbucks. My study is cross-sectional, as the data is observational, meaning that I did not assign the value for college_town, which is my primary variable of interest. Additionally, my data was collected at a single point in time and thus does not fill the criteria for a before-after or differences in differences study. 
+
+```{r, loading the data}
 part_1 <- read_csv("https://raw.githubusercontent.com/friendlycities-gatech/chainness/main/data/chainness_point_2021_part1.csv")
 
 
@@ -43,9 +49,7 @@ data <-
 
 ```
 
-
-
-## Initial Object Creation
+# Initial Object Creation
 
 ```{r, college towns}
 college_towns <- c("Bloomington, MN", "Minneapolis, MN", "Bemidji, MN",  "Mankato, MN", "St. Paul, MN", "Northfield, MN", "St. Joseph, MN", "Saint Joseph, MN", "Moorhead, MN", "Saint Bonifacius, MN", "St. Bonifacous, MN", "St. Peter, MN", "Saint Peter, MN", "St. Louis Park, MN", "Saint Louis Park, MN", "New Ulm, MN", "St. Cloud, MN", "Saint Cloud, MN", "Collegeville, MN", "Winona, MN", "Marshall, MN", "Duluth, MN", "Crookston, MN", "Morris, MN", "Rochester, MN",
@@ -306,7 +310,7 @@ pop_towns <- c("Huntsville, AL", "Birmingham, AL", "Montgomery, AL", "MObile, AL
 
 ```
 
-## Tidying and Mutating the Data
+# Tidying and Mutating the Data
 
 ```{r, college_town variable}
 data <- data |>
@@ -399,7 +403,7 @@ data_not_college_town <- data2 |>
   filter(college_town == 0)
 
 non_college_towns <- as.tibble(unique(data_not_college_town$UA_NAME))
-non_college_towns
+
 ```
 
 ```{r, coffee_data}
@@ -424,35 +428,25 @@ data3 <- data2 |>
 
 ```
 
+# Summary Plot of the Dependent Variable
+
 ```{r}
+
 data3 |>
-  filter(new_state == "MS")
+  mutate(is_coffee_new = if_else(is_coffee == 1, "Chain Coffee Town", "Not Chain Coffee Town")) |>
+  ggplot(aes(x = is_coffee_new, fill = is_coffee_new)) +
+  geom_bar() +
+  scale_fill_manual(values = c("antiquewhite3", "antiquewhite4")) +
+  labs(x = "Coffee Options per Town", y = "Number of Towns", title = "Number of Towns in the dataset with and without Chain Coffee Locations") +
+  theme_bw() +
+  theme(legend.position = "none")
 
 ```
 
-## First Data Visualization
+My dependent variable for this project is whether or not a town has a chain coffee location which in this project is defined as either a Dunkin' Donuts or a Starbucks. I will further discuss the reasoning for this in my conclusion. As can be seen in the graph above, the dataset includes restaurant data from over 3,000 cities throughout the United States. We can see that there are more cities in the data without chain coffee locations than with them. 
 
-```{r}
-coffee_data |>
-  mutate(college_town_new = if_else(college_town == 1, "College Town", "Non-College Town"),
-         `Restaurant Name` = if_else(RestaurantName == "Dunkin", "Dunkin' Donuts", "Starbucks")) |>
-  ggplot(mapping = aes(x = college_town_new, fill = `Restaurant Name`)) +
-  geom_bar(position = "dodge") +
-  scale_fill_manual(values = c("salmon", "palegreen4")) +
-  labs(title = "Chain Coffee Locations and College Towns", y = "Count of Locations", x = "")
-```
 
-```{r}
-data3 |>
-  mutate(is_coffee_new = if_else(is_coffee == 1, "Chain Coffee", "No Chain Coffee")) |>
-  rename(Region = region) |>
-  ggplot(mapping = aes(x = is_coffee_new, fill = Region)) +
-  geom_bar(position = "dodge") +
-  labs(title = "Distribution of Towns with Chain Coffee in the United States", x = "Coffee Status in Town", y = "Count") +
-  scale_fill_manual(values = c("antiquewhite1", "antiquewhite2", "antiquewhite3", "antiquewhite4")) +
-  theme_bw()
 
-```
 
 
 ## Analysis 1
@@ -479,65 +473,52 @@ These results suggest that there is a fairly substansive difference between the 
 
 ## Analysis 2
 
-```{r}
-data2 <- data2 |>
-  mutate(is_chain_coffee = if_else(RestaurantName %in% c("Dunkin", "Starbucks"), "Yes", "No"))
-
-data2 |>
-  filter(is_chain_coffee == "Yes") |>
-  group_by(college_town) |>
-  summarize(n = n()) |>
-  pivot_wider(names_from = college_town, values_from = n) |>
-  mutate(ate = `1` - `0`,
-         ate_perc = ate/(`1` + `0`))
-
-
+```{r, singular regression}
+singregression <- lm(is_coffee ~ college_town, data = data3)
+modelsummary::modelsummary(list(singregression))
 ```
 
 ## Analysis 3
 
+```{r, multi-regression}
+multiregression <- lm(is_coffee ~ region + district + college_town + is_pop, data = data3)
+
+modelsummary::modelsummary(list(multiregression))
+
+```
 ```{r}
-data3
+
+data3 |>
+  mutate(is_coffee_new = if_else(is_coffee == 1, "Chain Coffee", "No Chain Coffee"),
+         college_town_new = if_else(college_town == 1, "College Town", "Not College Town")) |>
+  ggplot(aes(x = college_town_new, fill = college_town_new)) +
+  geom_bar(position = "dodge")
+
+data3 |>
+  ggplot(aes(x = college_town, y = is_coffee)) +
+  geom_point()
+
+
+data3 |> 
+  mutate(college_town_new = if_else(college_town == 1, "College Town", "Not College Town")) |>
+  filter(is_coffee == 1) |>
+  ggplot(aes(x = college_town_new)) +
+    geom_bar()
+  
 
 ```
 
-```{r, regressions :)}
-regression1 <- lm(is_coffee ~ region + district + college_town + is_pop, data = data3)
+```{r}
 
-modelsummary::modelsummary(list(regression1))
+data3 |>
+  mutate(is_coffee_new = if_else(is_coffee == 1, "Chain Coffee", "No Chain Coffee")) |>
+  rename(Region = region) |>
+  ggplot(mapping = aes(x = is_coffee_new, fill = Region)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Distribution of Towns with Chain Coffee in the United States", x = "Coffee Status in Town", y = "Count") +
+  scale_fill_manual(values = c("antiquewhite1", "antiquewhite2", "antiquewhite3", "antiquewhite4")) +
+  theme_bw()
 
-```
-
-
-
-
-
-
-
-
-
-
-```{r, eval = FALSE, echo = FALSE} 
-
-non_college_coffee_data <- data_not_college_town |>
-  filter(RestaurantName %in% c("Dunkin", "Starbucks"))
-
-non_tibble <- as.tibble(unique(non_college_coffee_data$UA_NAME))
-
-nrow(non_college_towns) - nrow(non_tibble)
-
-c <- data |>
-  filter(college_town == 1)
-
-college_coffee_data <- coffee_data |>
-  filter(college_town ==1)
-
-col_town_tibble <- as.tibble(unique(c$UA_NAME))
-
-col_tibble <- as.tibble(unique(college_coffee_data$UA_NAME))
-
-
-nrow(col_town_tibble) - nrow(col_tibble)
 
 ```
 
