@@ -446,39 +446,19 @@ data3 |>
 My dependent variable for this project is whether or not a town has a chain coffee location which in this project is defined as either a Dunkin' Donuts or a Starbucks. I will further discuss the reasoning for this in my conclusion. As can be seen in the graph above, the dataset includes restaurant data from over 3,000 cities throughout the United States. We can see that there are more cities in the data without chain coffee locations than with them. 
 
 
+## Results
 
+# Main Variable Regression
 
-
-## Analysis 1
-
-Of the sampled Dunkin' Donuts and Starbucks locations, there appears to be a correlation between location of restaurants and college towns. The following table calculates the percentage of sampled Dunkin' Donuts and Starbucks locations that are located in college towns as opposed to non-college towns. Additionally, the average treatment effect of the town being a college town as opposed to a non-college town is calculated as the Average Treatment Effect.  
-
-```{r}
-props <- coffee_data |>
-  mutate(new_name = if_else(RestaurantName == "Dunkin", "Dunkin' Donuts", "Starbucks")) |>
-  group_by(new_name, college_town) |>
-  summarize(count = n()) |>
-  pivot_wider(names_from = college_town, values_from = count) |>
-  mutate(perc_college_town = (`1`/(`1` + `0`)) * 100,
-         perc_non_college_town = (`0`/(`1` + `0`)) * 100,
-         ate = perc_college_town - perc_non_college_town) 
-
-props |>
-  select(perc_college_town, perc_non_college_town, ate) |>
-  knitr :: kable(caption = "Percent of Sampled Chain Coffee Locations in College versus Non-College Towns", col.names = c("Restaurant Name", "College Town (%)", "Non-College Town (%)", "Average Treatment Effect (%)"), digits = 2)
-
-```
-
-These results suggest that there is a fairly substansive difference between the percent of Dunkin' Donuts and Starbucks locations that are located in college towns as opposed to non-college towns. There are approximately 61% more Dunkin' Donuts locations in college towns and that number grows to nearly 65% for Starbucks. 
-
-## Analysis 2
+My primary independent variable of interest was the college town variable. The following regression table displays the details for a regression equation involving only that variable. 
 
 ```{r, singular regression}
 singregression <- lm(is_coffee ~ college_town, data = data3)
 modelsummary::modelsummary(list(singregression))
 ```
+As can be seen in the table above the intercept of the line is 0.251, meaning that approximately 25.1% of towns contain one of the chain coffee locations. The number associated with college_town is 0.469, which also represents the slope. This can be interpreted to mean that for college towns, there is a 46.9% increase in the number of towns that have a chain coffee location. This number has a p-value of 0.018, which is statistically significant with an alpha of 0.05. 
 
-## Analysis 3
+# Multiple Regression
 
 ```{r, multi-regression}
 multiregression <- lm(is_coffee ~ region + district + college_town + is_pop, data = data3)
@@ -486,20 +466,10 @@ multiregression <- lm(is_coffee ~ region + district + college_town + is_pop, dat
 modelsummary::modelsummary(list(multiregression))
 
 ```
-```{r}
 
-data3 |> 
-  mutate(college_town_new = if_else(college_town == 1, "College Town", "Not College Town")) |>
-  filter(is_coffee == 1) |>
-  ggplot(aes(x = college_town_new, fill = college_town_new)) +
-    geom_bar() +
-  theme_bw() +
-  scale_fill_manual(values = c("antiquewhite3", "antiquewhite4")) +
-  labs(x = "Town Status", y = "Count", title = "Number of Chain Coffee Locations in College v. Non-College Towns") +
-  theme(legend.position = "none")
-```  
+# Summary Graph
 
-```{r}
+```{r, main variable summary graph}
 
 data3 |>
   mutate(college_town_new = if_else(college_town == 1, "College Town", "Not College Town"),
@@ -512,8 +482,11 @@ data3 |>
 
 ```
 
-```{r}
 
+
+These results suggest that there is a fairly substansive difference between the percent of Dunkin' Donuts and Starbucks locations that are located in college towns as opposed to non-college towns. There are approximately 61% more Dunkin' Donuts locations in college towns and that number grows to nearly 65% for Starbucks. 
+
+```{r}
 data3 |>
   mutate(is_coffee_new = if_else(is_coffee == 1, "Chain Coffee", "No Chain Coffee")) |>
   rename(Region = region) |>
@@ -524,6 +497,51 @@ data3 |>
 
 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r, extra-graph and table, eval = FALSE}
+data3 |> 
+  mutate(college_town_new = if_else(college_town == 1, "College Town", "Not College Town")) |>
+  filter(is_coffee == 1) |>
+  ggplot(aes(x = college_town_new, fill = college_town_new)) +
+    geom_bar() +
+  theme_bw() +
+  scale_fill_manual(values = c("antiquewhite3", "antiquewhite4")) +
+  labs(x = "Town Status", y = "Count", title = "Number of Chain Coffee Locations in College v. Non-College Towns") +
+  theme(legend.position = "none")
+
+props <- data3 |>
+  mutate(coffee = if_else(is_coffee == 1, "Has Chain Coffee", "No Chain Coffee")) |>
+  group_by(coffee, college_town) |>
+  summarize(count = n()) |>
+  pivot_wider(names_from = college_town, values_from = count) |>
+  mutate(perc_college_town = (`1`/(`1` + `0`)) * 100,
+         perc_non_college_town = (`0`/(`1` + `0`)) * 100,
+         ate = perc_college_town - perc_non_college_town)
+props
+props |>
+  select(coffee, perc_college_town, perc_non_college_town, ate) |>
+  knitr :: kable(col.names = c("Coffee Status", "College Town (%)", "Non-College Town (%)", "Average Treatment Effect"))
+```  
+
+
+
+
 
 
 
