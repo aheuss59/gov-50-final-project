@@ -493,16 +493,7 @@ props |>
 
 ## Conclusion
 
-
-
-
-
-
-
-
-
-
-
+To conclude, there does appear to be a correlation between college towns and chain coffee locations. The coefficients for this variable in both regressions that were run were not equal to 0 and were the best predictor within each regression. These results support my hypothesis that there is a correlation between college towns and chain coffee locations. There are limitations to this study. First, the data does not include every chain coffee location. While nearly every Dunkin' Donuts is represented in the data, Starbucks data was much less represented including only about half of locations. Additionally, other small chain location such as Caribou Coffee or Tim Horton's were not well represented within the data and thus could not be effectively studied. Another limitation of this study is the limited population data. With more time, ideally it would be nice to merge the current data with a population dataset from the US Census Bureau. 
 
 
 
