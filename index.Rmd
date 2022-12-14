@@ -21,16 +21,16 @@ library(wesanderson)
 
 ## Introduction
 
-Coming to Cambridge this fall, I had lots of things on my mind. Class choices, new roommates, new friends, and (perhaps more importantly) coffee. As I learned soon after arriving, coffee is not hard to find in Cambridge. This project is an effort to explore where coffee locations are located in the United States and why. After exploring my data with more depth, I realized that it would be ineffective and misleading to attempt to analyze all coffee shops based on the provided data. As a result, this project focuses on the chain coffee franchises Dunkin' Donuts and Starbucks. My primary research question was inspired by the sheer prevalence of coffee in Cambridge and asks: is there a correlation between these chain coffee locations and whether or not the city it is located in is a college town?
+Coming to Cambridge this fall, I had lots of things on my mind. Class choices, new roommates, new friends, and (perhaps more importantly) coffee. As I learned soon after arriving, coffee is not hard to find in Cambridge. This project is an effort to explore where coffee locations are located in the United States and why. After exploring my data with more depth, I realized that it would be ineffective and misleading to attempt to analyze all coffee shops based on the provided data. As a result, this project focuses on the chain coffee franchises Dunkin' Donuts and Starbucks. My primary research question was inspired by the sheer prevalence of coffee in Cambridge and asks: is there a relationship between these chain coffee locations and whether or not the city it is located in is a college town? My hypothesis is that there is a relationship between college towns and chain coffee locations. The null hypothesis would be that there is no relationship and that the variables are independent of each other. 
 
 
 ## The Data
 
-My original data was taken from Friendly Cities on GitHub and includes 800,000 restaurants throughout the United States. The dataset included the variables: RestaurantName, Cuisine, OpenHours, State, CNTY_GEOID, UA_NAME, MSA_NAME, MSA_GEOID, Lon, Lat, Frequency, and isChain. This dataset was originally used to find correlation between chain restaurants and a number of independent variables, so this project goes in another direction. The primary variables I focused on included RestaurantName, which provided the name of the restaurant, UA_NAME, which is short for Urban Area name and was typically formatted as the city and state where the restaurant was located, and lastly the State variable, which provided the state abbreviation for the state the restaurant was located in. 
+My original data was taken from Friendly Cities on GitHub and includes over 700,000 restaurants throughout the United States. The dataset included the variables: RestaurantName, Cuisine, OpenHours, State, CNTY_GEOID, UA_NAME, MSA_NAME, MSA_GEOID, Lon, Lat, Frequency, and isChain. This dataset was originally used to find correlation between chain restaurants and a number of independent variables, so this project goes in another direction. The primary variables I focused on included RestaurantName, which provided the name of the restaurant, UA_NAME, which is short for Urban Area name and was typically formatted as the city and state where the restaurant was located, and lastly the State variable, which provided the state abbreviation for the state the restaurant was located in. 
 
-As the dataset originally stood, I did not have enough data to explore my research question. I created a new tibble labeled college_towns which includes the name of every town in the United States that has a four-year higher education institution located within it. This tibble was compiled using information provided on Campus Explorer and then used to create the variable college_town within the dataset; a 1 marks that the town has a four year higher education institution and a 0 if else. I also created my dependent variable by creating a unique ID per city, which I used to create the variable is_coffee in my data. The column is marked with a 1 if the town has a chain and a 0 if not. 
+As the dataset originally stood, I did not have enough data to explore my research question. I created a new tibble labeled college_towns which includes the name of every town in the United States that has a four-year higher education institution located within it. This tibble was compiled using information provided on Campus Explorer and then used to create the variable college_town within the dataset; a 1 marks that the town has a four year higher education institution and a 0 if else. I also created my dependent variable by creating a unique ID per city, which I used to create the variable is_coffee in my data. The column is marked with a 1 if the town has a Dunkin' Donuts or Starbucks and a 0 if not. 
 
-The rest of my variables were created as possible confounders that could provide alternative reasoning. The next two variables I added to the dataset were based on location and are called region and division. These variables were created in reference to the regions and divisions assigned to states by the United States Census Bureau. My final variable is called is_pop and marks whether or not a city was in the top 5 most populated cities within it's respective state (1 if yes, 0 if no). This variable was created with Census Bureau data, specifically the April 2021 population estimate. 
+The rest of my variables were created as possible confounders that could provide alternative reasoning for any relationship found between college towns and chain coffee locations. The next two variables I added to the dataset were based on location and are called region and division. These variables were created in reference to the regions and divisions assigned to states by the United States Census Bureau. My final variable is called is_pop and marks whether or not a city was in the top 5 most populated cities within it's respective state (1 if yes, 0 if no). This variable was created with Census Bureau data, specifically the April 2021 population estimate. 
 
 The dependent variable in my study is whether or not a town has a chain coffee location, in this study referring to a Dunkin' Donuts or a Starbucks. My study is cross-sectional, as the data is observational, meaning that I did not assign the value for college_town, which is my primary variable of interest. Additionally, my data was collected at a single point in time and thus does not fill the criteria for a before-after or differences in differences study. 
 
@@ -379,19 +379,18 @@ data3 <- data2 |>
 
 # Summary Plot of the Dependent Variable
 
-```{r}
-
+```{r, summary graph}
 data3 |>
-  mutate(is_coffee_new = if_else(is_coffee == 1, "Chain Coffee Town", "Not Chain Coffee Town")) |>
+  mutate(is_coffee_new = if_else(is_coffee == 1, "With Chain Coffee", "Without Chain Coffee")) |>
   ggplot(aes(x = is_coffee_new, fill = is_coffee_new)) +
   geom_bar() +
   scale_fill_manual(values = wes_palette("GrandBudapest2", n = 2)) +
-  labs(x = "Coffee Options per Town", y = "Number of Towns", title = "Number of Towns in the dataset with and without Chain Coffee Locations") +
+  labs(x = "Coffee Options", y = "Number of Towns", title = "Number of Towns With and Without Chain Coffee Locations") +
   theme(legend.position = "none")
 
 ```
 
-My dependent variable for this project is whether or not a town has a chain coffee location which in this project is defined as either a Dunkin' Donuts or a Starbucks. I will further discuss the reasoning for this in my conclusion. As can be seen in the graph above, the dataset includes restaurant data from over 3,000 cities throughout the United States. We can see that there are more cities in the data without chain coffee locations than with them. 
+My dependent variable for this project is whether or not a town has a chain coffee location which in this project is defined as either a Dunkin' Donuts or a Starbucks. As can be seen in the graph above, the dataset includes restaurant data from over 3,000 cities throughout the United States. We can see that there are more cities in the data without chain coffee locations than with them. 
 
 
 ## Results
@@ -402,10 +401,15 @@ My primary independent variable of interest was the college town variable. The f
 
 ```{r, singular regression}
 singregression <- lm(is_coffee ~ college_town, data = data3)
-summary(singregression)
-modelsummary::modelsummary(singregression, statistic = "p.value")
+
+varnames1 <- c("(Intercept)" = "Intercept",
+               "college_town" = "College Town Variable")
+
+modelsummary::modelsummary(singregression, statistic = "p.value", 
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_map = varnames1)
 ```
-As can be seen in the table above the intercept of the line is 0.251, meaning that approximately 25.1% of towns contain one of the chain coffee locations. The number associated with college_town is 0.469, which also represents the slope. This can be interpreted to mean that for college towns, there is a 46.9% increase in the number of towns that have a chain coffee location. This number has a p-value of 0.018, which is statistically significant with an alpha of 0.05. 
+As can be seen in the table above the intercept of the line is 0.251, meaning that, in non-college towns, approximately 25.1% of towns contain a chain coffee location. The coefficient associated with college_town is 0.469, which also represents the slope. This can be interpreted to mean that for college towns, there is a 46.9% increase in the number of towns that have a chain coffee location. This number has a p-value of less than 0.001, which is statistically significant with an alpha of 0.05. 
 
 # Multiple Regression
 
@@ -414,7 +418,16 @@ In order to determine a few possible confounders, I also examined my other indep
 ```{r, multi-regression}
 multiregression <- lm(is_coffee ~ region +  is_pop + college_town, data = data3)
 
-modelsummary::modelsummary(multiregression, statistic = "p.value")
+varnames2 <- c("(Intercept)" = "Intercept",
+               "regionNortheast" = "Northeast Region",
+               "regionSouth" = "Southern Region",
+               "regionWest" = "Western Region",
+               "is_popYes" = "Top 5 Population in State",
+               "college_town" = "College Town")
+
+modelsummary::modelsummary(multiregression, statistic = "p.value",
+                           gof_map = c("nobs", "r.squared", "adj.r.squared"),
+                           coef_map = varnames2)
 
 ```
 In the table above, the intercept is 0.144, which implies that when all variables are 0 (in this case, the town is not a college town and is not one of the top 5 in it's state based on population), 14.4% of towns have a chain coffee location. Within the region variables, the Northeast variable has the largest effect with 0.377, meaning that when the town is in the Northeast states there is a 37.7% increase in towns that have chain coffee locations, holding all else equal. The population variable has a coefficient of 0.311, which indicates that when a town is in the top 5 of it's state for population there is an average increase in towns with chain coffee locations of 31.1%, holding all else equal. Finally, the college town variable has a coefficient of 0.400, which implies that when a town is a college town, there is an average increase of 40% in the number of towns that have a chain coffee location, holding all other variable equal. This number is lower than the initial 46.9% shown in the previous table, which implies that some of the correlation might have actually been due to one of the variables in this regression. All of the coefficients in this table have very small p-values, below the aplha level of 0.05, which implies statistical significance. 
@@ -422,10 +435,12 @@ In the table above, the intercept is 0.144, which implies that when all variable
 
 # Summary Graph
 
+The following is a bar graph displaying the relationship between chain coffee locations and my main variable of interest, whether or not the town has a college. 
+
 ```{r, main variable summary graph}
 
 data3 |>
-  mutate(college_town_new = if_else(college_town == 1, "College Town", "Not College Town"),
+  mutate(college_town_new = if_else(college_town == 1, "College Town", "Non-College Town"),
          `Coffee Options` = if_else(is_coffee == 1, "Chain Coffee", "No Chain Coffee")) |>
   ggplot(aes(x = college_town_new, fill = `Coffee Options`)) +
   geom_bar(position = "dodge") +
@@ -434,35 +449,17 @@ data3 |>
   
 
 ```
-
-
+As can be seen in the graph above, despite the apparent relationship between college towns and chain coffee locations, there are still more chain coffee locations in non-college towns. However, we can also see that there is a massive difference in proportions. For college towns, it appears that there are over double the amount of towns with chain coffee as opposed to without. On the other hand, when we look at noon-college towns, the vast majority do not have chain coffee locations. We could estimate that nearly three quarters of towns without colleges do not have a chain coffee location. When analyzing this graph, it is also important to remember that, within the dataset, there are a lot more non-college towns. The following version of the graph makes it a little easier to see the proportions. 
 
 ```{r}
 data3 |>
-  mutate(is_coffee_new = if_else(is_coffee == 1, "Chain Coffee", "No Chain Coffee")) |>
-  rename(Region = region) |>
-  ggplot(mapping = aes(x = is_coffee_new, fill = Region)) +
-  geom_bar(position = "dodge") +
-  labs(title = "Distribution of Towns with Chain Coffee in the United States", x = "Coffee Status in Town", y = "Count") +
-  scale_fill_manual(values = wes_palette("GrandBudapest2", n = 4))
-
-
+  mutate(college_town_new = if_else(college_town == 1, "College Town", "Non-College Town"),
+         `Coffee Options` = if_else(is_coffee == 1, "Chain Coffee", "No Chain Coffee")) |>
+  ggplot(aes(x = college_town_new, fill = `Coffee Options`)) +
+  geom_bar() +
+  labs(x = "Town College Status", y = "Count", title = "Towns With Chain Coffee Locations in College v. Non-College Towns") +
+  scale_fill_manual(values = wes_palette("GrandBudapest2", n = 2))
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ```{r, extra-graph and table, eval = FALSE, include = FALSE}
@@ -493,9 +490,20 @@ props |>
 
 ## Conclusion
 
-To conclude, there does appear to be a correlation between college towns and chain coffee locations. The coefficients for this variable in both regressions that were run were not equal to 0 and were the best predictor within each regression. These results support my hypothesis that there is a correlation between college towns and chain coffee locations. There are limitations to this study. First, the data does not include every chain coffee location. While nearly every Dunkin' Donuts is represented in the data, Starbucks data was much less represented including only about half of locations. Additionally, other small chain location such as Caribou Coffee or Tim Horton's were not well represented within the data and thus could not be effectively studied. Another limitation of this study is the limited population data. With more time, ideally it would be nice to merge the current data with a population dataset from the US Census Bureau. 
+To conclude, there does appear to be a relationship between college towns and chain coffee locations. The coefficients for this variable in both regressions that were run were not equal to 0 and were the best predictor within each regression. These results support my hypothesis that there is a relationship between college towns and chain coffee locations. More specifically, there is a mildly strong positive relationship. There are some limitations to this study. First, the data does not include every chain coffee location. While nearly every Dunkin' Donuts is represented in the data, Starbucks data was much less represented including only about half of locations. Additionally, other small chain location such as Caribou Coffee or Tim Horton's were not well represented within the data and thus could not be effectively studied. Another limitation of this study is the limited population data. With more time, ideally it would be nice to merge the current data with a population dataset from the US Census Bureau to get exact populations for every town. Finally, in the future it would be nice to expand the study to include two-year higher education institutions in either another variable or in the college_town one. 
 
 
+## Works Cited
+
+"City and Town Population Totals: 2020-2021". *United States Census Bureau*, 16 May 2022, www.census.gov/data/tables/time-series/demo/popest/2020s-total-cities-and-towns.html, Accessed 6 December 2022. 
+
+"Colleges by State." *College Explorer*, Archer Education, Inc., 2022, www.campusexplorer.com/colleges/state/, Accessed 7 November 2022. 
+
+"Geographic Regions". *United States Census Bureau*, 8 October 2022, www.census.gov/programs-surveys/economic-census/guidance-geographies/levels.html#par_textimage_34, Accessed 12 December 2022.
+
+LeadsDeposit. (2021). WebMaster [Data set]. https://leadsdeposit.com/
+
+Liang, X., & Andris, C. (2021). Measuring McCities: Landscapes of chain and independent restaurants in the United States. Environment and Planning B: Urban Analytics and City Science, 49(2), 585-602. https://doi.org/10.1177/23998083211014896
 
 
 
