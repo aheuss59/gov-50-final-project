@@ -7,7 +7,6 @@ output:
     self_contained: false
 ---
 
-
 ```{r, include = FALSE}
 library(tidyverse)
 library(ggplot2)
@@ -16,12 +15,9 @@ library(wesanderson)
 
 
 ```
-
-
-
 ## Introduction
 
-Coming to Cambridge this fall, I had lots of things on my mind. Class choices, new roommates, new friends, and (perhaps more importantly) coffee. As I learned soon after arriving, coffee is not hard to find in Cambridge. This project is an effort to explore where coffee locations are located in the United States and why. After exploring my data with more depth, I realized that it would be ineffective and misleading to attempt to analyze all coffee shops based on the provided data. As a result, this project focuses on the chain coffee franchises Dunkin' Donuts and Starbucks. My primary research question was inspired by the sheer prevalence of coffee in Cambridge and asks: is there a relationship between these chain coffee locations and whether or not the city it is located in is a college town? My hypothesis is that there is a relationship between college towns and chain coffee locations. The null hypothesis would be that there is no relationship and that the variables are independent of each other. 
+Coming to Cambridge this fall, I had lots of things on my mind. Class choices, new roommates, new friends, and (perhaps more importantly) coffee. As I learned soon after arriving, coffee is not hard to find in Cambridge. This project is an effort to explore where coffee locations are located in the United States and why. After exploring my data with more depth, I realized that it would be ineffective and misleading to attempt to analyze all coffee shops based on the provided data. As a result, this project focuses on the chain coffee franchises Dunkin' Donuts and Starbucks. My primary research question was inspired by the sheer prevalence of coffee in Cambridge and asks: is there a relationship between these chain coffee locations and whether or not the city is a college town? My hypothesis is that there is a relationship between college towns and chain coffee locations. The null hypothesis would be that there is no relationship and that the variables are independent of each other. 
 
 
 ## The Data
@@ -390,7 +386,7 @@ data3 |>
 
 ```
 
-My dependent variable for this project is whether or not a town has a chain coffee location which in this project is defined as either a Dunkin' Donuts or a Starbucks. As can be seen in the graph above, the dataset includes restaurant data from over 3,000 cities throughout the United States. We can see that there are more cities in the data without chain coffee locations than with them. 
+My dependent variable for this project is whether or not a town has a chain coffee location, which in this project is defined as either a Dunkin' Donuts or a Starbucks. As can be seen in the graph above, the dataset includes restaurant data from over 3,000 cities throughout the United States. We can see that there are more cities in the data without chain coffee locations than with them. 
 
 
 ## Results
@@ -409,7 +405,7 @@ modelsummary::modelsummary(singregression, statistic = "p.value",
                            gof_map = c("nobs", "r.squared", "adj.r.squared"),
                            coef_map = varnames1)
 ```
-As can be seen in the table above the intercept of the line is 0.251, meaning that, in non-college towns, approximately 25.1% of towns contain a chain coffee location. The coefficient associated with college_town is 0.469, which also represents the slope. This can be interpreted to mean that for college towns, there is a 46.9% increase in the number of towns that have a chain coffee location. This number has a p-value of less than 0.001, which is statistically significant with an alpha of 0.05. 
+As can be seen in the table above the intercept of the line is 0.251, meaning that, in non-college towns, approximately 25.1% of towns contain a chain coffee location. The coefficient associated with college_town is 0.469, which also represents the slope. This can be interpreted to mean that for college towns, there is a 46.9% increase in the number of towns that have a chain coffee location. This number has a p-value of less than 0.001, which is statistically significant with an alpha of 0.05. Due to the cross-sectional style of this study, I do not believe that the relationship can be interpreted causally.
 
 # Multiple Regression
 
@@ -490,7 +486,7 @@ props |>
 
 ## Conclusion
 
-To conclude, there does appear to be a relationship between college towns and chain coffee locations. The coefficients for this variable in both regressions that were run were not equal to 0 and were the best predictor within each regression. These results support my hypothesis that there is a relationship between college towns and chain coffee locations. More specifically, there is a mildly strong positive relationship. There are some limitations to this study. First, the data does not include every chain coffee location. While nearly every Dunkin' Donuts is represented in the data, Starbucks data was much less represented including only about half of locations. Additionally, other small chain location such as Caribou Coffee or Tim Horton's were not well represented within the data and thus could not be effectively studied. Another limitation of this study is the limited population data. With more time, ideally it would be nice to merge the current data with a population dataset from the US Census Bureau to get exact populations for every town. Finally, in the future it would be nice to expand the study to include two-year higher education institutions in either another variable or in the college_town one. 
+To conclude, there does appear to be a relationship between college towns and chain coffee locations. The coefficients for this variable in both regressions that were run were not equal to 0 and were the best predictor within each regression. These results support my hypothesis that there is a relationship between college towns and chain coffee locations. More specifically, there is a mildly strong positive relationship. Furthermore, the results support a rejection of the null hypothesis that there is no relationship. There are some limitations to this study. First, the data does not include every chain coffee location. While nearly every Dunkin' Donuts is represented in the data, Starbucks data was much less represented including only about half of locations. Additionally, other small chain location such as Caribou Coffee or Tim Horton's were not well represented within the data and thus could not be effectively studied. Another limitation of this study is the limited population data. With more time, ideally it would be nice to merge the current data with a population dataset from the US Census Bureau to get exact populations for every town. Finally, in the future it would be nice to expand the study to include two-year higher education institutions in either another variable or in the college_town one. 
 
 
 ## Works Cited
